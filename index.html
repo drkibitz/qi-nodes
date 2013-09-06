@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Qi Events by drkibitz</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="wrapper">
+
+    <header>
+        <h1><a name="qi-nodes" class="anchor" href="#qi-nodes"><span class="octicon octicon-link"></span></a>Qi Nodes</h1>
+
+        <p>Base implementation for composite patterns in JavaScript.</p>
+
+        <p class="view">
+            <h3>API</h3>
+            <ul>
+                <li><a href="api/0.0.1/module-qi-nodes.html">0.0.1</a></li>
+            </ul>
+        </p>
+
+        <p>
+            <a href="https://travis-ci.org/drkibitz/qi-nodes"><img src="https://travis-ci.org/drkibitz/qi-nodes.png?branch=master" alt="Build Status"></a>
+            <a href="http://badge.fury.io/js/qi-nodes"><img src="https://badge.fury.io/js/qi-nodes.png" alt="NPM version"></a>
+        </p>
+
+        <ul class="tabs">
+            <li><a href="https://github.com/drkibitz/qi-nodes/zipball/master">Download <strong>ZIP File</strong></a></li>
+            <li><a href="https://github.com/drkibitz/qi-nodes/tarball/master">Download <strong>TAR Ball</strong></a></li>
+            <li><a href="https://github.com/drkibitz/qi-nodes">View On <strong>GitHub</strong></a></li>
+        </ul>
+    </header>
+
+    <section>
+
+        <h2><a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+        <div class="highlight"><pre><span class="kd">var</span> <span class="nx">root</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'qi-nodes'</span><span class="p">),</span>
+    <span class="nx">n1</span> <span class="o">=</span> <span class="nx">root</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">create</span><span class="p">()),</span>
+    <span class="nx">n2</span> <span class="o">=</span> <span class="nx">root</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">create</span><span class="p">()),</span>
+    <span class="nx">n3</span> <span class="o">=</span> <span class="nx">root</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">create</span><span class="p">());</span>
+<span class="c1">// root -&gt; n1 -&gt; n2 -&gt; n3</span>
+
+<span class="nx">n1</span><span class="p">.</span><span class="nx">swap</span><span class="p">(</span><span class="nx">n3</span><span class="p">);</span>
+<span class="c1">// root -&gt; n3 -&gt; n2 -&gt; n1</span>
+
+<span class="kd">var</span> <span class="nx">node</span> <span class="o">=</span> <span class="nx">root</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
+<span class="nx">node</span><span class="p">.</span><span class="nx">swap</span><span class="p">(</span><span class="nx">n2</span><span class="p">);</span>
+<span class="c1">// root -&gt; n3 -&gt; node -&gt; n1</span>
+
+<span class="kd">var</span> <span class="nx">root2</span> <span class="o">=</span> <span class="nx">root</span><span class="p">.</span><span class="nx">createRoot</span><span class="p">();</span>
+    <span class="nx">n2_1</span> <span class="o">=</span> <span class="nx">root2</span><span class="p">.</span><span class="nx">create</span><span class="p">().</span><span class="nx">appendTo</span><span class="p">(</span><span class="nx">root2</span><span class="p">),</span>
+    <span class="nx">n2_2</span> <span class="o">=</span> <span class="nx">root2</span><span class="p">.</span><span class="nx">create</span><span class="p">().</span><span class="nx">appendTo</span><span class="p">(</span><span class="nx">n2</span><span class="p">),</span>
+    <span class="nx">n2_3</span> <span class="o">=</span> <span class="nx">root2</span><span class="p">.</span><span class="nx">create</span><span class="p">().</span><span class="nx">appendTo</span><span class="p">(</span><span class="nx">n3</span><span class="p">);</span>
+<span class="c1">// root2 -&gt; n2_1 -&gt; n2_2 -&gt; n2_3</span>
+
+<span class="kd">var</span> <span class="nx">root3</span> <span class="o">=</span> <span class="nx">root</span><span class="p">.</span><span class="nx">createRoot</span><span class="p">();</span>
+    <span class="nx">n3_1</span> <span class="o">=</span> <span class="nx">root3</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">root3</span><span class="p">),</span>
+    <span class="nx">n3_2</span> <span class="o">=</span> <span class="nx">n1</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">n3_2</span><span class="p">),</span>
+    <span class="nx">n3_3</span> <span class="o">=</span> <span class="nx">n2</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">n3_3</span><span class="p">);</span>
+<span class="c1">// root3 -&gt; n3_1 -&gt; n3_2 -&gt; n3_3</span>
+
+<span class="nx">n3_2</span><span class="p">.</span><span class="nx">swap</span><span class="p">(</span><span class="nx">n2_2</span><span class="p">);</span>
+<span class="c1">// root2 -&gt; n2_1 -&gt; n3_2 -&gt; n2_3</span>
+<span class="c1">// root3 -&gt; n3_1 -&gt; n2_2 -&gt; n3_3</span>
+</pre></div>
+
+    </section>
+
+    <footer>
+        <p>This project is maintained by <a href="https://github.com/drkibitz">drkibitz</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+    </footer>
+
+</div>
+<script src="javascripts/scale.fix.js"></script>
+<script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+    try {
+    var pageTracker = _gat._getTracker("UA-29551909-1");
+    pageTracker._trackPageview();
+    } catch(err) {}
+</script>
+</body>
+</html>
