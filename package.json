@@ -6,14 +6,24 @@
     "grunt": "0.4.x",
     "grunt-contrib-jshint": "0.6.x",
     "grunt-jsdoc": "0.4.x",
-    "grunt-simple-mocha": "0.4.x"
+    "grunt-simple-mocha": "0.4.x",
+    "grunt-contrib-uglify": "~0.2.4"
   },
   "description": "Base implementation for composite patterns in JavaScript.",
-  "files": ["nodes.js"],
+  "files": [
+    "index.js"
+  ],
   "homepage": "http://drkibitz.github.io/qi-nodes/",
-  "keywords": ["qi", "nodes", "composite", "patterns", "hierarchical", "linked", "list"],
-  "license" : "MIT",
-  "main": "index",
+  "keywords": [
+    "qi",
+    "nodes",
+    "composite",
+    "patterns",
+    "hierarchical",
+    "linked",
+    "list"
+  ],
+  "license": "MIT",
   "name": "qi-nodes",
   "repository": "https://github.com/drkibitz/qi-nodes",
   "scripts": {
