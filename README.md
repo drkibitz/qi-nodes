@@ -3,9 +3,9 @@
 
 # Qi Nodes
 
-Base implementation for [composite patterns](http://en.wikipedia.org/wiki/Composite_pattern) in JavaScript.
-
 http://drkibitz.github.io/qi-nodes/
+
+Base implementation for [composite patterns](http://en.wikipedia.org/wiki/Composite_pattern) in JavaScript.
 
 ## Usage
 

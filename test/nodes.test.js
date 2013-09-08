@@ -1,7 +1,7 @@
 "use strict";
 
 var assert = require('assert');
-var nodes = require('../nodes');
+var nodes = require('../');
 
 describe('nodes', function () {
     it("has NodeObject member.", function () {

@@ -1,8 +1,6 @@
 /**
- * Base implementation for composite patterns in JavaScript.
- * This module an instance of {@link module:qi-nodes.NodeObject}
+ * This module an instance of {@link module:qi-nodes.NodeObject},
  * and it's own {@link module:qi-nodes.NodeObject#root}.
- *
  * @module qi-nodes
  * @author Dr. Kibitz <info@drkibitz.com>
  */
@@ -12,13 +10,12 @@
  * Having the same name as the DOM error defined by browser implementations,
  * this is a custom error thrown by node methods within this module.
  * It is thrown when any node is added to an invalid parent.
- *
  * @constructor
  * @extends Error
  * @memberof module:qi-nodes
  */
 function HierarchyRequestError(message) {
-    this.message = (message || "");
+    this.message = (message || "A NodeObject was inserted somewhere it doesn't belong.");
 }
 HierarchyRequestError.prototype = new Error();
 HierarchyRequestError.prototype.name = "HierarchyRequestError";
@@ -70,8 +67,6 @@ function setRoot(node, i) {
  * that root is propogated to all leaves of that tree.
  * When a leaf is removed from a rooted tree, the previous root
  * reference is removed for all nodes contained in that leaf.
- *
- *
  * @constructor
  * @return {module:qi-nodes.NodeObject=} parent Optional parent node to append this node to
  * @memberof module:qi-nodes
@@ -83,19 +78,16 @@ function NodeObject(parent) {
 
 /**
  * Number of children of this object.
- *
  * @name module:qi-nodes.NodeObject#childCount
  * @type {module:qi-nodes.NodeObject}
  */
 /**
  * Should never be null if this object has 1 or more children.
- *
  * @name module:qi-nodes.NodeObject#firstChild
  * @type {module:qi-nodes.NodeObject}
  */
 /**
  * Should never be null if this object has 1 or more children.
- *
  * @name module:qi-nodes.NodeObject#lastChild
  * @type {module:qi-nodes.NodeObject}
  */
@@ -103,13 +95,11 @@ function NodeObject(parent) {
  * Should always be null if this object has no parent.
  * If this object has a parent and this property value is null,
  * then this object is the last child.
- *
  * @name module:qi-nodes.NodeObject#nextSibling
  * @type {module:qi-nodes.NodeObject}
  */
 /**
  * Should never be null if this object is a child.
- *
  * @name module:qi-nodes.NodeObject#parent
  * @type {module:qi-nodes.NodeObject}
  */
@@ -117,7 +107,6 @@ function NodeObject(parent) {
  * Should always be null if this object has no parent.
  * If this object has a parent and this property value is null,
  * then this object is the first child.
- *
  * @name module:qi-nodes.NodeObject#previousSibling
  * @type {module:qi-nodes.NodeObject}
  */
@@ -126,7 +115,6 @@ function NodeObject(parent) {
  * the leaves of a tree, and only from a particular
  * {@link module:qi-nodes:NodeObject} with its root set.
  * This root property value is most likely a reference to itself.
- *
  * @name module:qi-nodes.NodeObject#root
  * @type {module:qi-nodes.NodeObject}
  */
@@ -155,7 +143,7 @@ proto.appendTo = function appendTo(parent) {
     var lastChild = parent.lastChild, node = this;
 
     if (node == parent) {
-        throw new HierarchyRequestError("A NodeObject was inserted somewhere it doesn't belong.");
+        throw new HierarchyRequestError();
 
     // may be a noop
     } else if (node != lastChild) {
@@ -271,7 +259,7 @@ proto.eachReverse = function eachReverse(fn, node, i) {
 
 /**
  * Remove all the node's children.
-  * @param {boolean=} recursive If true, will recursively empty all children, defaults to false
+ * @param {boolean=} recursive If true, will recursively empty all children, defaults to false
  * @param {module:qi-nodes.NodeObject=} node The node to empty, defaults to this node
  * @return {module:qi-nodes.NodeObject} The node emptied
  */
@@ -315,7 +303,7 @@ proto.insertAfter = function insertAfter(sibling, node) {
     if (node != sibling && node != nextSibling) {
         parent = sibling.parent;
         if (!parent || node == parent) {
-            throw new HierarchyRequestError("A NodeObject was inserted somewhere it doesn't belong.");
+            throw new HierarchyRequestError();
         } else if (node.parent) {
             removeNode(node);
         }
@@ -354,7 +342,7 @@ proto.insertBefore = function insertBefore(sibling, node) {
     if (node != sibling && node != previousSibling) {
         parent = sibling.parent;
         if (!parent || node == parent) {
-            throw new HierarchyRequestError("A NodeObject was inserted somewhere it doesn't belong.");
+            throw new HierarchyRequestError();
         } else if (node.parent) {
             removeNode(node);
         }
@@ -398,7 +386,7 @@ proto.prependTo = function prependTo(parent) {
     var firstChild = parent.firstChild, node = this;
 
     if (node == parent) {
-        throw new HierarchyRequestError("A NodeObject was inserted somewhere it doesn't belong.");
+        throw new HierarchyRequestError();
 
     // may be a noop
     } else if (node != firstChild) {

@@ -1,7 +1,7 @@
 "use strict";
 
 var assert = require('assert');
-var HierarchyRequestError = require('../nodes').HierarchyRequestError;
+var HierarchyRequestError = require('../').HierarchyRequestError;
 
 describe('HierarchyRequestError', function () {
 
@@ -9,7 +9,7 @@ describe('HierarchyRequestError', function () {
         var err = new HierarchyRequestError();
         assert.strictEqual(err.name, 'HierarchyRequestError');
         assert.deepEqual(err, {
-            message: ''
+            message: "A NodeObject was inserted somewhere it doesn't belong."
         });
     });
 
