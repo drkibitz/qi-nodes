@@ -1,30 +1,75 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>JSDoc: Class: NodeObject</title>
-    
-    <script src="scripts/prettify/prettify.js"> </script>
-    <script src="scripts/prettify/lang-css.js"> </script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+	<meta charset="utf-8">
+	<title>Qi Nodes Class: NodeObject</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	
+	<link type="text/css" rel="stylesheet" href="styles/site.spacelab.css">
+	
 </head>
 
 <body>
+<div class="container-fluid">
+	<div class="navbar navbar-fixed-top navbar-inverse">
+		<div class="navbar-inner">
+			<a class="brand" href="index.html">Qi Nodes</a>
+			<ul class="nav">
+				
+				<li class="dropdown">
+					<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b
+						class="caret"></b></a>
 
-<div id="main">
-    
-    <h1 class="page-title">Class: NodeObject</h1>
-    
-    
+					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="module-qi-nodes.html">qi-nodes</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
+				<li class="dropdown">
+					<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="module-qi-nodes.HierarchyRequestError.html">HierarchyRequestError</a>
+						</li>
+						
+						<li>
+							<a href="module-qi-nodes.NodeObject.html">NodeObject</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+	</div>
+
+	<div class="row-fluid">
+
+		
+		<div class="span8">
+			
+				<div id="main">
+					
 
 
-
+	<h1 class="page-title">Class: NodeObject</h1>
 <section>
-    
+
 <header>
     <h2>
         <span class="ancestors"><a href="module-qi-nodes.html">qi-nodes</a>.</span>
@@ -32,12 +77,12 @@
     NodeObject
     </h2>
     
-</header>  
+</header>
 
 <article>
     <div class="container-overview">
     
-    
+
     
         
 <dt>
@@ -49,12 +94,12 @@
     
     
     <div class="description">
-        These objects, or types of them, are used in composite patterns.
-Each instance of <a href="module-qi-nodes.NodeObject.html">module:qi-nodes.NodeObject</a> is aware of
+        <p>These objects, or types of them, are used in composite patterns.
+Each instance of <a href="module-qi-nodes.NodeObject.html"><code>module:qi-nodes.NodeObject</code></a> is aware of
 it's own position within a tree of nodes. If any  tree has a root,
 that root is propogated to all leaves of that tree.
 When a leaf is removed from a rooted tree, the previous root
-reference is removed for all nodes contained in that leaf.
+reference is removed for all nodes contained in that leaf.</p>
     </div>
     
 
@@ -67,34 +112,34 @@ reference is removed for all nodes contained in that leaf.
     
 <dl class="details">
     
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="nodes.js.html">nodes.js</a>, <a href="nodes.js.html#line79">line 79</a>
+        nodes.js
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
@@ -112,7 +157,7 @@ reference is removed for all nodes contained in that leaf.
     
             
 <div class="param-desc">
-    parent Optional parent node to append this node to
+    <p>parent Optional parent node to append this node to</p>
 </div>
 
 
@@ -129,6 +174,7 @@ reference is removed for all nodes contained in that leaf.
 	</dd>
 </dl>
 
+
         
     
     
@@ -136,20 +182,20 @@ reference is removed for all nodes contained in that leaf.
 
     
     </div>
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
-    
+
     
         <h3 class="subsection-title">Members</h3>
-        
+
         <dl>
             
 <dt>
@@ -160,7 +206,7 @@ reference is removed for all nodes contained in that leaf.
 <dd>
     
     <div class="description">
-        Number of children of this object.
+        <p>Number of children of this object.</p>
     </div>
     
     
@@ -179,34 +225,34 @@ reference is removed for all nodes contained in that leaf.
     
 <dl class="details">
     
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="nodes.js.html">nodes.js</a>, <a href="nodes.js.html#line84">line 84</a>
+        nodes.js
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
@@ -224,7 +270,7 @@ reference is removed for all nodes contained in that leaf.
 <dd>
     
     <div class="description">
-        Should never be null if this object has 1 or more children.
+        <p>Should never be null if this object has 1 or more children.</p>
     </div>
     
     
@@ -243,34 +289,34 @@ reference is removed for all nodes contained in that leaf.
     
 <dl class="details">
     
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="nodes.js.html">nodes.js</a>, <a href="nodes.js.html#line85">line 85</a>
+        nodes.js
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
@@ -288,7 +334,7 @@ reference is removed for all nodes contained in that leaf.
 <dd>
     
     <div class="description">
-        Should never be null if this object has 1 or more children.
+        <p>Should never be null if this object has 1 or more children.</p>
     </div>
     
     
@@ -307,34 +353,34 @@ reference is removed for all nodes contained in that leaf.
     
 <dl class="details">
     
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="nodes.js.html">nodes.js</a>, <a href="nodes.js.html#line86">line 86</a>
+        nodes.js
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
@@ -352,9 +398,9 @@ reference is removed for all nodes contained in that leaf.
 <dd>
     
     <div class="description">
-        Should always be null if this object has no parent.
+        <p>Should always be null if this object has no parent.
 If this object has a parent and this property value is null,
-then this object is the last child.
+then this object is the last child.</p>
     </div>
     
     
@@ -373,34 +419,34 @@ then this object is the last child.
     
 <dl class="details">
     
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="nodes.js.html">nodes.js</a>, <a href="nodes.js.html#line87">line 87</a>
+        nodes.js
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
@@ -418,7 +464,7 @@ then this object is the last child.
 <dd>
     
     <div class="description">
-        Should never be null if this object is a child.
+        <p>Should never be null if this object is a child.</p>
     </div>
     
     
@@ -437,34 +483,34 @@ then this object is the last child.
     
 <dl class="details">
     
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="nodes.js.html">nodes.js</a>, <a href="nodes.js.html#line88">line 88</a>
+        nodes.js
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
@@ -482,9 +528,9 @@ then this object is the last child.
 <dd>
     
     <div class="description">
-        Should always be null if this object has no parent.
+        <p>Should always be null if this object has no parent.
 If this object has a parent and this property value is null,
-then this object is the first child.
+then this object is the first child.</p>
     </div>
     
     
@@ -503,34 +549,34 @@ then this object is the first child.
     
 <dl class="details">
     
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="nodes.js.html">nodes.js</a>, <a href="nodes.js.html#line89">line 89</a>
+        nodes.js
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
@@ -548,10 +594,10 @@ then this object is the first child.
 <dd>
     
     <div class="description">
-        This is a special property that is propogated through
+        <p>This is a special property that is propogated through
 the leaves of a tree, and only from a particular
-module:qi-nodes:NodeObject with its root set.
-This root property value is most likely a reference to itself.
+<code>module:qi-nodes:NodeObject</code> with its root set.
+This root property value is most likely a reference to itself.</p>
     </div>
     
     
@@ -570,34 +616,34 @@ This root property value is most likely a reference to itself.
     
 <dl class="details">
     
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="nodes.js.html">nodes.js</a>, <a href="nodes.js.html#line90">line 90</a>
+        nodes.js
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
@@ -607,10 +653,10 @@ This root property value is most likely a reference to itself.
 
         </dl>
     
-    
+
     
         <h3 class="subsection-title">Methods</h3>
-        
+
         <dl>
             
 <dt>
@@ -622,7 +668,7 @@ This root property value is most likely a reference to itself.
     
     
     <div class="description">
-        Add the node as the last child of this node.
+        <p>Add the node as the last child of this node.</p>
     </div>
     
 
@@ -634,31 +680,31 @@ This root property value is most likely a reference to itself.
         <h5>Parameters:</h5>
         
 
-<table class="params">
+<table class="params table table-striped">
     <thead>
 	<tr>
 		
 		<th>Name</th>
 		
-		
+
 		<th>Type</th>
+
 		
+
 		
-		
-		
-		
+
 		<th class="last">Description</th>
 	</tr>
 	</thead>
-	
+
 	<tbody>
 	
-	
+
         <tr>
             
                 <td class="name"><code>node</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -667,50 +713,51 @@ This root property value is most likely a reference to itself.
 
             
             </td>
+
             
+
             
-            
-            
-            
-            <td class="description last">The node to add to this node</td>
+
+            <td class="description last"><p>The node to add to this node</p></td>
         </tr>
-	
+
 	
 	</tbody>
 </table>
+
     
     
     
 <dl class="details">
     
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="nodes.js.html">nodes.js</a>, <a href="nodes.js.html#line142">line 142</a>
+        nodes.js
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
@@ -728,7 +775,7 @@ This root property value is most likely a reference to itself.
     
             
 <div class="param-desc">
-    The node added
+    <p>The node added</p>
 </div>
 
 
@@ -744,6 +791,7 @@ This root property value is most likely a reference to itself.
 
 	</dd>
 </dl>
+
 
         
     
@@ -761,7 +809,7 @@ This root property value is most likely a reference to itself.
     
     
     <div class="description">
-        Add this node as the last child of the specified parent node.
+        <p>Add this node as the last child of the specified parent node.</p>
     </div>
     
 
@@ -773,31 +821,31 @@ This root property value is most likely a reference to itself.
         <h5>Parameters:</h5>
         
 
-<table class="params">
+<table class="params table table-striped">
     <thead>
 	<tr>
 		
 		<th>Name</th>
 		
-		
+
 		<th>Type</th>
+
 		
+
 		
-		
-		
-		
+
 		<th class="last">Description</th>
 	</tr>
 	</thead>
-	
+
 	<tbody>
 	
-	
+
         <tr>
             
                 <td class="name"><code>parent</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -806,50 +854,51 @@ This root property value is most likely a reference to itself.
 
             
             </td>
+
             
+
             
-            
-            
-            
-            <td class="description last">The node to add this node to</td>
+
+            <td class="description last"><p>The node to add this node to</p></td>
         </tr>
-	
+
 	
 	</tbody>
 </table>
+
     
     
     
 <dl class="details">
     
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="nodes.js.html">nodes.js</a>, <a href="nodes.js.html#line153">line 153</a>
+        nodes.js
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
@@ -882,7 +931,7 @@ This root property value is most likely a reference to itself.
     
             
 <div class="param-desc">
-    The node added
+    <p>The node added</p>
 </div>
 
 
@@ -898,6 +947,7 @@ This root property value is most likely a reference to itself.
 
 	</dd>
 </dl>
+
 
         
     
@@ -915,7 +965,7 @@ This root property value is most likely a reference to itself.
     
     
     <div class="description">
-        Factory method.
+        <p>Factory method.</p>
     </div>
     
 
@@ -928,34 +978,34 @@ This root property value is most likely a reference to itself.
     
 <dl class="details">
     
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="nodes.js.html">nodes.js</a>, <a href="nodes.js.html#line184">line 184</a>
+        nodes.js
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
@@ -973,7 +1023,7 @@ This root property value is most likely a reference to itself.
     <ul>
             <li>
 <div class="param-desc">
-    parent Optional parent node to append this node to
+    <p>parent Optional parent node to append this node to</p>
 </div>
 
 
@@ -989,11 +1039,12 @@ This root property value is most likely a reference to itself.
 
 	</dd>
 </dl>
+
 </li>
         
             <li>
 <div class="param-desc">
-    new NodeObject
+    <p>new NodeObject</p>
 </div>
 
 
@@ -1009,6 +1060,7 @@ This root property value is most likely a reference to itself.
 
 	</dd>
 </dl>
+
 </li>
         </ul>
     
@@ -1026,7 +1078,7 @@ This root property value is most likely a reference to itself.
     
     
     <div class="description">
-        Helper factory method that creates a new node with it's root property set to itself.
+        <p>Helper factory method that creates a new node with it's root property set to itself.</p>
     </div>
     
 
@@ -1039,34 +1091,34 @@ This root property value is most likely a reference to itself.
     
 <dl class="details">
     
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="nodes.js.html">nodes.js</a>, <a href="nodes.js.html#line192">line 192</a>
+        nodes.js
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
@@ -1084,7 +1136,7 @@ This root property value is most likely a reference to itself.
     
             
 <div class="param-desc">
-    new rooted NodeObject
+    <p>new rooted NodeObject</p>
 </div>
 
 
@@ -1100,6 +1152,7 @@ This root property value is most likely a reference to itself.
 
 	</dd>
 </dl>
+
 
         
     
@@ -1117,7 +1170,7 @@ This root property value is most likely a reference to itself.
     
     
     <div class="description">
-        Empty the node's children, and remove from its parent.
+        <p>Empty the node's children, and remove from its parent.</p>
     </div>
     
 
@@ -1129,33 +1182,33 @@ This root property value is most likely a reference to itself.
         <h5>Parameters:</h5>
         
 
-<table class="params">
+<table class="params table table-striped">
     <thead>
 	<tr>
 		
 		<th>Name</th>
 		
-		
+
 		<th>Type</th>
-		
+
 		
 		<th>Argument</th>
 		
+
 		
-		
-		
+
 		<th class="last">Description</th>
 	</tr>
 	</thead>
-	
+
 	<tbody>
 	
-	
+
         <tr>
             
                 <td class="name"><code>recursive</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -1164,31 +1217,31 @@ This root property value is most likely a reference to itself.
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
+
             
-            
-            
-            <td class="description last">If true, will recursively empty all children, defaults to false</td>
+
+            <td class="description last"><p>If true, will recursively empty all children, defaults to false</p></td>
         </tr>
+
 	
-	
-	
+
         <tr>
             
                 <td class="name"><code>node</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -1197,60 +1250,61 @@ This root property value is most likely a reference to itself.
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
+
             
-            
-            
-            <td class="description last">The node to destroy, defaults to this node</td>
+
+            <td class="description last"><p>The node to destroy, defaults to this node</p></td>
         </tr>
-	
+
 	
 	</tbody>
 </table>
+
     
     
     
 <dl class="details">
     
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="nodes.js.html">nodes.js</a>, <a href="nodes.js.html#line204">line 204</a>
+        nodes.js
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
@@ -1268,7 +1322,7 @@ This root property value is most likely a reference to itself.
     
             
 <div class="param-desc">
-    The node destroyed
+    <p>The node destroyed</p>
 </div>
 
 
@@ -1284,6 +1338,7 @@ This root property value is most likely a reference to itself.
 
 	</dd>
 </dl>
+
 
         
     
@@ -1301,7 +1356,7 @@ This root property value is most likely a reference to itself.
     
     
     <div class="description">
-        Recursively iterate over each node down through all it's leaves.
+        <p>Recursively iterate over each node down through all it's leaves.</p>
     </div>
     
 
@@ -1313,33 +1368,33 @@ This root property value is most likely a reference to itself.
         <h5>Parameters:</h5>
         
 
-<table class="params">
+<table class="params table table-striped">
     <thead>
 	<tr>
 		
 		<th>Name</th>
 		
-		
+
 		<th>Type</th>
-		
+
 		
 		<th>Argument</th>
 		
+
 		
-		
-		
+
 		<th class="last">Description</th>
 	</tr>
 	</thead>
-	
+
 	<tbody>
 	
-	
+
         <tr>
             
                 <td class="name"><code>fn</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -1348,29 +1403,29 @@ This root property value is most likely a reference to itself.
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
+
             
-            
-            
-            <td class="description last">The function to invoke for each node iterated</td>
+
+            <td class="description last"><p>The function to invoke for each node iterated</p></td>
         </tr>
+
 	
-	
-	
+
         <tr>
             
                 <td class="name"><code>node</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -1379,60 +1434,61 @@ This root property value is most likely a reference to itself.
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
+
             
-            
-            
-            <td class="description last">The starting node, defaults to this node</td>
+
+            <td class="description last"><p>The starting node, defaults to this node</p></td>
         </tr>
-	
+
 	
 	</tbody>
 </table>
+
     
     
     
 <dl class="details">
     
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="nodes.js.html">nodes.js</a>, <a href="nodes.js.html#line224">line 224</a>
+        nodes.js
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
@@ -1450,7 +1506,7 @@ This root property value is most likely a reference to itself.
     
             
 <div class="param-desc">
-    The starting node
+    <p>The starting node</p>
 </div>
 
 
@@ -1466,6 +1522,7 @@ This root property value is most likely a reference to itself.
 
 	</dd>
 </dl>
+
 
         
     
@@ -1483,7 +1540,7 @@ This root property value is most likely a reference to itself.
     
     
     <div class="description">
-        Recursively iterate over each node up through all it's parents.
+        <p>Recursively iterate over each node up through all it's parents.</p>
     </div>
     
 
@@ -1495,33 +1552,33 @@ This root property value is most likely a reference to itself.
         <h5>Parameters:</h5>
         
 
-<table class="params">
+<table class="params table table-striped">
     <thead>
 	<tr>
 		
 		<th>Name</th>
 		
-		
+
 		<th>Type</th>
-		
+
 		
 		<th>Argument</th>
 		
+
 		
-		
-		
+
 		<th class="last">Description</th>
 	</tr>
 	</thead>
-	
+
 	<tbody>
 	
-	
+
         <tr>
             
                 <td class="name"><code>fn</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -1530,29 +1587,29 @@ This root property value is most likely a reference to itself.
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
+
             
-            
-            
-            <td class="description last">The function to invoke for each node iterated</td>
+
+            <td class="description last"><p>The function to invoke for each node iterated</p></td>
         </tr>
+
 	
-	
-	
+
         <tr>
             
                 <td class="name"><code>node</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -1561,60 +1618,61 @@ This root property value is most likely a reference to itself.
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
+
             
-            
-            
-            <td class="description last">The starting node, defaults to this node</td>
+
+            <td class="description last"><p>The starting node, defaults to this node</p></td>
         </tr>
-	
+
 	
 	</tbody>
 </table>
+
     
     
     
 <dl class="details">
     
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="nodes.js.html">nodes.js</a>, <a href="nodes.js.html#line244">line 244</a>
+        nodes.js
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
@@ -1632,7 +1690,7 @@ This root property value is most likely a reference to itself.
     
             
 <div class="param-desc">
-    The starting node
+    <p>The starting node</p>
 </div>
 
 
@@ -1648,6 +1706,7 @@ This root property value is most likely a reference to itself.
 
 	</dd>
 </dl>
+
 
         
     
@@ -1665,7 +1724,7 @@ This root property value is most likely a reference to itself.
     
     
     <div class="description">
-        Recursively iterate over each node up through all it's leaves.
+        <p>Recursively iterate over each node up through all it's leaves.</p>
     </div>
     
 
@@ -1677,33 +1736,33 @@ This root property value is most likely a reference to itself.
         <h5>Parameters:</h5>
         
 
-<table class="params">
+<table class="params table table-striped">
     <thead>
 	<tr>
 		
 		<th>Name</th>
 		
-		
+
 		<th>Type</th>
-		
+
 		
 		<th>Argument</th>
 		
+
 		
-		
-		
+
 		<th class="last">Description</th>
 	</tr>
 	</thead>
-	
+
 	<tbody>
 	
-	
+
         <tr>
             
                 <td class="name"><code>fn</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -1712,29 +1771,29 @@ This root property value is most likely a reference to itself.
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
+
             
-            
-            
-            <td class="description last">The function to invoke for each node iterated</td>
+
+            <td class="description last"><p>The function to invoke for each node iterated</p></td>
         </tr>
+
 	
-	
-	
+
         <tr>
             
                 <td class="name"><code>node</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -1743,60 +1802,61 @@ This root property value is most likely a reference to itself.
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
+
             
-            
-            
-            <td class="description last">The starting node, defaults to this node</td>
+
+            <td class="description last"><p>The starting node, defaults to this node</p></td>
         </tr>
-	
+
 	
 	</tbody>
 </table>
+
     
     
     
 <dl class="details">
     
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="nodes.js.html">nodes.js</a>, <a href="nodes.js.html#line258">line 258</a>
+        nodes.js
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
@@ -1814,7 +1874,7 @@ This root property value is most likely a reference to itself.
     
             
 <div class="param-desc">
-    The starting node
+    <p>The starting node</p>
 </div>
 
 
@@ -1830,6 +1890,7 @@ This root property value is most likely a reference to itself.
 
 	</dd>
 </dl>
+
 
         
     
@@ -1847,7 +1908,7 @@ This root property value is most likely a reference to itself.
     
     
     <div class="description">
-        Remove all the node's children.
+        <p>Remove all the node's children.</p>
     </div>
     
 
@@ -1859,33 +1920,33 @@ This root property value is most likely a reference to itself.
         <h5>Parameters:</h5>
         
 
-<table class="params">
+<table class="params table table-striped">
     <thead>
 	<tr>
 		
 		<th>Name</th>
 		
-		
+
 		<th>Type</th>
-		
+
 		
 		<th>Argument</th>
 		
+
 		
-		
-		
+
 		<th class="last">Description</th>
 	</tr>
 	</thead>
-	
+
 	<tbody>
 	
-	
+
         <tr>
             
                 <td class="name"><code>recursive</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -1894,31 +1955,31 @@ This root property value is most likely a reference to itself.
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
+
             
-            
-            
-            <td class="description last">If true, will recursively empty all children, defaults to false</td>
+
+            <td class="description last"><p>If true, will recursively empty all children, defaults to false</p></td>
         </tr>
+
 	
-	
-	
+
         <tr>
             
                 <td class="name"><code>node</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -1927,60 +1988,61 @@ This root property value is most likely a reference to itself.
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
+
             
-            
-            
-            <td class="description last">The node to empty, defaults to this node</td>
+
+            <td class="description last"><p>The node to empty, defaults to this node</p></td>
         </tr>
-	
+
 	
 	</tbody>
 </table>
+
     
     
     
 <dl class="details">
     
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="nodes.js.html">nodes.js</a>, <a href="nodes.js.html#line278">line 278</a>
+        nodes.js
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
@@ -1998,7 +2060,7 @@ This root property value is most likely a reference to itself.
     
             
 <div class="param-desc">
-    The node emptied
+    <p>The node emptied</p>
 </div>
 
 
@@ -2014,6 +2076,7 @@ This root property value is most likely a reference to itself.
 
 	</dd>
 </dl>
+
 
         
     
@@ -2031,7 +2094,7 @@ This root property value is most likely a reference to itself.
     
     
     <div class="description">
-        Add the node as the next sibling of the specified sibling node.
+        <p>Add the node as the next sibling of the specified sibling node.</p>
     </div>
     
 
@@ -2043,33 +2106,33 @@ This root property value is most likely a reference to itself.
         <h5>Parameters:</h5>
         
 
-<table class="params">
+<table class="params table table-striped">
     <thead>
 	<tr>
 		
 		<th>Name</th>
 		
-		
+
 		<th>Type</th>
-		
+
 		
 		<th>Argument</th>
 		
+
 		
-		
-		
+
 		<th class="last">Description</th>
 	</tr>
 	</thead>
-	
+
 	<tbody>
 	
-	
+
         <tr>
             
                 <td class="name"><code>sibling</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2078,29 +2141,29 @@ This root property value is most likely a reference to itself.
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
+
             
-            
-            
-            <td class="description last">The node to insert the node after</td>
+
+            <td class="description last"><p>The node to insert the node after</p></td>
         </tr>
+
 	
-	
-	
+
         <tr>
             
                 <td class="name"><code>node</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2109,60 +2172,61 @@ This root property value is most likely a reference to itself.
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
+
             
-            
-            
-            <td class="description last">The node to add, defaults to this node</td>
+
+            <td class="description last"><p>The node to add, defaults to this node</p></td>
         </tr>
-	
+
 	
 	</tbody>
 </table>
+
     
     
     
 <dl class="details">
     
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="nodes.js.html">nodes.js</a>, <a href="nodes.js.html#line309">line 309</a>
+        nodes.js
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
@@ -2195,7 +2259,7 @@ This root property value is most likely a reference to itself.
     
             
 <div class="param-desc">
-    The node added
+    <p>The node added</p>
 </div>
 
 
@@ -2211,6 +2275,7 @@ This root property value is most likely a reference to itself.
 
 	</dd>
 </dl>
+
 
         
     
@@ -2228,7 +2293,7 @@ This root property value is most likely a reference to itself.
     
     
     <div class="description">
-        Add the node as the previous sibling of the specified sibling node.
+        <p>Add the node as the previous sibling of the specified sibling node.</p>
     </div>
     
 
@@ -2240,33 +2305,33 @@ This root property value is most likely a reference to itself.
         <h5>Parameters:</h5>
         
 
-<table class="params">
+<table class="params table table-striped">
     <thead>
 	<tr>
 		
 		<th>Name</th>
 		
-		
+
 		<th>Type</th>
-		
+
 		
 		<th>Argument</th>
 		
+
 		
-		
-		
+
 		<th class="last">Description</th>
 	</tr>
 	</thead>
-	
+
 	<tbody>
 	
-	
+
         <tr>
             
                 <td class="name"><code>sibling</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2275,29 +2340,29 @@ This root property value is most likely a reference to itself.
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
+
             
-            
-            
-            <td class="description last">The node to insert the node before</td>
+
+            <td class="description last"><p>The node to insert the node before</p></td>
         </tr>
+
 	
-	
-	
+
         <tr>
             
                 <td class="name"><code>node</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2306,60 +2371,61 @@ This root property value is most likely a reference to itself.
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
+
             
-            
-            
-            <td class="description last">The node to add, defaults to this node</td>
+
+            <td class="description last"><p>The node to add, defaults to this node</p></td>
         </tr>
-	
+
 	
 	</tbody>
 </table>
+
     
     
     
 <dl class="details">
     
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="nodes.js.html">nodes.js</a>, <a href="nodes.js.html#line348">line 348</a>
+        nodes.js
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
@@ -2392,7 +2458,7 @@ This root property value is most likely a reference to itself.
     
             
 <div class="param-desc">
-    The node added
+    <p>The node added</p>
 </div>
 
 
@@ -2408,6 +2474,7 @@ This root property value is most likely a reference to itself.
 
 	</dd>
 </dl>
+
 
         
     
@@ -2425,7 +2492,7 @@ This root property value is most likely a reference to itself.
     
     
     <div class="description">
-        Add the node as the first child of this node.
+        <p>Add the node as the first child of this node.</p>
     </div>
     
 
@@ -2437,31 +2504,31 @@ This root property value is most likely a reference to itself.
         <h5>Parameters:</h5>
         
 
-<table class="params">
+<table class="params table table-striped">
     <thead>
 	<tr>
 		
 		<th>Name</th>
 		
-		
+
 		<th>Type</th>
+
 		
+
 		
-		
-		
-		
+
 		<th class="last">Description</th>
 	</tr>
 	</thead>
-	
+
 	<tbody>
 	
-	
+
         <tr>
             
                 <td class="name"><code>node</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2470,50 +2537,51 @@ This root property value is most likely a reference to itself.
 
             
             </td>
+
             
+
             
-            
-            
-            
-            <td class="description last">The node to add to this node</td>
+
+            <td class="description last"><p>The node to add to this node</p></td>
         </tr>
-	
+
 	
 	</tbody>
 </table>
+
     
     
     
 <dl class="details">
     
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="nodes.js.html">nodes.js</a>, <a href="nodes.js.html#line385">line 385</a>
+        nodes.js
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
@@ -2531,7 +2599,7 @@ This root property value is most likely a reference to itself.
     
             
 <div class="param-desc">
-    The node added
+    <p>The node added</p>
 </div>
 
 
@@ -2547,6 +2615,7 @@ This root property value is most likely a reference to itself.
 
 	</dd>
 </dl>
+
 
         
     
@@ -2564,7 +2633,7 @@ This root property value is most likely a reference to itself.
     
     
     <div class="description">
-        Add this node as the first child of the specified parent node.
+        <p>Add this node as the first child of the specified parent node.</p>
     </div>
     
 
@@ -2576,31 +2645,31 @@ This root property value is most likely a reference to itself.
         <h5>Parameters:</h5>
         
 
-<table class="params">
+<table class="params table table-striped">
     <thead>
 	<tr>
 		
 		<th>Name</th>
 		
-		
+
 		<th>Type</th>
+
 		
+
 		
-		
-		
-		
+
 		<th class="last">Description</th>
 	</tr>
 	</thead>
-	
+
 	<tbody>
 	
-	
+
         <tr>
             
                 <td class="name"><code>parent</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2609,50 +2678,51 @@ This root property value is most likely a reference to itself.
 
             
             </td>
+
             
+
             
-            
-            
-            
-            <td class="description last">The node to add this node to</td>
+
+            <td class="description last"><p>The node to add this node to</p></td>
         </tr>
-	
+
 	
 	</tbody>
 </table>
+
     
     
     
 <dl class="details">
     
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="nodes.js.html">nodes.js</a>, <a href="nodes.js.html#line396">line 396</a>
+        nodes.js
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
@@ -2685,7 +2755,7 @@ This root property value is most likely a reference to itself.
     
             
 <div class="param-desc">
-    The node added
+    <p>The node added</p>
 </div>
 
 
@@ -2701,6 +2771,7 @@ This root property value is most likely a reference to itself.
 
 	</dd>
 </dl>
+
 
         
     
@@ -2718,7 +2789,7 @@ This root property value is most likely a reference to itself.
     
     
     <div class="description">
-        Remove the child node from its possible parent, but leaves its children intact.
+        <p>Remove the child node from its possible parent, but leaves its children intact.</p>
     </div>
     
 
@@ -2730,33 +2801,33 @@ This root property value is most likely a reference to itself.
         <h5>Parameters:</h5>
         
 
-<table class="params">
+<table class="params table table-striped">
     <thead>
 	<tr>
 		
 		<th>Name</th>
 		
-		
+
 		<th>Type</th>
-		
+
 		
 		<th>Argument</th>
 		
+
 		
-		
-		
+
 		<th class="last">Description</th>
 	</tr>
 	</thead>
-	
+
 	<tbody>
 	
-	
+
         <tr>
             
                 <td class="name"><code>child</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2765,60 +2836,61 @@ This root property value is most likely a reference to itself.
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
+
             
-            
-            
-            <td class="description last">The node to remove, defaults to this node</td>
+
+            <td class="description last"><p>The node to remove, defaults to this node</p></td>
         </tr>
-	
+
 	
 	</tbody>
 </table>
+
     
     
     
 <dl class="details">
     
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="nodes.js.html">nodes.js</a>, <a href="nodes.js.html#line427">line 427</a>
+        nodes.js
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
@@ -2836,7 +2908,7 @@ This root property value is most likely a reference to itself.
     
             
 <div class="param-desc">
-    The node removed
+    <p>The node removed</p>
 </div>
 
 
@@ -2852,6 +2924,7 @@ This root property value is most likely a reference to itself.
 
 	</dd>
 </dl>
+
 
         
     
@@ -2869,7 +2942,7 @@ This root property value is most likely a reference to itself.
     
     
     <div class="description">
-        Swap one node's position with another node's.
+        <p>Swap one node's position with another node's.</p>
     </div>
     
 
@@ -2881,33 +2954,33 @@ This root property value is most likely a reference to itself.
         <h5>Parameters:</h5>
         
 
-<table class="params">
+<table class="params table table-striped">
     <thead>
 	<tr>
 		
 		<th>Name</th>
 		
-		
+
 		<th>Type</th>
-		
+
 		
 		<th>Argument</th>
 		
+
 		
-		
-		
+
 		<th class="last">Description</th>
 	</tr>
 	</thead>
-	
+
 	<tbody>
 	
-	
+
         <tr>
             
                 <td class="name"><code>node1</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2916,29 +2989,29 @@ This root property value is most likely a reference to itself.
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
+
             
-            
-            
-            <td class="description last">The node to swap with node2</td>
+
+            <td class="description last"><p>The node to swap with node2</p></td>
         </tr>
+
 	
-	
-	
+
         <tr>
             
                 <td class="name"><code>node2</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2947,60 +3020,61 @@ This root property value is most likely a reference to itself.
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
+
             
-            
-            
-            <td class="description last">The node to swap with node1, defaults to this node</td>
+
+            <td class="description last"><p>The node to swap with node1, defaults to this node</p></td>
         </tr>
-	
+
 	
 	</tbody>
 </table>
+
     
     
     
 <dl class="details">
     
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="nodes.js.html">nodes.js</a>, <a href="nodes.js.html#line440">line 440</a>
+        nodes.js
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
@@ -3018,7 +3092,7 @@ This root property value is most likely a reference to itself.
     
             
 <div class="param-desc">
-    node1
+    <p>node1</p>
 </div>
 
 
@@ -3035,6 +3109,7 @@ This root property value is most likely a reference to itself.
 	</dd>
 </dl>
 
+
         
     
     
@@ -3042,30 +3117,72 @@ This root property value is most likely a reference to itself.
 
         </dl>
     
+
     
-    
-    
+
     
 </article>
 
-</section>  
+</section>
 
 
 
 
-</div>
+				</div>
 
-<nav>
-    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-qi-nodes.html">qi-nodes</a></li></ul><h3>Classes</h3><ul><li><a href="module-qi-nodes.HierarchyRequestError.html">HierarchyRequestError</a></li><li><a href="module-qi-nodes.NodeObject.html">NodeObject</a></li></ul>
-</nav>
+				<div class="clearfix"></div>
+				<footer>
+					
+					
+		<span class="copyright">
+		Copyright © 2013 Dr. Kibitz
+		</span>
+					<br />
+					
+		<span class="jsdoc-message">
+		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a>
+		on Sun Sep 08 2013 00:30:21 GMT-0700 (PDT) using the <a href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
+		</span>
+				</footer>
+			</div>
 
-<br clear="both">
+			
+			<div class="span3">
+				<div id="toc"></div>
+			</div>
+			
+			<br clear="both">
+		</div>
 
-<footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Sat Sep 07 2013 02:36:20 GMT-0700 (PDT)
-</footer>
+	</div>
+	<script src="scripts/sunlight.js"></script>
+	<script src="scripts/sunlight.javascript.js"></script>
+	<script src="scripts/sunlight-plugin.doclinks.js"></script>
+	<script src="scripts/sunlight-plugin.linenumbers.js"></script>
+	<script src="scripts/sunlight-plugin.menu.js"></script>
+	<script src="scripts/jquery.min.js"></script>
+	<script src="scripts/jquery.scrollTo.js"></script>
+	<script src="scripts/jquery.localScroll.js"></script>
+	<script src="scripts/bootstrap-dropdown.js"></script>
+	<script src="scripts/toc.js"></script>
 
-<script> prettyPrint(); </script>
-<script src="scripts/linenumber.js"> </script>
+
+	<script>  Sunlight.highlightAll({lineNumbers:false,  showMenu: true, enableDoclinks :true}); </script>
+
+	<script>
+		$( function () {
+			$( "#toc" ).toc( {
+				selectors   : "h1,h2,h3,h4",
+				showAndHide : false,
+				scrollTo    : 60
+			} );
+			$( "#toc>ul" ).addClass( "nav nav-pills nav-stacked" );
+			$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+
+		} );
+	</script>
+
+	
+
 </body>
 </html>
