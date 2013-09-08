@@ -16,7 +16,7 @@
 		"theme"           : "spacelab",
 		"linenums"        : false,
 		"collapseSymbols" : false,
-		"inverseNav"      : true
+		"inverseNav"      : false
 	},
 	"markdown"  : {
 		"parser"   : "gfm",
