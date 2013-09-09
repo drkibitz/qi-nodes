@@ -1,25 +1,25 @@
 {
-	"tags"      : {
-		"allowUnknownTags" : true
-	},
-	"plugins"   : ["plugins/markdown"],
-	"templates" : {
-		"cleverLinks"     : true,
-		"monospaceLinks"  : true,
-		"default"         : {
-			"outputSourceFiles" : false
-		},
-		"systemName"      : "Qi Nodes",
-		"footer"          : "",
-		"copyright"       : "Copyright © 2013 Dr. Kibitz",
-		"navType"         : "vertical",
-		"theme"           : "spacelab",
-		"linenums"        : false,
-		"collapseSymbols" : false,
-		"inverseNav"      : false
-	},
-	"markdown"  : {
-		"parser"   : "gfm",
-		"hardwrap" : true
-	}
+    "tags"      : {
+        "allowUnknownTags" : true
+    },
+    "plugins"   : ["plugins/markdown"],
+    "templates" : {
+        "cleverLinks"     : true,
+        "monospaceLinks"  : true,
+        "default"         : {
+            "outputSourceFiles" : false
+        },
+        "systemName"      : "Qi Nodes",
+        "footer"          : "",
+        "copyright"       : "Copyright © 2013 Dr. Kibitz",
+        "navType"         : "vertical",
+        "theme"           : "spacelab",
+        "linenums"        : false,
+        "collapseSymbols" : false,
+        "inverseNav"      : false
+    },
+    "markdown"  : {
+        "parser"   : "gfm",
+        "hardwrap" : true
+    }
 }
