@@ -7,6 +7,7 @@ module.exports = function(grunt) {
     ' * <%= package.homepage %>',
     ' * Copyright (c) 2013 Dr. Kibitz, http://drkibitz.com',
     ' * <%= package.description %>',
+    ' * built: ' + new Date(),
     ' */',
     ''].join("\n");
 
@@ -38,7 +39,7 @@ module.exports = function(grunt) {
         uglify: {
             min: {
                 files: {
-                    'index.js': ['src/nodes.js']
+                    'index.js': ['src/index.js']
                 }
             },
             options: {
