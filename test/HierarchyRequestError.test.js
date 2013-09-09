@@ -1,9 +1,8 @@
-"use strict";
-
-var assert = require('assert');
-var HierarchyRequestError = require('../').HierarchyRequestError;
-
 describe('HierarchyRequestError', function () {
+    "use strict";
+
+    var assert = require('assert');
+    var HierarchyRequestError = require('../').HierarchyRequestError;
 
     it("has correct property values after creation.", function () {
         var err = new HierarchyRequestError();

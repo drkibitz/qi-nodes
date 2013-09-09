@@ -1,10 +1,9 @@
-"use strict";
-
-var assert = require('assert');
-var nodes = require('../');
-var NodeObject = nodes.NodeObject;
-
 describe('NodeObject', function () {
+    "use strict";
+
+    var assert = require('assert');
+    var nodes = require('../');
+    var NodeObject = nodes.NodeObject;
     var root, root2,
         blankNode = {
             childCount: 0,

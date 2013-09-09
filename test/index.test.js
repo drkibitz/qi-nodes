@@ -1,9 +1,9 @@
-"use strict";
+describe('index', function () {
+    "use strict";
 
-var assert = require('assert');
-var nodes = require('../');
+    var assert = require('assert');
+    var nodes = require('../');
 
-describe('nodes', function () {
     it("has NodeObject member.", function () {
         assert.strictEqual(typeof nodes.NodeObject, 'function');
     });
