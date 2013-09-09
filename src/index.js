@@ -33,6 +33,7 @@ function removeNode(child) {
         previousSibling = child.previousSibling;
 
     // allow possible TypeError here
+    // also allow this to be NaN, childCount should be set at this point
     parent.childCount--;
 
     if (nextSibling) {
@@ -68,47 +69,47 @@ function setRoot(node, i) {
  * When a leaf is removed from a rooted tree, the previous root
  * reference is removed for all nodes contained in that leaf.
  * @constructor
- * @return {module:qi-nodes.NodeObject=} parent Optional parent node to append this node to
+ * @return {Object=} parent Optional parent node to append this node to
  * @memberof module:qi-nodes
  */
 function NodeObject(parent) {
     cleanNode(this);
-    if (parent) parent.append(this);
+    if (parent) this.appendTo(parent);
 }
 
 /**
  * Number of children of this object.
  * @name module:qi-nodes.NodeObject#childCount
- * @type {module:qi-nodes.NodeObject}
+ * @type {Object}
  */
 /**
  * Should never be null if this object has 1 or more children.
  * @name module:qi-nodes.NodeObject#firstChild
- * @type {module:qi-nodes.NodeObject}
+ * @type {Object}
  */
 /**
  * Should never be null if this object has 1 or more children.
  * @name module:qi-nodes.NodeObject#lastChild
- * @type {module:qi-nodes.NodeObject}
+ * @type {Object}
  */
 /**
  * Should always be null if this object has no parent.
  * If this object has a parent and this property value is null,
  * then this object is the last child.
  * @name module:qi-nodes.NodeObject#nextSibling
- * @type {module:qi-nodes.NodeObject}
+ * @type {Object}
  */
 /**
  * Should never be null if this object is a child.
  * @name module:qi-nodes.NodeObject#parent
- * @type {module:qi-nodes.NodeObject}
+ * @type {Object}
  */
 /**
  * Should always be null if this object has no parent.
  * If this object has a parent and this property value is null,
  * then this object is the first child.
  * @name module:qi-nodes.NodeObject#previousSibling
- * @type {module:qi-nodes.NodeObject}
+ * @type {Object}
  */
 /**
  * This is a special property that is propogated through
@@ -116,31 +117,34 @@ function NodeObject(parent) {
  * {@link module:qi-nodes:NodeObject} with its root set.
  * This root property value is most likely a reference to itself.
  * @name module:qi-nodes.NodeObject#root
- * @type {module:qi-nodes.NodeObject}
+ * @type {Object}
  */
 
 /** @alias module:qi-nodes.NodeObject# */
 var proto = NodeObject.prototype;
 
 /**
- * Add the node as the last child of this node.
- * @param {module:qi-nodes.NodeObject} node The node to add to this node
- * @return {module:qi-nodes.NodeObject} The node added
+ * Add the specified node as the last child of the parent node.
+ * @param {Object} node The node to add to this node
+ * @param {Object=} parent The node to add the node to, defaults to this node
+ * @return {Object} The node added
  */
-proto.append = function append(node) {
-    // allow possible TypeError or HierarchyRequestError
-    return node.appendTo(this);
+proto.append = function append(node, parent) {
+    // allow possible TypeError or HierarchyRequestError here
+    return this.appendTo(parent || this, node);
 };
 
 /**
- * Add this node as the last child of the specified parent node.
- * @param {module:qi-nodes.NodeObject} parent The node to add this node to
- * @return {module:qi-nodes.NodeObject} The node added
+ * Add the node as the last child of the specified parent node.
+ * @param {Object} parent The node to add the node to
+ * @param {Object=} node The node to add, defaults to this node
+ * @return {Object} The node added
  * @throws {module:qi-nodes.HierarchyRequestError}
  */
-proto.appendTo = function appendTo(parent) {
+proto.appendTo = function appendTo(parent, node) {
     // allow possible TypeError here
-    var lastChild = parent.lastChild, node = this;
+    var lastChild = parent.lastChild, count;
+    node = node || this;
 
     if (node == parent) {
         throw new HierarchyRequestError();
@@ -149,7 +153,8 @@ proto.appendTo = function appendTo(parent) {
     } else if (node != lastChild) {
         if (node.parent) removeNode(node);
         node.parent = parent;
-        parent.childCount++;
+        count = parent.childCount | 0;
+        parent.childCount = count + 1;
 
         if (lastChild) {
             node.previousSibling = lastChild;
@@ -159,14 +164,14 @@ proto.appendTo = function appendTo(parent) {
         if (!parent.firstChild) parent.firstChild = node;
 
         // maybe set root on all leaves
-        if (node.root != parent.root) node.each(setRoot);
+        if (node.root != parent.root) this.each(setRoot, node);
     }
     return node;
 };
 
 /**
  * Factory method.
- * @return {module:qi-nodes.NodeObject=} parent Optional parent node to append this node to
+ * @return {Object=} parent Optional parent node to append this node to
  * @return {module:qi-nodes.NodeObject} new NodeObject
  */
 proto.create = function create(parent) {
@@ -186,35 +191,34 @@ proto.createRoot = function createRoot() {
 /**
  * Empty the node's children, and remove from its parent.
  * @param {boolean=} recursive If true, will recursively empty all children, defaults to false
- * @param {module:qi-nodes.NodeObject=} node The node to destroy, defaults to this node
- * @return {module:qi-nodes.NodeObject} The node destroyed
+ * @param {Object=} node The node to destroy, defaults to this node
+ * @return {Object} The node destroyed
  */
 proto.destroy = function destroy(recursive, node) {
     node = node || this;
     if (recursive) {
         // clears all properties from leaves to and including node
-        node.eachReverse(cleanNode);
+        this.eachReverse(cleanNode, node);
     } else {
         node.root = null; // clear root
         if (node.parent) removeNode(node);
-        if (node.firstChild) node.empty();
+        if (node.firstChild) this.empty(recursive, node);
     }
-    NodeObject.call(this);
     return node;
 };
 
 /**
  * Recursively iterate over each node down through all it's leaves.
  * @param {Function} fn The function to invoke for each node iterated
- * @param {module:qi-nodes.NodeObject=} node The starting node, defaults to this node
- * @return {module:qi-nodes.NodeObject} The starting node
+ * @param {Object=} node The starting node, defaults to this node
+ * @return {Object} The starting node
  */
 proto.each = function each(fn, node, i) {
     var child, next;
     node = node || this;
     i = i | 0;
     child = node.firstChild;
-    fn.call(node, node, i);
+    fn(node, i);
     while (child) {
         next = child.nextSibling;
         each(fn, child, i + 1);
@@ -226,22 +230,22 @@ proto.each = function each(fn, node, i) {
 /**
  * Recursively iterate over each node up through all it's parents.
  * @param {Function} fn The function to invoke for each node iterated
- * @param {module:qi-nodes.NodeObject=} node The starting node, defaults to this node
- * @return {module:qi-nodes.NodeObject} The starting node
+ * @param {Object=} node The starting node, defaults to this node
+ * @return {Object} The starting node
  */
 proto.eachParent = function eachParent(fn, node, i) {
     node = node || this;
     i = i | 0;
     if (node.parent) eachParent(fn, node.parent, i + 1);
-    fn.call(node, node, i);
+    fn(node, i);
     return node;
 };
 
 /**
  * Recursively iterate over each node up through all it's leaves.
  * @param {Function} fn The function to invoke for each node iterated
- * @param {module:qi-nodes.NodeObject=} node The starting node, defaults to this node
- * @return {module:qi-nodes.NodeObject} The starting node
+ * @param {Object=} node The starting node, defaults to this node
+ * @return {Object} The starting node
  */
 proto.eachReverse = function eachReverse(fn, node, i) {
     var child, prev;
@@ -253,15 +257,15 @@ proto.eachReverse = function eachReverse(fn, node, i) {
         eachReverse(fn, child, i + 1);
         child = prev;
     }
-    fn.call(node, node, i);
+    fn(node, i);
     return node;
 };
 
 /**
  * Remove all the node's children.
  * @param {boolean=} recursive If true, will recursively empty all children, defaults to false
- * @param {module:qi-nodes.NodeObject=} node The node to empty, defaults to this node
- * @return {module:qi-nodes.NodeObject} The node emptied
+ * @param {Object=} node The node to empty, defaults to this node
+ * @return {Object} The node emptied
  */
 proto.empty = function empty(recursive, node) {
     var child, next;
@@ -277,10 +281,10 @@ proto.empty = function empty(recursive, node) {
         next = child.nextSibling;
         if (recursive) {
             // clears all properties from leaves to and including child
-            child.eachReverse(cleanNode);
+            this.eachReverse(cleanNode, child);
         } else {
             // might change root on all leaves
-            child.remove();
+            this.remove(child);
         }
         child = next;
     }
@@ -289,14 +293,14 @@ proto.empty = function empty(recursive, node) {
 
 /**
  * Add the node as the next sibling of the specified sibling node.
- * @param {module:qi-nodes.NodeObject} sibling The node to insert the node after
- * @param {module:qi-nodes.NodeObject=} node The node to add, defaults to this node
- * @return {module:qi-nodes.NodeObject} The node added
+ * @param {Object} sibling The node to insert the node after
+ * @param {Object=} node The node to add, defaults to this node
+ * @return {Object} The node added
  * @throws {module:qi-nodes.HierarchyRequestError}
  */
 proto.insertAfter = function insertAfter(sibling, node) {
     // allow possible TypeError here
-    var nextSibling = sibling.nextSibling, parent;
+    var nextSibling = sibling.nextSibling, parent, count;
     node = node || this; // optional
 
     // may be a noop
@@ -318,24 +322,25 @@ proto.insertAfter = function insertAfter(sibling, node) {
             parent.lastChild = node;
         }
         sibling.nextSibling = node;
-        parent.childCount++;
+        count = parent.childCount | 0;
+        parent.childCount = count + 1;
 
         // maybe set root on all leaves
-        if (node.root != parent.root) node.each(setRoot);
+        if (node.root != parent.root) this.each(setRoot, node);
     }
     return node;
 };
 
 /**
  * Add the node as the previous sibling of the specified sibling node.
- * @param {module:qi-nodes.NodeObject} sibling The node to insert the node before
- * @param {module:qi-nodes.NodeObject=} node The node to add, defaults to this node
- * @return {module:qi-nodes.NodeObject} The node added
+ * @param {Object} sibling The node to insert the node before
+ * @param {Object=} node The node to add, defaults to this node
+ * @return {Object} The node added
  * @throws {module:qi-nodes.HierarchyRequestError}
  */
 proto.insertBefore = function insertBefore(sibling, node) {
     // allow possible TypeError here
-    var previousSibling = sibling.previousSibling, parent;
+    var previousSibling = sibling.previousSibling, parent, count;
     node = node || this; // optional
 
     // may be a noop
@@ -357,33 +362,37 @@ proto.insertBefore = function insertBefore(sibling, node) {
             parent.firstChild = node;
         }
         sibling.previousSibling = node;
-        parent.childCount++;
+        count = parent.childCount | 0;
+        parent.childCount = count + 1;
 
         // maybe set root on all leaves
-        if (node.root != parent.root) node.each(setRoot);
+        if (node.root != parent.root) this.each(setRoot, node);
     }
     return node;
 };
 
 /**
- * Add the node as the first child of this node.
- * @param {module:qi-nodes.NodeObject} node The node to add to this node
- * @return {module:qi-nodes.NodeObject} The node added
+ * Add the specified node as the first child of the parent node.
+ * @param {Object} node The node to add to this node
+ * @param {Object=} parent The node to add the node to, defaults to this node
+ * @return {Object} The node added
  */
-proto.prepend = function prepend(node) {
-    // allow possible TypeError or HierarchyRequestError
-    return node.prependTo(this);
+proto.prepend = function prepend(node, parent) {
+    // allow possible TypeError or HierarchyRequestError here
+    return this.prependTo(parent || this, node);
 };
 
 /**
- * Add this node as the first child of the specified parent node.
- * @param {module:qi-nodes.NodeObject} parent The node to add this node to
- * @return {module:qi-nodes.NodeObject} The node added
+ * Add the node as the first child of the specified parent node.
+ * @param {Object} parent The node to add the node to
+ * @param {Object=} node The node to add, defaults to this node
+ * @return {Object} The node added
  * @throws {module:qi-nodes.HierarchyRequestError}
  */
-proto.prependTo = function prependTo(parent) {
+proto.prependTo = function prependTo(parent, node) {
     // allow possible TypeError here
-    var firstChild = parent.firstChild, node = this;
+    var firstChild = parent.firstChild, count;
+    node = node || this;
 
     if (node == parent) {
         throw new HierarchyRequestError();
@@ -392,7 +401,8 @@ proto.prependTo = function prependTo(parent) {
     } else if (node != firstChild) {
         if (node.parent) removeNode(node);
         node.parent = parent;
-        parent.childCount++;
+        count = parent.childCount | 0;
+        parent.childCount = count + 1;
 
         if (firstChild) {
             node.nextSibling = firstChild;
@@ -402,28 +412,28 @@ proto.prependTo = function prependTo(parent) {
         if (!parent.lastChild) parent.lastChild = node;
 
         // maybe set root on all leaves
-        if (node.root != parent.root) node.each(setRoot);
+        if (node.root != parent.root) this.each(setRoot, node);
     }
     return node;
 };
 
 /**
  * Remove the child node from its possible parent, but leaves its children intact.
- * @param {module:qi-nodes.NodeObject=} child The node to remove, defaults to this node
- * @return {module:qi-nodes.NodeObject} The node removed
+ * @param {Object=} child The node to remove, defaults to this node
+ * @return {Object} The node removed
  */
 proto.remove = function remove(child) {
     // allow possible TypeError
     child = removeNode(child || this); // optional
     // maybe set root on all leaves
-    return child.root ? child.each(setRoot) : child;
+    return child.root ? this.each(setRoot, child) : child;
 };
 
 /**
  * Swap one node's position with another node's.
- * @param {module:qi-nodes.NodeObject} node1 The node to swap with node2
- * @param {module:qi-nodes.NodeObject=} node2 The node to swap with node1, defaults to this node
- * @return {module:qi-nodes.NodeObject} node1
+ * @param {Object} node1 The node to swap with node2
+ * @param {Object=} node2 The node to swap with node1, defaults to this node
+ * @return {Object} node1
  */
 proto.swap = function swap(node1, node2) {
     // allow possible TypeError here
@@ -473,9 +483,9 @@ proto.swap = function swap(node1, node2) {
 
         // maybe set root on all leaves
         if (node1.root && !parent2 || node1.root != parent2.root)
-            node1.each(setRoot);
+            this.each(setRoot, node1);
         if (node2.root && !parent1 || node2.root != parent1.root)
-            node2.each(setRoot);
+            this.each(setRoot, node2);
     }
     return node1;
 };
