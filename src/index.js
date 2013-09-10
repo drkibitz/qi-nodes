@@ -1,5 +1,5 @@
 /**
- * This module an instance of {@link module:qi-nodes.NodeObject},
+ * This module is an instance of {@link module:qi-nodes.NodeObject},
  * and it's own {@link module:qi-nodes.NodeObject#root}.
  * @module qi-nodes
  * @author Dr. Kibitz <info@drkibitz.com>
@@ -8,8 +8,8 @@
 
 /**
  * Having the same name as the DOM error defined by browser implementations,
- * this is a custom error thrown by node methods within this module.
- * It is thrown when any node is added to an invalid parent.
+ * this is a custom error thrown by methods of {@link module:qi-nodes.NodeObject}
+ * within this module. It is thrown when any object is added to an invalid parent.
  * @constructor
  * @extends Error
  * @memberof module:qi-nodes
@@ -64,12 +64,12 @@ function setRoot(node, i) {
 /**
  * These objects, or types of them, are used in composite patterns.
  * Each instance of {@link module:qi-nodes.NodeObject} is aware of
- * it's own position within a tree of nodes. If any  tree has a root,
+ * it's own position within a tree of objects. If any tree has a root,
  * that root is propagated to all leaves of that tree.
  * When a leaf is removed from a rooted tree, the previous root
- * reference is removed for all nodes contained in that leaf.
+ * reference is removed for all objects contained in that leaf.
  * @constructor
- * @return {Object=} parent Optional parent node to append this node to
+ * @param {Object=} parent Optional parent object to append this object to
  * @memberof module:qi-nodes
  */
 function NodeObject(parent) {
@@ -78,44 +78,50 @@ function NodeObject(parent) {
 }
 
 /**
- * Number of children of this object.
+ * Number of children in this object.
  * @name module:qi-nodes.NodeObject#childCount
  * @type {Object}
  */
 /**
- * Should never be null if this object has 1 or more children.
+ * Reference to the first child object of this object.
+ * Should never be falsey if this object has 1 or more children.
  * @name module:qi-nodes.NodeObject#firstChild
  * @type {Object}
  */
 /**
- * Should never be null if this object has 1 or more children.
+ * Reference to the last child object of this object.
+ * Should never be falsey if this object has 1 or more children.
  * @name module:qi-nodes.NodeObject#lastChild
  * @type {Object}
  */
 /**
- * Should always be null if this object has no parent.
- * If this object has a parent and this property value is null,
- * then this object is the last child.
+ * Reference to the next object relative to this object
+ * within the list of child objects of its parent.
+ * Should always be falsey if this object has no parent.
+ * If this object has a parent and this value is falsey,
+ * then this object is the last child of its parent.
  * @name module:qi-nodes.NodeObject#nextSibling
  * @type {Object}
  */
 /**
- * Should never be null if this object is a child.
+ * Reference to this object's parent object.
+ * Should never be falsey if this object is a child to another object.
  * @name module:qi-nodes.NodeObject#parent
  * @type {Object}
  */
 /**
- * Should always be null if this object has no parent.
- * If this object has a parent and this property value is null,
- * then this object is the first child.
+ * Reference to the previous object relative to this object
+ * within the list of child objects of its parent.
+ * If this object has a parent and this value is falsey,
+ * then this object is the first child of its parent.
  * @name module:qi-nodes.NodeObject#previousSibling
  * @type {Object}
  */
 /**
- * This is a special property that is propagated through
- * the leaves of a tree, and only from a particular
- * {@link module:qi-nodes:NodeObject} with its root set.
- * This root property value is most likely a reference to itself.
+ * When an object is rooted, this property is a reference to itself.
+ * This is a unique property that is propagated through the leaves
+ * of an object tree, but only from an object with its root set
+ * to a truthy value.
  * @name module:qi-nodes.NodeObject#root
  * @type {Object}
  */
@@ -124,10 +130,12 @@ function NodeObject(parent) {
 var proto = NodeObject.prototype;
 
 /**
- * Add the specified node as the last child of the parent node.
- * @param {Object} node The node to add to this node
- * @param {Object=} parent The node to add the node to, defaults to this node
- * @return {Object} The node added
+ * Add the specified object as the {@link module:qi-nodes.NodeObject#lastChild} of the parent object.
+ * **An object cannot be added to itself.**
+ * @param {Object} node The object to add to this object
+ * @param {Object=} parent The object to add the object to, **defaults to this object**
+ * @return {Object} The object added
+ * @throws {module:qi-nodes.HierarchyRequestError}
  */
 proto.append = function append(node, parent) {
     // allow possible TypeError or HierarchyRequestError here
@@ -135,10 +143,11 @@ proto.append = function append(node, parent) {
 };
 
 /**
- * Add the node as the last child of the specified parent node.
- * @param {Object} parent The node to add the node to
- * @param {Object=} node The node to add, defaults to this node
- * @return {Object} The node added
+ * Add the object as the {@link module:qi-nodes.NodeObject#lastChild} of the specified parent object.
+ * **An object cannot be added to itself.**
+ * @param {Object} parent The object to add the object to
+ * @param {Object=} node The object to add, **defaults to this object**
+ * @return {Object} The object added
  * @throws {module:qi-nodes.HierarchyRequestError}
  */
 proto.appendTo = function appendTo(parent, node) {
@@ -170,17 +179,18 @@ proto.appendTo = function appendTo(parent, node) {
 };
 
 /**
- * Factory method.
- * @return {Object=} parent Optional parent node to append this node to
- * @return {module:qi-nodes.NodeObject} new NodeObject
+ * Helper factory method.
+ * @param {Object=} parent Optional parent object to append this object to
+ * @return {module:qi-nodes.NodeObject} created object optionally added to parent
  */
 proto.create = function create(parent) {
     return new NodeObject(parent);
 };
 
 /**
- * Helper factory method that creates a new node with it's root property set to itself.
- * @return {module:qi-nodes.NodeObject} new rooted NodeObject
+ * Helper factory method that creates a new rooted object.
+ * This means that it's root property is a reference to itself.
+ * @return {module:qi-nodes.NodeObject} created rooted object
  */
 proto.createRoot = function createRoot() {
     var root = new NodeObject();
@@ -189,10 +199,12 @@ proto.createRoot = function createRoot() {
 };
 
 /**
- * Empty the node's children, and remove from its parent.
+ * {@link module:qi-nodes.NodeObject#empty} the object's children,
+ * and {@link module:qi-nodes.NodeObject#remove} it from its parent.
+ * This essentially sets all properties to null that make this object a node.
  * @param {boolean=} recursive If true, will recursively empty all children, defaults to false
- * @param {Object=} node The node to destroy, defaults to this node
- * @return {Object} The node destroyed
+ * @param {Object=} node The object to destroy, **defaults to this object**
+ * @return {Object} The object destroyed
  */
 proto.destroy = function destroy(recursive, node) {
     node = node || this;
@@ -208,10 +220,10 @@ proto.destroy = function destroy(recursive, node) {
 };
 
 /**
- * Recursively iterate over each node down through all it's leaves.
- * @param {Function} fn The function to invoke for each node iterated
- * @param {Object=} node The starting node, defaults to this node
- * @return {Object} The starting node
+ * Recursively iterate over each object **down** through all it's leaves.
+ * @param {Function} fn The function to invoke for each object iterated
+ * @param {Object=} node The starting object, **defaults to this object**
+ * @return {Object} The starting object
  */
 proto.each = function each(fn, node, i) {
     var child, next;
@@ -228,10 +240,10 @@ proto.each = function each(fn, node, i) {
 };
 
 /**
- * Recursively iterate over each node up through all it's parents.
- * @param {Function} fn The function to invoke for each node iterated
- * @param {Object=} node The starting node, defaults to this node
- * @return {Object} The starting node
+ * Recursively iterate over each object **up** through all it's parents.
+ * @param {Function} fn The function to invoke for each object iterated
+ * @param {Object=} node The starting object, **defaults to this object**
+ * @return {Object} The starting object
  */
 proto.eachParent = function eachParent(fn, node, i) {
     node = node || this;
@@ -242,10 +254,10 @@ proto.eachParent = function eachParent(fn, node, i) {
 };
 
 /**
- * Recursively iterate over each node up through all it's leaves.
- * @param {Function} fn The function to invoke for each node iterated
- * @param {Object=} node The starting node, defaults to this node
- * @return {Object} The starting node
+ * Recursively iterate over each object **up** through all it's leaves.
+ * @param {Function} fn The function to invoke for each object iterated
+ * @param {Object=} node The starting object, **defaults to this object**
+ * @return {Object} The starting object
  */
 proto.eachReverse = function eachReverse(fn, node, i) {
     var child, prev;
@@ -262,17 +274,18 @@ proto.eachReverse = function eachReverse(fn, node, i) {
 };
 
 /**
- * Remove all the node's children.
+ * Remove all the object's children, but leaves its {@link module:qi-nodes.NodeObject#parent} intact.
  * @param {boolean=} recursive If true, will recursively empty all children, defaults to false
- * @param {Object=} node The node to empty, defaults to this node
- * @return {Object} The node emptied
+ * @param {Object=} node The object to empty, **defaults to this object**
+ * @return {Object} The object emptied
  */
 proto.empty = function empty(recursive, node) {
     var child, next;
     node = node || this;
     child = node.firstChild;
 
-    if (recursive) {
+    // The recersion of cleanNode does not touch these properties
+    if (child && recursive) {
         node.childCount = 0;
         node.firstChild = node.lastChild = null;
     }
@@ -292,10 +305,12 @@ proto.empty = function empty(recursive, node) {
 };
 
 /**
- * Add the node as the next sibling of the specified sibling node.
- * @param {Object} sibling The node to insert the node after
- * @param {Object=} node The node to add, defaults to this node
- * @return {Object} The node added
+ * Add the object as the {@link module:qi-nodes.NodeObject#nextSibling} of the specified sibling object.
+ * The sibling specified must be a child of a parent object.
+ * **An object cannot be added to itself.**
+ * @param {Object} sibling The object to insert the object after
+ * @param {Object=} node The object to add, **defaults to this object**
+ * @return {Object} The object added
  * @throws {module:qi-nodes.HierarchyRequestError}
  */
 proto.insertAfter = function insertAfter(sibling, node) {
@@ -332,10 +347,12 @@ proto.insertAfter = function insertAfter(sibling, node) {
 };
 
 /**
- * Add the node as the previous sibling of the specified sibling node.
- * @param {Object} sibling The node to insert the node before
- * @param {Object=} node The node to add, defaults to this node
- * @return {Object} The node added
+ * Add the object as the {@link module:qi-nodes.NodeObject#previousSibling} of the specified sibling object.
+ * The sibling specified must be a child of a parent object.
+ * **An object cannot be added to itself.**
+ * @param {Object} sibling The object to insert the object before
+ * @param {Object=} node The object to add, **defaults to this object**
+ * @return {Object} The object added
  * @throws {module:qi-nodes.HierarchyRequestError}
  */
 proto.insertBefore = function insertBefore(sibling, node) {
@@ -372,10 +389,12 @@ proto.insertBefore = function insertBefore(sibling, node) {
 };
 
 /**
- * Add the specified node as the first child of the parent node.
- * @param {Object} node The node to add to this node
- * @param {Object=} parent The node to add the node to, defaults to this node
- * @return {Object} The node added
+ * Add the specified object as the {@link module:qi-nodes.NodeObject#firstChild} of the parent object.
+ * **An object cannot be added to itself.**
+ * @param {Object} node The object to add to this object
+ * @param {Object=} parent The object to add the object to, **defaults to this object**
+ * @return {Object} The object added
+ * @throws {module:qi-nodes.HierarchyRequestError}
  */
 proto.prepend = function prepend(node, parent) {
     // allow possible TypeError or HierarchyRequestError here
@@ -383,10 +402,11 @@ proto.prepend = function prepend(node, parent) {
 };
 
 /**
- * Add the node as the first child of the specified parent node.
- * @param {Object} parent The node to add the node to
- * @param {Object=} node The node to add, defaults to this node
- * @return {Object} The node added
+ * Add the object as the {@link module:qi-nodes.NodeObject#firstChild} of the specified parent object.
+ * **An object cannot be added to itself.**
+ * @param {Object} parent The object to add the object to
+ * @param {Object=} node The object to add, **defaults to this object**
+ * @return {Object} The object added
  * @throws {module:qi-nodes.HierarchyRequestError}
  */
 proto.prependTo = function prependTo(parent, node) {
@@ -418,9 +438,9 @@ proto.prependTo = function prependTo(parent, node) {
 };
 
 /**
- * Remove the child node from its possible parent, but leaves its children intact.
- * @param {Object=} child The node to remove, defaults to this node
- * @return {Object} The node removed
+ * Remove the child object from its {@link module:qi-nodes.NodeObject#parent}, but leaves its children intact.
+ * @param {Object=} child The object to remove, **defaults to this object**
+ * @return {Object} The object removed
  */
 proto.remove = function remove(child) {
     // allow possible TypeError
@@ -430,10 +450,10 @@ proto.remove = function remove(child) {
 };
 
 /**
- * Swap one node's position with another node's.
- * @param {Object} node1 The node to swap with node2
- * @param {Object=} node2 The node to swap with node1, defaults to this node
- * @return {Object} node1
+ * Swap one object's position with another object's.
+ * @param {Object} node1 The object to swap with node2
+ * @param {Object=} node2 The object to swap with node1, **defaults to this object**
+ * @return {Object} node1 object
  */
 proto.swap = function swap(node1, node2) {
     // allow possible TypeError here
