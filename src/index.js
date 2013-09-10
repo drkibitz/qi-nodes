@@ -4,7 +4,7 @@
  * @module qi-nodes
  * @author Dr. Kibitz <info@drkibitz.com>
  */
-"use strict";
+'use strict';
 
 /**
  * Having the same name as the DOM error defined by browser implementations,
@@ -18,7 +18,7 @@ function HierarchyRequestError(message) {
     this.message = (message || "A NodeObject was inserted somewhere it doesn't belong.");
 }
 HierarchyRequestError.prototype = new Error();
-HierarchyRequestError.prototype.name = "HierarchyRequestError";
+HierarchyRequestError.prototype.name = 'HierarchyRequestError';
 
 /** @ignore */
 function cleanNode(n) {
