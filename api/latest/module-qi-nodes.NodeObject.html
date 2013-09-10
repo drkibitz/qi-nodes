@@ -86,7 +86,7 @@
     
         
 <dt>
-    <h4 class="name" id="NodeObject"><span class="type-signature"></span>new NodeObject<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="NodeObject"><span class="type-signature"></span>new NodeObject<span class="signature">(<span class="optional">parent</span>)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -96,10 +96,10 @@
     <div class="description">
         <p>These objects, or types of them, are used in composite patterns.
 Each instance of <a href="module-qi-nodes.NodeObject.html"><code>module:qi-nodes.NodeObject</code></a> is aware of
-it's own position within a tree of nodes. If any  tree has a root,
+it's own position within a tree of objects. If any tree has a root,
 that root is propagated to all leaves of that tree.
 When a leaf is removed from a rooted tree, the previous root
-reference is removed for all nodes contained in that leaf.</p>
+reference is removed for all objects contained in that leaf.</p>
     </div>
     
 
@@ -107,6 +107,67 @@ reference is removed for all nodes contained in that leaf.</p>
     
     
     
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+		<th>Argument</th>
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>parent</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Optional parent object to append this object to</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
     
     
     
@@ -153,29 +214,6 @@ reference is removed for all nodes contained in that leaf.</p>
     
     
     
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>parent Optional parent node to append this node to</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">Object</span>
-
-
-	</dd>
-</dl>
-
-
-        
     
     
 </dd>
@@ -206,7 +244,7 @@ reference is removed for all nodes contained in that leaf.</p>
 <dd>
     
     <div class="description">
-        <p>Number of children of this object.</p>
+        <p>Number of children in this object.</p>
     </div>
     
     
@@ -270,7 +308,8 @@ reference is removed for all nodes contained in that leaf.</p>
 <dd>
     
     <div class="description">
-        <p>Should never be null if this object has 1 or more children.</p>
+        <p>Reference to the first child object of this object.
+Should never be falsey if this object has 1 or more children.</p>
     </div>
     
     
@@ -334,7 +373,8 @@ reference is removed for all nodes contained in that leaf.</p>
 <dd>
     
     <div class="description">
-        <p>Should never be null if this object has 1 or more children.</p>
+        <p>Reference to the last child object of this object.
+Should never be falsey if this object has 1 or more children.</p>
     </div>
     
     
@@ -398,9 +438,11 @@ reference is removed for all nodes contained in that leaf.</p>
 <dd>
     
     <div class="description">
-        <p>Should always be null if this object has no parent.
-If this object has a parent and this property value is null,
-then this object is the last child.</p>
+        <p>Reference to the next object relative to this object
+within the list of child objects of its parent.
+Should always be falsey if this object has no parent.
+If this object has a parent and this value is falsey,
+then this object is the last child of its parent.</p>
     </div>
     
     
@@ -464,7 +506,8 @@ then this object is the last child.</p>
 <dd>
     
     <div class="description">
-        <p>Should never be null if this object is a child.</p>
+        <p>Reference to this object's parent object.
+Should never be falsey if this object is a child to another object.</p>
     </div>
     
     
@@ -528,9 +571,10 @@ then this object is the last child.</p>
 <dd>
     
     <div class="description">
-        <p>Should always be null if this object has no parent.
-If this object has a parent and this property value is null,
-then this object is the first child.</p>
+        <p>Reference to the previous object relative to this object
+within the list of child objects of its parent.
+If this object has a parent and this value is falsey,
+then this object is the first child of its parent.</p>
     </div>
     
     
@@ -594,10 +638,10 @@ then this object is the first child.</p>
 <dd>
     
     <div class="description">
-        <p>This is a special property that is propagated through
-the leaves of a tree, and only from a particular
-<code>module:qi-nodes:NodeObject</code> with its root set.
-This root property value is most likely a reference to itself.</p>
+        <p>When an object is rooted, this property is a reference to itself.
+This is a unique property that is propagated through the leaves
+of an object tree, but only from an object with its root set
+to a truthy value.</p>
     </div>
     
     
@@ -668,7 +712,8 @@ This root property value is most likely a reference to itself.</p>
     
     
     <div class="description">
-        <p>Add the specified node as the last child of the parent node.</p>
+        <p>Add the specified object as the <a href="module-qi-nodes.NodeObject.html#lastChild"><code>module:qi-nodes.NodeObject#lastChild</code></a> of the parent object.
+<strong>An object cannot be added to itself.</strong></p>
     </div>
     
 
@@ -728,7 +773,7 @@ This root property value is most likely a reference to itself.</p>
 
             
 
-            <td class="description last"><p>The node to add to this node</p></td>
+            <td class="description last"><p>The object to add to this object</p></td>
         </tr>
 
 	
@@ -761,7 +806,7 @@ This root property value is most likely a reference to itself.</p>
 
             
 
-            <td class="description last"><p>The node to add the node to, defaults to this node</p></td>
+            <td class="description last"><p>The object to add the object to, <strong>defaults to this object</strong></p></td>
         </tr>
 
 	
@@ -812,13 +857,28 @@ This root property value is most likely a reference to itself.</p>
     
     
     
+    <h5>Throws:</h5>
+    
+            
+
+    <div class="param-desc">
+    
+        
+<span class="param-type"><a href="module-qi-nodes.HierarchyRequestError.html">module:qi-nodes.HierarchyRequestError</a></span>
+
+
+    
+    </div>
+
+
+        
     
     
     <h5>Returns:</h5>
     
             
 <div class="param-desc">
-    <p>The node added</p>
+    <p>The object added</p>
 </div>
 
 
@@ -852,7 +912,8 @@ This root property value is most likely a reference to itself.</p>
     
     
     <div class="description">
-        <p>Add the node as the last child of the specified parent node.</p>
+        <p>Add the object as the <a href="module-qi-nodes.NodeObject.html#lastChild"><code>module:qi-nodes.NodeObject#lastChild</code></a> of the specified parent object.
+<strong>An object cannot be added to itself.</strong></p>
     </div>
     
 
@@ -912,7 +973,7 @@ This root property value is most likely a reference to itself.</p>
 
             
 
-            <td class="description last"><p>The node to add the node to</p></td>
+            <td class="description last"><p>The object to add the object to</p></td>
         </tr>
 
 	
@@ -945,7 +1006,7 @@ This root property value is most likely a reference to itself.</p>
 
             
 
-            <td class="description last"><p>The node to add, defaults to this node</p></td>
+            <td class="description last"><p>The object to add, <strong>defaults to this object</strong></p></td>
         </tr>
 
 	
@@ -1017,7 +1078,7 @@ This root property value is most likely a reference to itself.</p>
     
             
 <div class="param-desc">
-    <p>The node added</p>
+    <p>The object added</p>
 </div>
 
 
@@ -1043,7 +1104,7 @@ This root property value is most likely a reference to itself.</p>
         
             
 <dt>
-    <h4 class="name" id="create"><span class="type-signature"></span>create<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="create"><span class="type-signature"></span>create<span class="signature">(<span class="optional">parent</span>)</span><span class="type-signature"> &rarr; {<a href="module-qi-nodes.NodeObject.html">module:qi-nodes.NodeObject</a>}</span></h4>
     
     
 </dt>
@@ -1051,7 +1112,7 @@ This root property value is most likely a reference to itself.</p>
     
     
     <div class="description">
-        <p>Factory method.</p>
+        <p>Helper factory method.</p>
     </div>
     
 
@@ -1059,6 +1120,67 @@ This root property value is most likely a reference to itself.</p>
     
     
     
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+		<th>Argument</th>
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>parent</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Optional parent object to append this object to</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
     
     
     
@@ -1106,31 +1228,10 @@ This root property value is most likely a reference to itself.</p>
     
     
     <h5>Returns:</h5>
-    <ul>
-            <li>
+    
+            
 <div class="param-desc">
-    <p>parent Optional parent node to append this node to</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">Object</span>
-
-
-	</dd>
-</dl>
-
-</li>
-        
-            <li>
-<div class="param-desc">
-    <p>new NodeObject</p>
+    <p>created object optionally added to parent</p>
 </div>
 
 
@@ -1147,8 +1248,8 @@ This root property value is most likely a reference to itself.</p>
 	</dd>
 </dl>
 
-</li>
-        </ul>
+
+        
     
     
 </dd>
@@ -1164,7 +1265,8 @@ This root property value is most likely a reference to itself.</p>
     
     
     <div class="description">
-        <p>Helper factory method that creates a new node with it's root property set to itself.</p>
+        <p>Helper factory method that creates a new rooted object.
+This means that it's root property is a reference to itself.</p>
     </div>
     
 
@@ -1222,7 +1324,7 @@ This root property value is most likely a reference to itself.</p>
     
             
 <div class="param-desc">
-    <p>new rooted NodeObject</p>
+    <p>created rooted object</p>
 </div>
 
 
@@ -1256,7 +1358,9 @@ This root property value is most likely a reference to itself.</p>
     
     
     <div class="description">
-        <p>Empty the node's children, and remove from its parent.</p>
+        <p><a href="module-qi-nodes.NodeObject.html#empty"><code>module:qi-nodes.NodeObject#empty</code></a> the object's children,
+and <a href="module-qi-nodes.NodeObject.html#remove"><code>module:qi-nodes.NodeObject#remove</code></a> it from its parent.
+This essentially sets all properties to null that make this object a node.</p>
     </div>
     
 
@@ -1351,7 +1455,7 @@ This root property value is most likely a reference to itself.</p>
 
             
 
-            <td class="description last"><p>The node to destroy, defaults to this node</p></td>
+            <td class="description last"><p>The object to destroy, <strong>defaults to this object</strong></p></td>
         </tr>
 
 	
@@ -1408,7 +1512,7 @@ This root property value is most likely a reference to itself.</p>
     
             
 <div class="param-desc">
-    <p>The node destroyed</p>
+    <p>The object destroyed</p>
 </div>
 
 
@@ -1442,7 +1546,7 @@ This root property value is most likely a reference to itself.</p>
     
     
     <div class="description">
-        <p>Recursively iterate over each node down through all it's leaves.</p>
+        <p>Recursively iterate over each object <strong>down</strong> through all it's leaves.</p>
     </div>
     
 
@@ -1502,7 +1606,7 @@ This root property value is most likely a reference to itself.</p>
 
             
 
-            <td class="description last"><p>The function to invoke for each node iterated</p></td>
+            <td class="description last"><p>The function to invoke for each object iterated</p></td>
         </tr>
 
 	
@@ -1535,7 +1639,7 @@ This root property value is most likely a reference to itself.</p>
 
             
 
-            <td class="description last"><p>The starting node, defaults to this node</p></td>
+            <td class="description last"><p>The starting object, <strong>defaults to this object</strong></p></td>
         </tr>
 
 	
@@ -1592,7 +1696,7 @@ This root property value is most likely a reference to itself.</p>
     
             
 <div class="param-desc">
-    <p>The starting node</p>
+    <p>The starting object</p>
 </div>
 
 
@@ -1626,7 +1730,7 @@ This root property value is most likely a reference to itself.</p>
     
     
     <div class="description">
-        <p>Recursively iterate over each node up through all it's parents.</p>
+        <p>Recursively iterate over each object <strong>up</strong> through all it's parents.</p>
     </div>
     
 
@@ -1686,7 +1790,7 @@ This root property value is most likely a reference to itself.</p>
 
             
 
-            <td class="description last"><p>The function to invoke for each node iterated</p></td>
+            <td class="description last"><p>The function to invoke for each object iterated</p></td>
         </tr>
 
 	
@@ -1719,7 +1823,7 @@ This root property value is most likely a reference to itself.</p>
 
             
 
-            <td class="description last"><p>The starting node, defaults to this node</p></td>
+            <td class="description last"><p>The starting object, <strong>defaults to this object</strong></p></td>
         </tr>
 
 	
@@ -1776,7 +1880,7 @@ This root property value is most likely a reference to itself.</p>
     
             
 <div class="param-desc">
-    <p>The starting node</p>
+    <p>The starting object</p>
 </div>
 
 
@@ -1810,7 +1914,7 @@ This root property value is most likely a reference to itself.</p>
     
     
     <div class="description">
-        <p>Recursively iterate over each node up through all it's leaves.</p>
+        <p>Recursively iterate over each object <strong>up</strong> through all it's leaves.</p>
     </div>
     
 
@@ -1870,7 +1974,7 @@ This root property value is most likely a reference to itself.</p>
 
             
 
-            <td class="description last"><p>The function to invoke for each node iterated</p></td>
+            <td class="description last"><p>The function to invoke for each object iterated</p></td>
         </tr>
 
 	
@@ -1903,7 +2007,7 @@ This root property value is most likely a reference to itself.</p>
 
             
 
-            <td class="description last"><p>The starting node, defaults to this node</p></td>
+            <td class="description last"><p>The starting object, <strong>defaults to this object</strong></p></td>
         </tr>
 
 	
@@ -1960,7 +2064,7 @@ This root property value is most likely a reference to itself.</p>
     
             
 <div class="param-desc">
-    <p>The starting node</p>
+    <p>The starting object</p>
 </div>
 
 
@@ -1994,7 +2098,7 @@ This root property value is most likely a reference to itself.</p>
     
     
     <div class="description">
-        <p>Remove all the node's children.</p>
+        <p>Remove all the object's children, but leaves its <a href="module-qi-nodes.NodeObject.html#parent"><code>module:qi-nodes.NodeObject#parent</code></a> intact.</p>
     </div>
     
 
@@ -2089,7 +2193,7 @@ This root property value is most likely a reference to itself.</p>
 
             
 
-            <td class="description last"><p>The node to empty, defaults to this node</p></td>
+            <td class="description last"><p>The object to empty, <strong>defaults to this object</strong></p></td>
         </tr>
 
 	
@@ -2146,7 +2250,7 @@ This root property value is most likely a reference to itself.</p>
     
             
 <div class="param-desc">
-    <p>The node emptied</p>
+    <p>The object emptied</p>
 </div>
 
 
@@ -2180,7 +2284,9 @@ This root property value is most likely a reference to itself.</p>
     
     
     <div class="description">
-        <p>Add the node as the next sibling of the specified sibling node.</p>
+        <p>Add the object as the <a href="module-qi-nodes.NodeObject.html#nextSibling"><code>module:qi-nodes.NodeObject#nextSibling</code></a> of the specified sibling object.
+The sibling specified must be a child of a parent object.
+<strong>An object cannot be added to itself.</strong></p>
     </div>
     
 
@@ -2240,7 +2346,7 @@ This root property value is most likely a reference to itself.</p>
 
             
 
-            <td class="description last"><p>The node to insert the node after</p></td>
+            <td class="description last"><p>The object to insert the object after</p></td>
         </tr>
 
 	
@@ -2273,7 +2379,7 @@ This root property value is most likely a reference to itself.</p>
 
             
 
-            <td class="description last"><p>The node to add, defaults to this node</p></td>
+            <td class="description last"><p>The object to add, <strong>defaults to this object</strong></p></td>
         </tr>
 
 	
@@ -2345,7 +2451,7 @@ This root property value is most likely a reference to itself.</p>
     
             
 <div class="param-desc">
-    <p>The node added</p>
+    <p>The object added</p>
 </div>
 
 
@@ -2379,7 +2485,9 @@ This root property value is most likely a reference to itself.</p>
     
     
     <div class="description">
-        <p>Add the node as the previous sibling of the specified sibling node.</p>
+        <p>Add the object as the <a href="module-qi-nodes.NodeObject.html#previousSibling"><code>module:qi-nodes.NodeObject#previousSibling</code></a> of the specified sibling object.
+The sibling specified must be a child of a parent object.
+<strong>An object cannot be added to itself.</strong></p>
     </div>
     
 
@@ -2439,7 +2547,7 @@ This root property value is most likely a reference to itself.</p>
 
             
 
-            <td class="description last"><p>The node to insert the node before</p></td>
+            <td class="description last"><p>The object to insert the object before</p></td>
         </tr>
 
 	
@@ -2472,7 +2580,7 @@ This root property value is most likely a reference to itself.</p>
 
             
 
-            <td class="description last"><p>The node to add, defaults to this node</p></td>
+            <td class="description last"><p>The object to add, <strong>defaults to this object</strong></p></td>
         </tr>
 
 	
@@ -2544,7 +2652,7 @@ This root property value is most likely a reference to itself.</p>
     
             
 <div class="param-desc">
-    <p>The node added</p>
+    <p>The object added</p>
 </div>
 
 
@@ -2578,7 +2686,8 @@ This root property value is most likely a reference to itself.</p>
     
     
     <div class="description">
-        <p>Add the specified node as the first child of the parent node.</p>
+        <p>Add the specified object as the <a href="module-qi-nodes.NodeObject.html#firstChild"><code>module:qi-nodes.NodeObject#firstChild</code></a> of the parent object.
+<strong>An object cannot be added to itself.</strong></p>
     </div>
     
 
@@ -2638,7 +2747,7 @@ This root property value is most likely a reference to itself.</p>
 
             
 
-            <td class="description last"><p>The node to add to this node</p></td>
+            <td class="description last"><p>The object to add to this object</p></td>
         </tr>
 
 	
@@ -2671,191 +2780,7 @@ This root property value is most likely a reference to itself.</p>
 
             
 
-            <td class="description last"><p>The node to add the node to, defaults to this node</p></td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        index.js
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>The node added</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">Object</span>
-
-
-	</dd>
-</dl>
-
-
-        
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="prependTo"><span class="type-signature"></span>prependTo<span class="signature">(parent, <span class="optional">node</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Add the node as the first child of the specified parent node.</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-		<th>Argument</th>
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
-            
-                <td class="name"><code>parent</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>The node to add the node to</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>node</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>The node to add, defaults to this node</p></td>
+            <td class="description last"><p>The object to add the object to, <strong>defaults to this object</strong></p></td>
         </tr>
 
 	
@@ -2927,7 +2852,207 @@ This root property value is most likely a reference to itself.</p>
     
             
 <div class="param-desc">
-    <p>The node added</p>
+    <p>The object added</p>
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Object</span>
+
+
+	</dd>
+</dl>
+
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="prependTo"><span class="type-signature"></span>prependTo<span class="signature">(parent, <span class="optional">node</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Add the object as the <a href="module-qi-nodes.NodeObject.html#firstChild"><code>module:qi-nodes.NodeObject#firstChild</code></a> of the specified parent object.
+<strong>An object cannot be added to itself.</strong></p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+		<th>Argument</th>
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>parent</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The object to add the object to</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>node</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The object to add, <strong>defaults to this object</strong></p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        index.js
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    <h5>Throws:</h5>
+    
+            
+
+    <div class="param-desc">
+    
+        
+<span class="param-type"><a href="module-qi-nodes.HierarchyRequestError.html">module:qi-nodes.HierarchyRequestError</a></span>
+
+
+    
+    </div>
+
+
+        
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The object added</p>
 </div>
 
 
@@ -2961,7 +3086,7 @@ This root property value is most likely a reference to itself.</p>
     
     
     <div class="description">
-        <p>Remove the child node from its possible parent, but leaves its children intact.</p>
+        <p>Remove the child object from its <a href="module-qi-nodes.NodeObject.html#parent"><code>module:qi-nodes.NodeObject#parent</code></a>, but leaves its children intact.</p>
     </div>
     
 
@@ -3023,7 +3148,7 @@ This root property value is most likely a reference to itself.</p>
 
             
 
-            <td class="description last"><p>The node to remove, defaults to this node</p></td>
+            <td class="description last"><p>The object to remove, <strong>defaults to this object</strong></p></td>
         </tr>
 
 	
@@ -3080,7 +3205,7 @@ This root property value is most likely a reference to itself.</p>
     
             
 <div class="param-desc">
-    <p>The node removed</p>
+    <p>The object removed</p>
 </div>
 
 
@@ -3114,7 +3239,7 @@ This root property value is most likely a reference to itself.</p>
     
     
     <div class="description">
-        <p>Swap one node's position with another node's.</p>
+        <p>Swap one object's position with another object's.</p>
     </div>
     
 
@@ -3174,7 +3299,7 @@ This root property value is most likely a reference to itself.</p>
 
             
 
-            <td class="description last"><p>The node to swap with node2</p></td>
+            <td class="description last"><p>The object to swap with node2</p></td>
         </tr>
 
 	
@@ -3207,7 +3332,7 @@ This root property value is most likely a reference to itself.</p>
 
             
 
-            <td class="description last"><p>The node to swap with node1, defaults to this node</p></td>
+            <td class="description last"><p>The object to swap with node1, <strong>defaults to this object</strong></p></td>
         </tr>
 
 	
@@ -3264,7 +3389,7 @@ This root property value is most likely a reference to itself.</p>
     
             
 <div class="param-desc">
-    <p>node1</p>
+    <p>node1 object</p>
 </div>
 
 
@@ -3313,7 +3438,7 @@ This root property value is most likely a reference to itself.</p>
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a>
-		on Mon Sep 09 2013 18:56:50 GMT-0700 (PDT) using the <a href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
+		on Mon Sep 09 2013 23:11:57 GMT-0700 (PDT) using the <a href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
 		</span>
 				</footer>
 			</div>
