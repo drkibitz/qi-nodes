@@ -9,7 +9,7 @@ Base implementation for [composite patterns](http://en.wikipedia.org/wiki/Compos
 
 ## Usage
 
-Any object with a property of "root" qualifies as a root node. The root property is simply propogated up and down the leaves.
+Any object with a property of "root" qualifies as a root node. The root property is simply propagated up and down the leaves.
 
 The module itself is a rooted NodeObject.
 

@@ -65,7 +65,7 @@ function setRoot(node, i) {
  * These objects, or types of them, are used in composite patterns.
  * Each instance of {@link module:qi-nodes.NodeObject} is aware of
  * it's own position within a tree of nodes. If any  tree has a root,
- * that root is propogated to all leaves of that tree.
+ * that root is propagated to all leaves of that tree.
  * When a leaf is removed from a rooted tree, the previous root
  * reference is removed for all nodes contained in that leaf.
  * @constructor
@@ -112,7 +112,7 @@ function NodeObject(parent) {
  * @type {Object}
  */
 /**
- * This is a special property that is propogated through
+ * This is a special property that is propagated through
  * the leaves of a tree, and only from a particular
  * {@link module:qi-nodes:NodeObject} with its root set.
  * This root property value is most likely a reference to itself.
