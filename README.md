@@ -80,3 +80,7 @@ n2_2 = n3_2.swap(n2_2);
 // root2 -> n2_3 -> n3_2 -> n2_1
 // root3 -> n3_1 -> n2_2 -> n3_3
 ```
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/drkibitz/qi-nodes/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
