@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/drkibitz/qi-nodes.png?branch=master)](https://travis-ci.org/drkibitz/qi-nodes)
+[![Coverage Status](https://coveralls.io/repos/drkibitz/qi-nodes/badge.png)](https://coveralls.io/r/drkibitz/qi-nodes)
 [![NPM version](https://badge.fury.io/js/qi-nodes.png)](http://badge.fury.io/js/qi-nodes)
+[![devDependency Status](https://david-dm.org/drkibitz/qi-nodes/dev-status.png)](https://david-dm.org/drkibitz/qi-nodes#info=devDependencies)
 
 # Qi Nodes
 

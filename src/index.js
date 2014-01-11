@@ -15,7 +15,7 @@
  * @memberof module:qi-nodes
  */
 function HierarchyRequestError(message) {
-    this.message = (message || "A NodeObject was inserted somewhere it doesn't belong.");
+    this.message = (message || 'A NodeObject was inserted somewhere it doesn\'t belong.');
 }
 HierarchyRequestError.prototype = new Error();
 HierarchyRequestError.prototype.name = 'HierarchyRequestError';
@@ -53,7 +53,7 @@ function removeNode(child) {
 }
 
 /** @ignore */
-function setRoot(node, i) {
+function setRoot(node) {
     var oldRoot = node.root,
         newRoot = node.parent ? node.parent.root : null;
     if (oldRoot && node.onRemoved) node.onRemoved(oldRoot);

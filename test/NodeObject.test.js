@@ -1,10 +1,10 @@
 describe('NodeObject', function () {
-    "use strict";
+    'use strict';
 
-    var assert = require('assert');
-    var nodes = require('../');
-    var NodeObject = nodes.NodeObject;
-    var root, root2,
+    var assert = require('assert'),
+        nodes = require('../src/index'),
+        root,
+        root2,
         blankNode = {
             childCount: 0,
             firstChild: null,
@@ -20,22 +20,22 @@ describe('NodeObject', function () {
         root2 = nodes.createRoot();
     }
 
-    it("has correct property values after creation.", function () {
+    it('has correct property values after creation.', function () {
         assert.deepEqual(nodes.create(), blankNode);
     });
 
-    describe("after create", function () {
+    describe('after create', function () {
         beforeEach(setup);
 
-        it("we have an instance.", function () {
+        it('we have an instance.', function () {
             assert.deepEqual(root.create(), blankNode);
         });
     });
 
-    describe("after append", function () {
+    describe('after append', function () {
         beforeEach(setup);
 
-        it("1 level and 1 node works.", function () {
+        it('1 level and 1 node works.', function () {
             var n1 = root.append({});
 
             assert.strictEqual(root.childCount, 1);
@@ -48,7 +48,7 @@ describe('NodeObject', function () {
             assert.strictEqual(n1.previousSibling, undefined);
         });
 
-        it("3 levels and 1 node each works.", function () {
+        it('3 levels and 1 node each works.', function () {
             var n1 = root.append(nodes.create());
             var n2 = n1.append(nodes.create());
             var n3 = n2.append(nodes.create());
@@ -71,7 +71,7 @@ describe('NodeObject', function () {
             assert.strictEqual(n3.root, root);
         });
 
-        it("1 level and 2 nodes work.", function () {
+        it('1 level and 2 nodes work.', function () {
             var n1 = root.append({});
             var n2 = root.append({});
 
@@ -90,7 +90,7 @@ describe('NodeObject', function () {
             assert.strictEqual(n2.previousSibling, n1);
         });
 
-        it("1 level and 3 nodes work.", function () {
+        it('1 level and 3 nodes work.', function () {
             var n1 = root.append({});
             var n2 = root.append({});
             var n3 = root.append({});
@@ -115,7 +115,7 @@ describe('NodeObject', function () {
             assert.strictEqual(n3.previousSibling, n2);
         });
 
-        it("moves tree.", function () {
+        it('moves tree.', function () {
             var n1 = root.append({});
             var n2 = root2.append({});
 
@@ -159,10 +159,10 @@ describe('NodeObject', function () {
         });
     });
 
-    describe("after appendTo", function () {
+    describe('after appendTo', function () {
         beforeEach(setup);
 
-        it("1 level and 1 node works.", function () {
+        it('1 level and 1 node works.', function () {
             var n1 = nodes.create().appendTo(root);
 
             assert.strictEqual(root.childCount, 1);
@@ -175,7 +175,7 @@ describe('NodeObject', function () {
             assert.strictEqual(n1.previousSibling, null);
         });
 
-        it("works with generic Objects.", function () {
+        it('works with generic Objects.', function () {
             var obj = root.append({});
             var n1 = nodes.create().appendTo(obj);
 
@@ -190,10 +190,10 @@ describe('NodeObject', function () {
         });
     });
 
-    describe("after prepend", function () {
+    describe('after prepend', function () {
         beforeEach(setup);
 
-        it("1 level and 1 node works.", function () {
+        it('1 level and 1 node works.', function () {
             var n1 = root.prepend({});
 
             assert.strictEqual(root.childCount, 1);
@@ -206,7 +206,7 @@ describe('NodeObject', function () {
             assert.strictEqual(n1.previousSibling, undefined);
         });
 
-        it("3 levels and 1 node each works.", function () {
+        it('3 levels and 1 node each works.', function () {
             var n1 = root.prepend(nodes.create());
             var n2 = n1.prepend(nodes.create());
             var n3 = n2.prepend(nodes.create());
@@ -229,7 +229,7 @@ describe('NodeObject', function () {
             assert.strictEqual(n3.root, root);
         });
 
-        it("1 level and 2 nodes work.", function () {
+        it('1 level and 2 nodes work.', function () {
             var n1 = root.prepend({});
             var n2 = root.prepend({});
 
@@ -248,7 +248,7 @@ describe('NodeObject', function () {
             assert.strictEqual(n2.previousSibling, undefined);
         });
 
-        it("1 level and 3 nodes work.", function () {
+        it('1 level and 3 nodes work.', function () {
             var n1 = root.prepend({});
             var n2 = root.prepend({});
             var n3 = root.prepend({});
@@ -273,7 +273,7 @@ describe('NodeObject', function () {
             assert.strictEqual(n3.previousSibling, undefined);
         });
 
-        it("moves tree.", function () {
+        it('moves tree.', function () {
             var n1 = root.prepend({});
             var n2 = root2.prepend({});
 
@@ -317,10 +317,10 @@ describe('NodeObject', function () {
         });
     });
 
-    describe("after prependTo", function () {
+    describe('after prependTo', function () {
         beforeEach(setup);
 
-        it("1 level and 1 node works.", function () {
+        it('1 level and 1 node works.', function () {
             var n1 = nodes.create().prependTo(root);
 
             assert.strictEqual(root.childCount, 1);
@@ -333,7 +333,7 @@ describe('NodeObject', function () {
             assert.strictEqual(n1.previousSibling, null);
         });
 
-        it("works with generic Objects.", function () {
+        it('works with generic Objects.', function () {
             var obj = root.prepend({});
             var n1 = nodes.create().prependTo(obj);
 
@@ -348,10 +348,10 @@ describe('NodeObject', function () {
         });
     });
 
-    describe("after insertAfter", function () {
+    describe('after insertAfter', function () {
         beforeEach(setup);
 
-        it("works with 1 previous child.", function () {
+        it('works with 1 previous child.', function () {
             var n1 = root.append({});
             var n2 = root.insertAfter(n1, {});
 
@@ -370,7 +370,7 @@ describe('NodeObject', function () {
             assert.strictEqual(n2.previousSibling, n1);
         });
 
-        it("works with 2 previous children.", function () {
+        it('works with 2 previous children.', function () {
             var n1 = root.append({});
             var n2 = root.append({});
             var n3 = root.insertAfter(n1, {});
@@ -395,7 +395,7 @@ describe('NodeObject', function () {
             assert.strictEqual(n3.previousSibling, n1);
         });
 
-        it("works with 3 previous children.", function () {
+        it('works with 3 previous children.', function () {
             var n1 = root.append({});
             var n2 = root.append({});
             var n3 = root.append({});
@@ -426,7 +426,7 @@ describe('NodeObject', function () {
             assert.strictEqual(n4.previousSibling, n2);
         });
 
-        it("moves tree.", function () {
+        it('moves tree.', function () {
             var n1 = root.append({});
             var n2 = root2.append({});
 
@@ -452,10 +452,10 @@ describe('NodeObject', function () {
         });
     });
 
-    describe("after insertBefore", function () {
+    describe('after insertBefore', function () {
         beforeEach(setup);
 
-        it("with 1 argument.", function () {
+        it('with 1 argument.', function () {
             var n1 = root.append({});
             var n2 = nodes.create().insertBefore(n1);
 
@@ -474,7 +474,7 @@ describe('NodeObject', function () {
             assert.strictEqual(n2.previousSibling, undefined);
         });
 
-        it("works with 1 previous child.", function () {
+        it('works with 1 previous child.', function () {
             var n1 = root.append({});
             var n2 = root.insertBefore(n1, {});
 
@@ -493,7 +493,7 @@ describe('NodeObject', function () {
             assert.strictEqual(n2.previousSibling, undefined);
         });
 
-        it("works with 2 previous children.", function () {
+        it('works with 2 previous children.', function () {
             var n1 = root.append({});
             var n2 = root.append({});
             var n3 = root.insertBefore(n2, {});
@@ -518,7 +518,7 @@ describe('NodeObject', function () {
             assert.strictEqual(n3.previousSibling, n1);
         });
 
-        it("works with 3 previous children.", function () {
+        it('works with 3 previous children.', function () {
             var n1 = root.append({});
             var n2 = root.append({});
             var n3 = root.append({});
@@ -549,7 +549,7 @@ describe('NodeObject', function () {
             assert.strictEqual(n4.previousSibling, n2);
         });
 
-        it("moves tree.", function () {
+        it('moves tree.', function () {
             var n1 = root.append({});
             var n2 = root2.append({});
 
@@ -575,10 +575,10 @@ describe('NodeObject', function () {
         });
     });
 
-    describe("after empty", function () {
+    describe('after empty', function () {
         beforeEach(setup);
 
-        it("children are gone.", function () {
+        it('children are gone.', function () {
             var n1, n2;
 
             root.append({});
@@ -604,7 +604,8 @@ describe('NodeObject', function () {
             assert.strictEqual(n2.previousSibling, null);
         });
 
-        it("children's children remain.", function () {
+        it('children\'s children remain.', function () {
+            /*jshint -W015*/
             var n1, n2, child, subchild1, subchild2;
 
             root.append({});
@@ -646,10 +647,11 @@ describe('NodeObject', function () {
         });
     });
 
-    describe("after empty recursion", function () {
+    describe('after empty recursion', function () {
         beforeEach(setup);
 
-        it("all children are blank.", function () {
+        it('all children are blank.', function () {
+            /*jshint -W015*/
             var n1, n2, child, subchild1, subchild2;
 
             root.append({});
@@ -677,9 +679,9 @@ describe('NodeObject', function () {
         });
     });
 
-    describe("each and eachReverse", function () {
+    describe('each and eachReverse', function () {
 
-        it("single node works.", function () {
+        it('single node works.', function () {
             var arr = [], arrReverse = [];
             nodes.create().each(function (n, i) { arr.push(i); });
             nodes.create().eachReverse(function (n, i) { arrReverse.push(i); });
@@ -687,7 +689,7 @@ describe('NodeObject', function () {
             assert.deepEqual(arrReverse, arr.reverse());
         });
 
-        it("single tree works.", function () {
+        it('single tree works.', function () {
             var arr = [], arrReverse = [], n1 = nodes.create();
             n1.append(nodes.create())
                 .append(nodes.create())
@@ -703,7 +705,7 @@ describe('NodeObject', function () {
             assert.deepEqual(arrReverse, arr.reverse());
         });
 
-        it("multiple trees work.", function () {
+        it('multiple trees work.', function () {
             var arr = [], arr2 = [], arr3 = [],
                 arrReverse = [], arrReverse2 = [], arrReverse3 = [],
                 n1 = nodes.create(),
@@ -740,7 +742,7 @@ describe('NodeObject', function () {
                     .append(nodes.create())
                     .parent.append(nodes.create())
                         .append(nodes.create())
-                        .parent.append(nodes.create())
+                        .parent.append(nodes.create());
             n2.each(function (n, i) { arr2.push(i); });
             n2.eachReverse(function (n, i) { arrReverse2.push(i); });
 
@@ -758,9 +760,9 @@ describe('NodeObject', function () {
         });
     });
 
-    describe("eachParent", function () {
+    describe('eachParent', function () {
 
-        it("single node works.", function () {
+        it('single node works.', function () {
             var arr = [], n1 = nodes.create();
             n1.eachParent(function (n, i) {
                 arr.push(i);
@@ -768,8 +770,8 @@ describe('NodeObject', function () {
             assert.deepEqual(arr, [0]);
         });
 
-        it("single tree works.", function () {
-            var arr = [], n1 = nodes.create(), child = nodes.create();
+        it('single tree works.', function () {
+            var arr = [], child = nodes.create();
             root.append(nodes.create())
                 .append(nodes.create())
                     .append(nodes.create())
@@ -783,7 +785,7 @@ describe('NodeObject', function () {
             assert.deepEqual(arr, [7,6,5,4,3,2,1,0]);
         });
 
-        it("multiple trees work.", function () {
+        it('multiple trees work.', function () {
             var arr = [], arr2 = [], arr3 = [],
                 n1 = nodes.create(),
                 child = nodes.create(),
@@ -824,10 +826,11 @@ describe('NodeObject', function () {
         });
     });
 
-    describe("after destroy", function () {
+    describe('after destroy', function () {
         beforeEach(setup);
 
-        it("child is blank.", function () {
+        it('child is blank.', function () {
+            /*jshint -W015*/
             var n1, n2, n3, child, subchild, subchild2, subsubchild;
 
             n1 = root.append({});
@@ -883,10 +886,11 @@ describe('NodeObject', function () {
         });
     });
 
-    describe("after destroy recursion", function () {
+    describe('after destroy recursion', function () {
         beforeEach(setup);
 
-        it("all children are blank.", function () {
+        it('all children are blank.', function () {
+            /*jshint -W015*/
             var n1, n2, n3, child, subchild, subchild2, subsubchild;
 
             n1 = root.append({});
@@ -895,7 +899,7 @@ describe('NodeObject', function () {
             root.append({});
             n2 = root.append({});
                 child = nodes.create(n2);
-                    subchild = child.append({})
+                    subchild = child.append({});
                     subchild2 = nodes.create(child);
                         subsubchild = subchild2.append({});
             n3 = root.append({});
@@ -913,10 +917,10 @@ describe('NodeObject', function () {
         });
     });
 
-    describe("after swap", function () {
+    describe('after swap', function () {
         beforeEach(setup);
 
-        it("with first child.", function () {
+        it('with first child.', function () {
             var first = root.append({});
             var last = root.append({});
             var n1 = nodes.create();
@@ -935,7 +939,7 @@ describe('NodeObject', function () {
             assert.strictEqual(n1.nextSibling, last);
         });
 
-        it("with last child.", function () {
+        it('with last child.', function () {
             var first = root.append({});
             var last = root.append({});
             var n1 = nodes.create();
@@ -954,7 +958,7 @@ describe('NodeObject', function () {
             assert.strictEqual(n1.previousSibling, first);
         });
 
-        it("between two siblings.", function () {
+        it('between two siblings.', function () {
             var n1 = root.append({});
             var n2 = root.append({});
             var n3 = root.append({});
@@ -973,7 +977,7 @@ describe('NodeObject', function () {
             assert.strictEqual(nOut.nextSibling, n3);
         });
 
-        it("node in and node out of tree.", function () {
+        it('node in and node out of tree.', function () {
             var nIn = root.append({});
             var nOut = nodes.create();
             nOut.swap(nIn);
@@ -988,7 +992,7 @@ describe('NodeObject', function () {
             assert.strictEqual(nOut.root, root);
         });
 
-        it("from tree to tree.", function () {
+        it('from tree to tree.', function () {
             var n1 = root.append({});
             var n2 = root2.append({});
             nodes.swap(n1, n2);
@@ -1011,39 +1015,39 @@ describe('NodeObject', function () {
     describe('throws TypeError when', function() {
         beforeEach(setup);
 
-        it("appendTo nothing.", function () {
+        it('appendTo nothing.', function () {
             assert.throws(function () { root.appendTo(); }, TypeError);
         });
 
-        it("each nothing.", function () {
+        it('each nothing.', function () {
             assert.throws(function () { root.each(); }, TypeError);
         });
 
-        it("eachParent nothing.", function () {
+        it('eachParent nothing.', function () {
             assert.throws(function () { root.eachParent(); }, TypeError);
         });
 
-        it("eachReverse nothing.", function () {
+        it('eachReverse nothing.', function () {
             assert.throws(function () { root.eachReverse(); }, TypeError);
         });
 
-        it("insertAfter nothing.", function () {
+        it('insertAfter nothing.', function () {
             assert.throws(function () { root.insertAfter(); }, TypeError);
         });
 
-        it("insertBefore nothing.", function () {
+        it('insertBefore nothing.', function () {
             assert.throws(function () { root.insertBefore(); }, TypeError);
         });
 
-        it("prependTo nothing.", function () {
+        it('prependTo nothing.', function () {
             assert.throws(function () { root.prependTo(); }, TypeError);
         });
 
-        it("remove without parent.", function () {
+        it('remove without parent.', function () {
             assert.throws(function () { nodes.create().remove(); }, TypeError);
         });
 
-        it("swap nothing.", function () {
+        it('swap nothing.', function () {
             assert.throws(function () { root.swap(); }, TypeError);
         });
     });
@@ -1051,48 +1055,48 @@ describe('NodeObject', function () {
     describe('throws nodes.HierarchyRequestError when', function() {
         beforeEach(setup);
 
-        it("append nothing.", function () {
+        it('append nothing.', function () {
             assert.throws(function () { root.append(); }, nodes.HierarchyRequestError);
         });
 
-        it("append self.", function () {
+        it('append self.', function () {
             assert.throws(function () { root.append(root); }, nodes.HierarchyRequestError);
         });
 
-        it("appendTo self.", function () {
+        it('appendTo self.', function () {
             assert.throws(function () { root.appendTo(root); }, nodes.HierarchyRequestError);
         });
 
-        it("prepend nothing.", function () {
+        it('prepend nothing.', function () {
             assert.throws(function () { root.prepend(); }, nodes.HierarchyRequestError);
         });
 
-        it("prepend self.", function () {
+        it('prepend self.', function () {
             assert.throws(function () { root.prepend(root); }, nodes.HierarchyRequestError);
         });
 
-        it("prependTo self.", function () {
+        it('prependTo self.', function () {
             assert.throws(function () { root.prependTo(root); }, nodes.HierarchyRequestError);
         });
 
-        it("insertAfter no sibling.parent.", function () {
+        it('insertAfter no sibling.parent.', function () {
             assert.throws(function () { nodes.create().insertAfter(nodes.create()); }, nodes.HierarchyRequestError);
         });
 
-        it("insertAfter sibling.parent is self.", function () {
+        it('insertAfter sibling.parent is self.', function () {
             assert.throws(function () { root.insertAfter(root.append(nodes.create()), root); }, nodes.HierarchyRequestError);
         });
 
-        it("insertBefore no sibling.parent.", function () {
+        it('insertBefore no sibling.parent.', function () {
             assert.throws(function () { nodes.create().insertBefore(nodes.create()); }, nodes.HierarchyRequestError);
         });
 
-        it("insertBefore sibling.parent is self.", function () {
+        it('insertBefore sibling.parent is self.', function () {
             assert.throws(function () { root.insertBefore(root.append(nodes.create()), root); }, nodes.HierarchyRequestError);
         });
     });
 
-    describe("methods are chainable", function () {
+    describe('methods are chainable', function () {
         var n1, n2, n3, n4;
 
         beforeEach(function () {
@@ -1102,55 +1106,55 @@ describe('NodeObject', function () {
             n4 = nodes.create();
         });
 
-        it("append.", function () {
+        it('append.', function () {
             assert.strictEqual(n2, n1.append(n2));
         });
-        it("appendTo.", function () {
+        it('appendTo.', function () {
             assert.strictEqual(n2, n2.appendTo(n1));
         });
-        it("destroy.", function () {
+        it('destroy.', function () {
             assert.strictEqual(n1, n1.destroy());
             assert.strictEqual(n2, nodes.destroy(false, n2));
         });
-        it("each.", function () {
+        it('each.', function () {
             assert.strictEqual(n1, n1.each(function () {}));
             assert.strictEqual(n2, nodes.each(function () {}, n2));
         });
-        it("eachParent.", function () {
+        it('eachParent.', function () {
             assert.strictEqual(n1, n1.eachParent(function () {}));
             assert.strictEqual(n2, nodes.eachParent(function () {}, n2));
         });
-        it("eachReverse.", function () {
+        it('eachReverse.', function () {
             assert.strictEqual(n1, n1.eachReverse(function () {}));
             assert.strictEqual(n2, nodes.eachReverse(function () {}, n2));
         });
-        it("empty.", function () {
+        it('empty.', function () {
             assert.strictEqual(n1, n1.empty());
             assert.strictEqual(n2, nodes.empty(false, n2));
         });
-        it("insertAfter.", function () {
+        it('insertAfter.', function () {
             n1.append(n2);
             assert.strictEqual(n3, n3.insertAfter(n2));
             assert.strictEqual(n4, nodes.insertAfter(n3, n4));
         });
-        it("insertBefore.", function () {
+        it('insertBefore.', function () {
             n1.append(n2);
             assert.strictEqual(n3, n3.insertBefore(n2));
             assert.strictEqual(n4, nodes.insertBefore(n3, n4));
         });
-        it("prepend.", function () {
+        it('prepend.', function () {
             assert.strictEqual(n2, n1.prepend(n2));
         });
-        it("prependTo.", function () {
+        it('prependTo.', function () {
             assert.strictEqual(n2, n2.prependTo(n1));
         });
-        it("remove.", function () {
+        it('remove.', function () {
             n1.append(n2);
             n1.append(n3);
             assert.strictEqual(n2, n2.remove());
             assert.strictEqual(n3, nodes.remove(n3));
         });
-        it("swap.", function () {
+        it('swap.', function () {
             n1.append(n2);
             n1.append(n3);
             n1.append(n4);
