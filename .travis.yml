@@ -4,10 +4,8 @@ env:
   global:
   - secure: CetX10W3SCeTfvyM4c4GutdprDsRWdBgwc1Iw0eFW63Uphep1JYNhqy5oLRkGX7keBCJGmERr32Z5R0N+FWAyzP80qt1Cn4aoxaKvYsFbmW8Mmo5DaPKA0yH4NnnuQLd0kCObgh1ptaG/PMc4HxvgU1T5zkUdd3lwxUZcqd6jPA=
 install:
-- npm install -g grunt-cli istanbul coveralls
-- export DISPLAY=:99.0
-- sh -e /etc/init.d/xvfb start
-- npm install
+- npm i grunt-cli istanbul coveralls -g
+- npm i
 script:
 - grunt jshint
 - istanbul cover grunt mochaTest:source
