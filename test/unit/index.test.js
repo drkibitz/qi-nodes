@@ -1,8 +1,8 @@
+/*global nodes*/
 describe('index', function () {
     'use strict';
 
     var assert = require('assert');
-    var nodes = require('../src/index');
 
     it('has NodeObject member.', function () {
         assert.strictEqual(typeof nodes.NodeObject, 'function');

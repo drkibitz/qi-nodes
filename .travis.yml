@@ -10,7 +10,13 @@ install:
 - npm install
 script:
 - grunt jshint
-- cp ./src/index.js ./index.js
-- istanbul cover grunt mochaTest
+- istanbul cover grunt mochaTest:source
 - cat ./build/coverage/lcov.info | coveralls
-- grunt uglify mochaTest
+- grunt uglify mochaTest:dist
+- cp ./src/index.js ./index.js
+deploy:
+  api_key:
+    secure: iX4IdMDpceD95iXwmboCh94uDam3R3LtYga9zMqtZYcFq+0pCpBxr2AIF2xLltK1i2iOh01Du0Jmkjc1M/j1S1/ZlzqtLXHjrMPAXjjblzkAAZFVyrwfczAh3e5apo6O1ytEUTydyphhvBHMJKv4BkVMd747PZYQNKrhDgy1i6Y=
+  email:
+    secure: T9JxttaJM1tE/3GzprP3s3jKdb1j2DZZBqNYAqvIBhLbnr+jofmuA8yoIEyNvLH/M4/lyWp8msTm6X5M7FClI+9FM3Wu6l20yXWzG35ExZuQzMpq3+uXkvPOrlw2JmptQ0bFhCsOiKP2Ayyh0c5k4Dazr+DF4ILn1M71n3S/xgk=
+  provider: npm

@@ -1,8 +1,9 @@
+/*global nodes*/
 describe('HierarchyRequestError', function () {
     'use strict';
 
-    var assert = require('assert');
-    var HierarchyRequestError = require('../src/index').HierarchyRequestError;
+    var assert = require('assert'),
+        HierarchyRequestError = nodes.HierarchyRequestError;
 
     it('has correct property values after creation.', function () {
         var err = new HierarchyRequestError();

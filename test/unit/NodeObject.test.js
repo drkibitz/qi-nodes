@@ -1,8 +1,8 @@
+/*global nodes*/
 describe('NodeObject', function () {
     'use strict';
 
     var assert = require('assert'),
-        nodes = require('../src/index'),
         root,
         root2,
         blankNode = {

@@ -1,5 +1,4 @@
 instrumentation:
-    root: src/
-
+  root: src/
 reporting:
-    dir: build/coverage
+  dir: build/coverage

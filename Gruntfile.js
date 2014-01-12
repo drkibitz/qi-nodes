@@ -32,13 +32,24 @@ module.exports = function(grunt) {
             }
         },
         mochaTest: {
-            test: { src: ['test/**/*.js'] },
+            source: {
+                src: ['test/unit/**/*.js'],
+                options: {
+                    require: ['test/source']
+                }
+            },
+            dist: {
+                src: ['test/unit/**/*.js'],
+                options: {
+                    require: ['test/dist']
+                }
+            },
             options: {
                 reporter: 'spec'
             }
         },
         uglify: {
-            min: {
+            dist: {
                 files: {
                     'index.js': ['src/index.js']
                 }
@@ -55,6 +66,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-jsdoc');
     grunt.loadNpmTasks('grunt-mocha-test');
 
-    grunt.registerTask('test', ['uglify', 'mochaTest:test']);
-    grunt.registerTask('default', ['jshint', 'test', 'jsdoc']);
+    grunt.registerTask('test', ['jshint', 'uglify', 'mochaTest:dist']);
+    grunt.registerTask('default', ['test', 'jsdoc']);
 };
