@@ -5,19 +5,24 @@ node_js:
 env:
   global:
   - secure: CetX10W3SCeTfvyM4c4GutdprDsRWdBgwc1Iw0eFW63Uphep1JYNhqy5oLRkGX7keBCJGmERr32Z5R0N+FWAyzP80qt1Cn4aoxaKvYsFbmW8Mmo5DaPKA0yH4NnnuQLd0kCObgh1ptaG/PMc4HxvgU1T5zkUdd3lwxUZcqd6jPA=
-before_install:
-- npm i grunt-cli istanbul coveralls -g -q
+install:
+- npm install grunt-cli istanbul coveralls
+- npm install
 cache:
   directories:
   - node_modules
 script:
-- grunt jshint
-- istanbul cover grunt mochaTest:source
-- cat ./build/coverage/lcov.info | coveralls
-- grunt uglify mochaTest:dist
+- ./node_modules/.bin/grunt jshint
+- ./node_modules/.bin/istanbul cover ./node_modules/.bin/grunt mochaTest:source
+- cat ./build/coverage/lcov.info | ./node_modules/.bin/coveralls
+- ./node_modules/.bin/grunt uglify mochaTest:dist
 deploy:
   api_key:
     secure: iX4IdMDpceD95iXwmboCh94uDam3R3LtYga9zMqtZYcFq+0pCpBxr2AIF2xLltK1i2iOh01Du0Jmkjc1M/j1S1/ZlzqtLXHjrMPAXjjblzkAAZFVyrwfczAh3e5apo6O1ytEUTydyphhvBHMJKv4BkVMd747PZYQNKrhDgy1i6Y=
   email:
     secure: T9JxttaJM1tE/3GzprP3s3jKdb1j2DZZBqNYAqvIBhLbnr+jofmuA8yoIEyNvLH/M4/lyWp8msTm6X5M7FClI+9FM3Wu6l20yXWzG35ExZuQzMpq3+uXkvPOrlw2JmptQ0bFhCsOiKP2Ayyh0c5k4Dazr+DF4ILn1M71n3S/xgk=
   provider: npm
+  on:
+    branch: master
+    tags: true
+    node: 0.10
