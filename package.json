@@ -2,11 +2,13 @@
   "author": "Dr. Kibitz <info@drkibitz.com>",
   "bugs": "https://github.com/drkibitz/qi-nodes/issues",
   "devDependencies": {
-    "grunt": "0.4.x",
-    "grunt-contrib-jshint": "0.8.x",
-    "grunt-contrib-uglify": "0.2.x",
-    "grunt-jsdoc": "0.5.x",
-    "grunt-mocha-test": "0.8.x"
+    "gulp": "~3.5.0",
+    "gulp-jshint": "~1.3.4",
+    "gulp-mocha": "~0.4.1",
+    "gulp-uglify": "~0.2.0",
+    "gulp-util": "*",
+    "map-stream": "~0.1.0",
+    "mocha": "*"
   },
   "description": "Base implementation for composite patterns in JavaScript.",
   "files": [
@@ -26,7 +28,7 @@
   "name": "qi-nodes",
   "repository": "https://github.com/drkibitz/qi-nodes",
   "scripts": {
-    "test": "grunt test"
+    "test": "./node_modules/.bin/gulp test"
   },
   "version": "0.0.3"
 }
