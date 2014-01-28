@@ -9,7 +9,7 @@ describe('HierarchyRequestError', function () {
         var err = new HierarchyRequestError();
         assert.strictEqual(err.name, 'HierarchyRequestError');
         assert.deepEqual(err, {
-            message: 'A NodeObject was inserted somewhere it doesn\'t belong.'
+            message: 'A node was inserted somewhere it doesn\'t belong.'
         });
     });
 

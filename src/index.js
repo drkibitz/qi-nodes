@@ -15,7 +15,7 @@
  * @memberof module:qi-nodes
  */
 function HierarchyRequestError(message) {
-    this.message = (message || 'A NodeObject was inserted somewhere it doesn\'t belong.');
+    this.message = (message || 'A node was inserted somewhere it doesn\'t belong.');
 }
 HierarchyRequestError.prototype = new Error();
 HierarchyRequestError.prototype.name = 'HierarchyRequestError';
@@ -69,12 +69,10 @@ function setRoot(node) {
  * When a leaf is removed from a rooted tree, the previous root
  * reference is removed for all objects contained in that leaf.
  * @constructor
- * @param {Object=} parent Optional parent object to append this object to
  * @memberof module:qi-nodes
  */
-function NodeObject(parent) {
+function NodeObject() {
     cleanNode(this);
-    if (parent) this.appendTo(parent);
 }
 
 /**
@@ -156,7 +154,7 @@ proto.appendTo = function appendTo(parent, node) {
     node = node || this;
 
     if (node == parent) {
-        throw new HierarchyRequestError();
+        throw new this.HierarchyRequestError();
 
     // may be a noop
     } else if (node != lastChild) {
@@ -184,7 +182,9 @@ proto.appendTo = function appendTo(parent, node) {
  * @return {module:qi-nodes.NodeObject} created object optionally added to parent
  */
 proto.create = function create(parent) {
-    return new NodeObject(parent);
+    var node = new this.NodeObject();
+    if (parent) this.appendTo(parent, node);
+    return node;
 };
 
 /**
@@ -193,7 +193,7 @@ proto.create = function create(parent) {
  * @return {module:qi-nodes.NodeObject} created rooted object
  */
 proto.createRoot = function createRoot() {
-    var root = new NodeObject();
+    var root = new this.RootObject();
     root.root = root;
     return root;
 };
@@ -322,7 +322,7 @@ proto.insertAfter = function insertAfter(sibling, node) {
     if (node != sibling && node != nextSibling) {
         parent = sibling.parent;
         if (!parent || node == parent) {
-            throw new HierarchyRequestError();
+            throw new this.HierarchyRequestError();
         } else if (node.parent) {
             removeNode(node);
         }
@@ -364,7 +364,7 @@ proto.insertBefore = function insertBefore(sibling, node) {
     if (node != sibling && node != previousSibling) {
         parent = sibling.parent;
         if (!parent || node == parent) {
-            throw new HierarchyRequestError();
+            throw new this.HierarchyRequestError();
         } else if (node.parent) {
             removeNode(node);
         }
@@ -415,7 +415,7 @@ proto.prependTo = function prependTo(parent, node) {
     node = node || this;
 
     if (node == parent) {
-        throw new HierarchyRequestError();
+        throw new this.HierarchyRequestError();
 
     // may be a noop
     } else if (node != firstChild) {
@@ -510,6 +510,6 @@ proto.swap = function swap(node1, node2) {
     return node1;
 };
 
-exports = module.exports = proto.createRoot();
-exports.HierarchyRequestError = HierarchyRequestError;
-exports.NodeObject = NodeObject;
+proto.NodeObject = proto.RootObject = NodeObject;
+proto.HierarchyRequestError = HierarchyRequestError;
+module.exports = proto.createRoot();
