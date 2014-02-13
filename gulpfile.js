@@ -6,14 +6,15 @@ var gulp   = require('gulp'),
     map    = require('map-stream'),
     mocha  = require('gulp-mocha'),
     uglify = require('gulp-uglify'),
-    pkg = require('./package.json'),
+    pkg    = require('./package.json'),
+    date   = new Date(),
     banner = [
         '/**',
         ' * ' + pkg.name + ' ' + pkg.version,
         ' * ' + pkg.homepage,
-        ' * Copyright (c) 2013 Dr. Kibitz, http://drkibitz.com',
+        ' * Copyright (c) 2013-' + date.getFullYear() + ' Dr. Kibitz, http://drkibitz.com',
         ' * ' + pkg.description,
-        ' * built: ' + new Date(),
+        ' * built: ' + date,
         ' */',
         ''
     ].join('\n');
