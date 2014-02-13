@@ -2,11 +2,12 @@
   "author": "Dr. Kibitz <info@drkibitz.com>",
   "bugs": "https://github.com/drkibitz/qi-nodes/issues",
   "devDependencies": {
-    "gulp": "~3.5.0",
-    "gulp-jshint": "~1.3.4",
+    "gulp": "~3.5.2",
+    "gulp-jshint": "~1.4.0",
     "gulp-mocha": "~0.4.1",
-    "gulp-uglify": "~0.2.0",
+    "gulp-uglify": "~0.2.1",
     "gulp-util": "*",
+    "jshint-stylish": "~0.1.5",
     "map-stream": "~0.1.0",
     "mocha": "*"
   },

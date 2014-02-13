@@ -19,9 +19,10 @@ var gulp   = require('gulp'),
     ].join('\n');
 
 gulp.task('jshint', function () {
-    return gulp.src(['gulpfile.js', 'src/**/*.js', 'test/**/*.js'])
+    gulp.src(['gulpfile.js', 'src/**/*.js', 'test/**/*.js'])
         .pipe(jshint('.jshintrc'))
-        .pipe(jshint.reporter('default'));
+        .pipe(jshint.reporter('jshint-stylish'))
+        .pipe(jshint.reporter('fail'));
 });
 
 gulp.task('uglify', function () {
@@ -44,7 +45,7 @@ gulp.task('uglify', function () {
 
 function testTask(requireModule) {
     return function () {
-        return gulp.src('test/unit/**/*.js', {read: false})
+        gulp.src('test/unit/**/*.js', {read: false})
             .pipe(mocha({
                 reporter: 'spec',
                 globals: {
