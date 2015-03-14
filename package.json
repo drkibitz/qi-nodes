@@ -2,13 +2,15 @@
   "author": "Dr. Kibitz <info@drkibitz.com>",
   "bugs": "https://github.com/drkibitz/qi-nodes/issues",
   "devDependencies": {
-    "gulp": "~3.5.2",
-    "gulp-jshint": "~1.4.0",
-    "gulp-mocha": "~0.4.1",
-    "gulp-uglify": "~0.2.1",
+    "coveralls": "*",
+    "gulp": "^3.8.11",
+    "gulp-jshint": "^1.9.2",
+    "gulp-mocha": "^2.0.0",
+    "gulp-uglify": "^1.1.0",
     "gulp-util": "*",
-    "jshint-stylish": "~0.1.5",
-    "map-stream": "~0.1.0",
+    "istanbul": "*",
+    "jshint-stylish": "^1.0.1",
+    "map-stream": "0.0.5",
     "mocha": "*"
   },
   "description": "Base implementation for composite patterns in JavaScript.",
@@ -29,7 +31,10 @@
   "name": "qi-nodes",
   "repository": "https://github.com/drkibitz/qi-nodes",
   "scripts": {
-    "test": "./node_modules/.bin/gulp test"
+    "jshint": "gulp jshint",
+    "test": "istanbul cover gulp test-source",
+    "coveralls": "cat ./build/coverage/lcov.info | coveralls",
+    "test-dist": "gulp test-dist"
   },
   "version": "0.0.4"
 }

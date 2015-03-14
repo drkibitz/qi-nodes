@@ -1,21 +1,20 @@
 language: node_js
 node_js:
 - '0.10'
-- '0.11'
+- '0.12'
 env:
   global:
   - secure: CetX10W3SCeTfvyM4c4GutdprDsRWdBgwc1Iw0eFW63Uphep1JYNhqy5oLRkGX7keBCJGmERr32Z5R0N+FWAyzP80qt1Cn4aoxaKvYsFbmW8Mmo5DaPKA0yH4NnnuQLd0kCObgh1ptaG/PMc4HxvgU1T5zkUdd3lwxUZcqd6jPA=
 install:
-- npm install istanbul coveralls
 - npm install
 cache:
   directories:
   - node_modules
 script:
-- ./node_modules/.bin/gulp jshint
-- ./node_modules/.bin/istanbul cover ./node_modules/.bin/gulp test-source
-- cat ./build/coverage/lcov.info | ./node_modules/.bin/coveralls
-- ./node_modules/.bin/gulp test-dist
+- npm run-script jshint
+- npm test
+- npm run-script coveralls
+- npm run-script test-dist
 deploy:
   api_key:
     secure: iX4IdMDpceD95iXwmboCh94uDam3R3LtYga9zMqtZYcFq+0pCpBxr2AIF2xLltK1i2iOh01Du0Jmkjc1M/j1S1/ZlzqtLXHjrMPAXjjblzkAAZFVyrwfczAh3e5apo6O1ytEUTydyphhvBHMJKv4BkVMd747PZYQNKrhDgy1i6Y=
@@ -25,4 +24,4 @@ deploy:
   on:
     branch: master
     tags: true
-    node: '0.10'
+    node: '0.12'
