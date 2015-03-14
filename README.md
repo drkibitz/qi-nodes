@@ -42,8 +42,6 @@ n4 = nodes.appendTo(root, nodes.create()); // In this case it's the child
 
 // Automatically append a newly created node by passing the parent to the create method.
 n5 = nodes.create(root);
-// Or to the NodeObject constructor
-n6 = new nodes.NodeObject(root);
 
 // > root -> n1, n2, n3, n4, n5, n6
 ```
@@ -51,7 +49,7 @@ n6 = new nodes.NodeObject(root);
 Use instances of NodeObject to automatically use "this" as the node context. Which means the default value of the last optional argument in methods (With the exception of the create method), will be itself.
 
 ```javascript
-var singleNode = nodes.create(); // new nodes.NodeObject();
+var singleNode = nodes.create();
 n3 = singleNode.swap(n3);
 // root -> n1, n2, singleNode, n4, n5, n6
 ```
@@ -67,6 +65,34 @@ var root2 = nodes.createRoot(),
 
 n2_3 = nodes.swap(n2_3, n2_1);
 // root2 -> n2_3 -> n2_2 -> n2_1
+```
+
+Create a class that extends NodeObject as normal.
+
+```javascript
+function MyNodeExtended() {}
+MyNodeExtended.prototype = Object.create(nodes.NodeObject.prototype, {
+	constructor: {value: MyNodeExtended}
+});
+
+var root = MyNodeExtended.prototype.createRoot();
+var node = root.create(root);
+
+console.log(root instanceof MyNodeExtended); // true
+console.log(node instanceof MyNodeExtended); // true
+```
+
+Assign (mixin) the NodeObject prototype.
+
+```javascript
+function MyNodeAssigned() {}
+Object.assign(MyNodeAssigned.prototype, nodes.NodeObject.prototype);
+
+var root = MyNodeAssigned.prototype.createRoot();
+var node = root.create(root);
+
+console.log(root instanceof MyNodeAssigned); // true
+console.log(node instanceof MyNodeAssigned); // true
 ```
 
 Swap nodes from one tree to another.

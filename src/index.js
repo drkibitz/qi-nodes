@@ -28,9 +28,11 @@ function cleanNode(n) {
 
 /** @ignore */
 function removeNode(child) {
-    var parent = child.parent,
-        nextSibling = child.nextSibling,
-        previousSibling = child.previousSibling;
+    var parent, nextSibling, previousSibling;
+
+    parent = child.parent;
+    nextSibling = child.nextSibling;
+    previousSibling = child.previousSibling;
 
     // allow possible TypeError here
     // also allow this to be NaN, childCount should be set at this point
@@ -54,10 +56,17 @@ function removeNode(child) {
 
 /** @ignore */
 function setRoot(node) {
-    var oldRoot = node.root,
-        newRoot = node.parent ? node.parent.root : null;
-    if (oldRoot && node.onRemoved) node.onRemoved(oldRoot);
-    if (newRoot && node.onInserted) node.onInserted(newRoot);
+    var oldRoot, newRoot;
+
+    oldRoot = node.root;
+    newRoot = node.parent ? node.parent.root : null;
+
+    if (oldRoot && node.onRemoved) {
+        node.onRemoved(oldRoot);
+    }
+    if (newRoot && node.onInserted) {
+        node.onInserted(newRoot);
+    }
     node.root = newRoot;
 }
 
@@ -72,10 +81,7 @@ function setRoot(node) {
  * @param {Object=} parent Optional parent object to append this object to
  * @memberof module:qi-nodes
  */
-function NodeObject(parent) {
-    cleanNode(this);
-    if (parent) this.appendTo(parent);
-}
+function NodeObject() {}
 
 /**
  * Number of children in this object.
@@ -127,7 +133,9 @@ function NodeObject(parent) {
  */
 
 /** @alias module:qi-nodes.NodeObject# */
-var proto = NodeObject.prototype;
+var NodeObjectPrototype = NodeObject.prototype;
+
+cleanNode(NodeObjectPrototype);
 
 /**
  * Add the specified object as the {@link module:qi-nodes.NodeObject#lastChild} of the parent object.
@@ -137,7 +145,7 @@ var proto = NodeObject.prototype;
  * @return {Object} The object added
  * @throws {module:qi-nodes.HierarchyRequestError}
  */
-proto.append = function append(node, parent) {
+NodeObjectPrototype.append = function append(node, parent) {
     // allow possible TypeError or HierarchyRequestError here
     return this.appendTo(parent || this, node);
 };
@@ -150,17 +158,21 @@ proto.append = function append(node, parent) {
  * @return {Object} The object added
  * @throws {module:qi-nodes.HierarchyRequestError}
  */
-proto.appendTo = function appendTo(parent, node) {
+NodeObjectPrototype.appendTo = function appendTo(parent, node) {
+    var lastChild, count;
+
     // allow possible TypeError here
-    var lastChild = parent.lastChild, count;
-    node = node || this;
+    lastChild = parent.lastChild;
+    node = node || this; // optional
 
     if (node == parent) {
         throw new HierarchyRequestError();
 
     // may be a noop
     } else if (node != lastChild) {
-        if (node.parent) removeNode(node);
+        if (node.parent) {
+            removeNode(node);
+        }
         node.parent = parent;
         count = parent.childCount | 0;
         parent.childCount = count + 1;
@@ -170,21 +182,31 @@ proto.appendTo = function appendTo(parent, node) {
             lastChild.nextSibling = node;
         }
         parent.lastChild = node;
-        if (!parent.firstChild) parent.firstChild = node;
+        if (!parent.firstChild) {
+            parent.firstChild = node;
+        }
 
         // maybe set root on all leaves
-        if (node.root != parent.root) this.each(setRoot, node);
+        if (node.root != parent.root) {
+            this.each(setRoot, node);
+        }
     }
     return node;
 };
 
 /**
- * Helper factory method.
+ * Factory method that creates objects from this.constructor.prototype.
  * @param {Object=} parent Optional parent object to append this object to
- * @return {module:qi-nodes.NodeObject} created object optionally added to parent
+ * @return {*} Instance of this.constructor.prototype optionally added to parent
  */
-proto.create = function create(parent) {
-    return new NodeObject(parent);
+NodeObjectPrototype.create = function create(parent) {
+    var node = new this.constructor();
+    // cleanNode(node); // maybe
+
+    if (parent) {
+        node.appendTo(parent);
+    }
+    return node;
 };
 
 /**
@@ -192,10 +214,10 @@ proto.create = function create(parent) {
  * This means that it's root property is a reference to itself.
  * @return {module:qi-nodes.NodeObject} created rooted object
  */
-proto.createRoot = function createRoot() {
-    var root = new NodeObject();
-    root.root = root;
-    return root;
+NodeObjectPrototype.createRoot = function createRoot() {
+    var node = this.create();
+    node.root = node;
+    return node;
 };
 
 /**
@@ -206,15 +228,19 @@ proto.createRoot = function createRoot() {
  * @param {Object=} node The object to destroy, **defaults to this object**
  * @return {Object} The object destroyed
  */
-proto.destroy = function destroy(recursive, node) {
-    node = node || this;
+NodeObjectPrototype.destroy = function destroy(recursive, node) {
+    node = node || this; // optional
     if (recursive) {
         // clears all properties from leaves to and including node
         this.eachReverse(cleanNode, node);
     } else {
         node.root = null; // clear root
-        if (node.parent) removeNode(node);
-        if (node.firstChild) this.empty(recursive, node);
+        if (node.parent) {
+            removeNode(node);
+        }
+        if (node.firstChild) {
+            this.empty(recursive, node);
+        }
     }
     return node;
 };
@@ -225,9 +251,9 @@ proto.destroy = function destroy(recursive, node) {
  * @param {Object=} node The starting object, **defaults to this object**
  * @return {Object} The starting object
  */
-proto.each = function each(fn, node, i) {
+NodeObjectPrototype.each = function each(fn, node, i) {
     var child, next;
-    node = node || this;
+    node = node || this; // optional
     i = i | 0;
     child = node.firstChild;
     fn(node, i);
@@ -245,10 +271,12 @@ proto.each = function each(fn, node, i) {
  * @param {Object=} node The starting object, **defaults to this object**
  * @return {Object} The starting object
  */
-proto.eachParent = function eachParent(fn, node, i) {
-    node = node || this;
+NodeObjectPrototype.eachParent = function eachParent(fn, node, i) {
+    node = node || this; // optional
     i = i | 0;
-    if (node.parent) eachParent(fn, node.parent, i + 1);
+    if (node.parent) {
+        eachParent(fn, node.parent, i + 1);
+    }
     fn(node, i);
     return node;
 };
@@ -259,9 +287,9 @@ proto.eachParent = function eachParent(fn, node, i) {
  * @param {Object=} node The starting object, **defaults to this object**
  * @return {Object} The starting object
  */
-proto.eachReverse = function eachReverse(fn, node, i) {
+NodeObjectPrototype.eachReverse = function eachReverse(fn, node, i) {
     var child, prev;
-    node = node || this;
+    node = node || this; // optional
     i = i | 0;
     child = node.lastChild;
     while (child) {
@@ -279,9 +307,9 @@ proto.eachReverse = function eachReverse(fn, node, i) {
  * @param {Object=} node The object to empty, **defaults to this object**
  * @return {Object} The object emptied
  */
-proto.empty = function empty(recursive, node) {
+NodeObjectPrototype.empty = function empty(recursive, node) {
     var child, next;
-    node = node || this;
+    node = node || this; // optional
     child = node.firstChild;
 
     // The recersion of cleanNode does not touch these properties
@@ -313,9 +341,11 @@ proto.empty = function empty(recursive, node) {
  * @return {Object} The object added
  * @throws {module:qi-nodes.HierarchyRequestError}
  */
-proto.insertAfter = function insertAfter(sibling, node) {
+NodeObjectPrototype.insertAfter = function insertAfter(sibling, node) {
+    var nextSibling, parent, count;
+
     // allow possible TypeError here
-    var nextSibling = sibling.nextSibling, parent, count;
+    nextSibling = sibling.nextSibling;
     node = node || this; // optional
 
     // may be a noop
@@ -355,9 +385,11 @@ proto.insertAfter = function insertAfter(sibling, node) {
  * @return {Object} The object added
  * @throws {module:qi-nodes.HierarchyRequestError}
  */
-proto.insertBefore = function insertBefore(sibling, node) {
+NodeObjectPrototype.insertBefore = function insertBefore(sibling, node) {
+    var previousSibling, parent, count;
+
     // allow possible TypeError here
-    var previousSibling = sibling.previousSibling, parent, count;
+    previousSibling = sibling.previousSibling;
     node = node || this; // optional
 
     // may be a noop
@@ -383,7 +415,9 @@ proto.insertBefore = function insertBefore(sibling, node) {
         parent.childCount = count + 1;
 
         // maybe set root on all leaves
-        if (node.root != parent.root) this.each(setRoot, node);
+        if (node.root != parent.root) {
+            this.each(setRoot, node);
+        }
     }
     return node;
 };
@@ -396,7 +430,7 @@ proto.insertBefore = function insertBefore(sibling, node) {
  * @return {Object} The object added
  * @throws {module:qi-nodes.HierarchyRequestError}
  */
-proto.prepend = function prepend(node, parent) {
+NodeObjectPrototype.prepend = function prepend(node, parent) {
     // allow possible TypeError or HierarchyRequestError here
     return this.prependTo(parent || this, node);
 };
@@ -409,17 +443,21 @@ proto.prepend = function prepend(node, parent) {
  * @return {Object} The object added
  * @throws {module:qi-nodes.HierarchyRequestError}
  */
-proto.prependTo = function prependTo(parent, node) {
+NodeObjectPrototype.prependTo = function prependTo(parent, node) {
+    var firstChild, count;
+
     // allow possible TypeError here
-    var firstChild = parent.firstChild, count;
-    node = node || this;
+    firstChild = parent.firstChild;
+    node = node || this; // optional
 
     if (node == parent) {
         throw new HierarchyRequestError();
 
     // may be a noop
     } else if (node != firstChild) {
-        if (node.parent) removeNode(node);
+        if (node.parent) {
+            removeNode(node);
+        }
         node.parent = parent;
         count = parent.childCount | 0;
         parent.childCount = count + 1;
@@ -429,10 +467,14 @@ proto.prependTo = function prependTo(parent, node) {
             firstChild.previousSibling = node;
         }
         parent.firstChild = node;
-        if (!parent.lastChild) parent.lastChild = node;
+        if (!parent.lastChild) {
+            parent.lastChild = node;
+        }
 
         // maybe set root on all leaves
-        if (node.root != parent.root) this.each(setRoot, node);
+        if (node.root != parent.root) {
+            this.each(setRoot, node);
+        }
     }
     return node;
 };
@@ -442,7 +484,7 @@ proto.prependTo = function prependTo(parent, node) {
  * @param {Object=} child The object to remove, **defaults to this object**
  * @return {Object} The object removed
  */
-proto.remove = function remove(child) {
+NodeObjectPrototype.remove = function remove(child) {
     // allow possible TypeError
     child = removeNode(child || this); // optional
     // maybe set root on all leaves
@@ -455,10 +497,12 @@ proto.remove = function remove(child) {
  * @param {Object=} node2 The object to swap with node1, **defaults to this object**
  * @return {Object} node1 object
  */
-proto.swap = function swap(node1, node2) {
-    // allow possible TypeError here
-    var next1 = node1.nextSibling, parent1, previous1,
+NodeObjectPrototype.swap = function swap(node1, node2) {
+    var next1, parent1, previous1,
         next2, parent2, previous2;
+
+    // allow possible TypeError here
+    next1 = node1.nextSibling;
     node2 = node2 || this; // optional
 
     // may be a noop
@@ -502,14 +546,16 @@ proto.swap = function swap(node1, node2) {
         }
 
         // maybe set root on all leaves
-        if (node1.root && !parent2 || node1.root != parent2.root)
+        if (node1.root && !parent2 || node1.root != parent2.root) {
             this.each(setRoot, node1);
-        if (node2.root && !parent1 || node2.root != parent1.root)
+        }
+        if (node2.root && !parent1 || node2.root != parent1.root) {
             this.each(setRoot, node2);
+        }
     }
     return node1;
 };
 
-exports = module.exports = proto.createRoot();
+exports = module.exports = NodeObjectPrototype.createRoot();
 exports.HierarchyRequestError = HierarchyRequestError;
 exports.NodeObject = NodeObject;
