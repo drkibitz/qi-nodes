@@ -61,11 +61,11 @@ function setRoot(node) {
     oldRoot = node.root;
     newRoot = node.parent ? node.parent.root : null;
 
-    if (oldRoot && node.onRemoved) {
-        node.onRemoved(oldRoot);
+    if (oldRoot && oldRoot.onNodeRemoved) {
+        oldRoot.onNodeRemoved(node);
     }
-    if (newRoot && node.onInserted) {
-        node.onInserted(newRoot);
+    if (newRoot && newRoot.onNodeInserted) {
+        newRoot.onNodeInserted(node);
     }
     node.root = newRoot;
 }
@@ -188,7 +188,7 @@ NodeObjectPrototype.appendTo = function appendTo(parent, node) {
 
         // maybe set root on all leaves
         if (node.root != parent.root) {
-            this.each(setRoot, node);
+            this.eachChildFrom(setRoot, node);
         }
     }
     return node;
@@ -202,7 +202,6 @@ NodeObjectPrototype.appendTo = function appendTo(parent, node) {
 NodeObjectPrototype.create = function create(parent) {
     var node = new this.constructor();
     // cleanNode(node); // maybe
-
     if (parent) {
         node.appendTo(parent);
     }
@@ -232,7 +231,7 @@ NodeObjectPrototype.destroy = function destroy(recursive, node) {
     node = node || this; // optional
     if (recursive) {
         // clears all properties from leaves to and including node
-        this.eachReverse(cleanNode, node);
+        this.eachChildTo(cleanNode, node);
     } else {
         node.root = null; // clear root
         if (node.parent) {
@@ -249,35 +248,21 @@ NodeObjectPrototype.destroy = function destroy(recursive, node) {
  * Recursively iterate over each object **down** through all it's leaves.
  * @param {Function} fn The function to invoke for each object iterated
  * @param {Object=} node The starting object, **defaults to this object**
+ * @param {Object=} thisObject Callback function context, **defaults to node**
  * @return {Object} The starting object
  */
-NodeObjectPrototype.each = function each(fn, node, i) {
+NodeObjectPrototype.eachChildFrom = function eachChildFrom(fn, node, thisObject, _i) {
     var child, next;
     node = node || this; // optional
-    i = i | 0;
+    thisObject = thisObject || node; // optional
+    _i = _i | 0;
     child = node.firstChild;
-    fn(node, i);
+    fn.call(thisObject, node, _i);
     while (child) {
         next = child.nextSibling;
-        each(fn, child, i + 1);
+        eachChildFrom(fn, child, thisObject, _i + 1);
         child = next;
     }
-    return node;
-};
-
-/**
- * Recursively iterate over each object **up** through all it's parents.
- * @param {Function} fn The function to invoke for each object iterated
- * @param {Object=} node The starting object, **defaults to this object**
- * @return {Object} The starting object
- */
-NodeObjectPrototype.eachParent = function eachParent(fn, node, i) {
-    node = node || this; // optional
-    i = i | 0;
-    if (node.parent) {
-        eachParent(fn, node.parent, i + 1);
-    }
-    fn(node, i);
     return node;
 };
 
@@ -285,19 +270,57 @@ NodeObjectPrototype.eachParent = function eachParent(fn, node, i) {
  * Recursively iterate over each object **up** through all it's leaves.
  * @param {Function} fn The function to invoke for each object iterated
  * @param {Object=} node The starting object, **defaults to this object**
+ * @param {Object=} thisObject Callback function context, **defaults to node**
  * @return {Object} The starting object
  */
-NodeObjectPrototype.eachReverse = function eachReverse(fn, node, i) {
+NodeObjectPrototype.eachChildTo = function eachChildTo(fn, node, thisObject, _i) {
     var child, prev;
     node = node || this; // optional
-    i = i | 0;
+    thisObject = thisObject || node; // optional
+    _i = _i | 0;
     child = node.lastChild;
     while (child) {
         prev = child.previousSibling;
-        eachReverse(fn, child, i + 1);
+        eachChildTo(fn, child, thisObject, _i + 1);
         child = prev;
     }
-    fn(node, i);
+    fn.call(thisObject, node, _i);
+    return node;
+};
+
+/**
+ * Recursively iterate over each object **down** through all it's parents.
+ * @param {Function} fn The function to invoke for each object iterated
+ * @param {Object=} node The starting object, **defaults to this object**
+ * @param {Object=} thisObject Callback function context, **defaults to node**
+ * @return {Object} The starting object
+ */
+NodeObjectPrototype.eachParentTo = function eachParentTo(fn, node, thisObject, _i) {
+    node = node || this; // optional
+    thisObject = thisObject || node; // optional
+    _i = _i | 0;
+    if (node.parent) {
+        eachParentTo(fn, node.parent, thisObject, _i + 1);
+    }
+    fn.call(thisObject, node, _i);
+    return node;
+};
+
+/**
+ * Recursively iterate over each object **up** through all it's parents.
+ * @param {Function} fn The function to invoke for each object iterated
+ * @param {Object=} node The starting object, **defaults to this object**
+ * @param {Object=} thisObject Callback function context, **defaults to node**
+ * @return {Object} The starting object
+ */
+NodeObjectPrototype.eachParentFrom = function eachParentFrom(fn, node, thisObject, _i) {
+    node = node || this; // optional
+    thisObject = thisObject || node; // optional
+    _i = _i | 0;
+    fn.call(thisObject, node, _i);
+    if (node.parent) {
+        eachParentFrom(fn, node.parent, thisObject, _i + 1);
+    }
     return node;
 };
 
@@ -322,7 +345,7 @@ NodeObjectPrototype.empty = function empty(recursive, node) {
         next = child.nextSibling;
         if (recursive) {
             // clears all properties from leaves to and including child
-            this.eachReverse(cleanNode, child);
+            this.eachChildTo(cleanNode, child);
         } else {
             // might change root on all leaves
             this.remove(child);
@@ -371,7 +394,9 @@ NodeObjectPrototype.insertAfter = function insertAfter(sibling, node) {
         parent.childCount = count + 1;
 
         // maybe set root on all leaves
-        if (node.root != parent.root) this.each(setRoot, node);
+        if (node.root != parent.root) {
+            this.eachChildFrom(setRoot, node);
+        }
     }
     return node;
 };
@@ -416,7 +441,7 @@ NodeObjectPrototype.insertBefore = function insertBefore(sibling, node) {
 
         // maybe set root on all leaves
         if (node.root != parent.root) {
-            this.each(setRoot, node);
+            this.eachChildFrom(setRoot, node);
         }
     }
     return node;
@@ -473,7 +498,7 @@ NodeObjectPrototype.prependTo = function prependTo(parent, node) {
 
         // maybe set root on all leaves
         if (node.root != parent.root) {
-            this.each(setRoot, node);
+            this.eachChildFrom(setRoot, node);
         }
     }
     return node;
@@ -488,7 +513,7 @@ NodeObjectPrototype.remove = function remove(child) {
     // allow possible TypeError
     child = removeNode(child || this); // optional
     // maybe set root on all leaves
-    return child.root ? this.each(setRoot, child) : child;
+    return child.root ? this.eachChildFrom(setRoot, child) : child;
 };
 
 /**
@@ -547,10 +572,10 @@ NodeObjectPrototype.swap = function swap(node1, node2) {
 
         // maybe set root on all leaves
         if (node1.root && !parent2 || node1.root != parent2.root) {
-            this.each(setRoot, node1);
+            this.eachChildFrom(setRoot, node1);
         }
         if (node2.root && !parent1 || node2.root != parent1.root) {
-            this.each(setRoot, node2);
+            this.eachChildFrom(setRoot, node2);
         }
     }
     return node1;
