@@ -1,7 +1,4 @@
-[![Build Status](https://travis-ci.org/drkibitz/qi-nodes.svg?branch=master)](https://travis-ci.org/drkibitz/qi-nodes?branch=master)
-[![Coverage Status](https://coveralls.io/repos/drkibitz/qi-nodes/badge.svg?branch=master)](https://coveralls.io/r/drkibitz/qi-nodes?branch=master)
-[![npm version](https://badge.fury.io/js/qi-nodes.svg)](http://badge.fury.io/js/qi-nodes)
-[![devDependency Status](https://david-dm.org/drkibitz/qi-nodes/dev-status.svg)](https://david-dm.org/drkibitz/qi-nodes#info=devDependencies)
+[![Version npm](https://img.shields.io/npm/v/qi-nodes.svg?style=flat-square)](https://www.npmjs.com/package/qi-nodes)[![Build Status](https://img.shields.io/travis/drkibitz/qi-nodes/master.svg?style=flat-square)](https://travis-ci.org/drkibitz/qi-nodes)[![Dependencies](https://img.shields.io/david/dev/drkibitz/qi-nodes.svg?style=flat-square)](https://david-dm.org/drkibitz/qi-nodes#info=devDependencies)[![Coverage Status](https://img.shields.io/coveralls/drkibitz/qi-nodes/master.svg?style=flat-square)](https://coveralls.io/r/drkibitz/qi-nodes?branch=master)[![API Documentation](https://img.shields.io/badge/API-Documentation-0099dd.svg?style=flat-square)](https://drkibitz.github.io/qi-nodes/api/latest/)
 
 # Qi Nodes
 

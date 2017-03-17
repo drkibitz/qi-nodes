@@ -3,14 +3,15 @@
   "bugs": "https://github.com/drkibitz/qi-nodes/issues",
   "devDependencies": {
     "coveralls": "*",
-    "gulp": "^3.8.11",
-    "gulp-jshint": "^1.9.2",
-    "gulp-mocha": "^2.0.0",
-    "gulp-uglify": "^1.1.0",
-    "gulp-util": "*",
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-uglify": "^2.1.0",
+    "ink-docstrap": "^1.3.0",
     "istanbul": "*",
-    "jshint-stylish": "^1.0.1",
-    "map-stream": "0.0.5",
+    "jsdoc": "^3.4.3",
+    "jshint": "*",
+    "jshint-stylish": "^2.2.1",
+    "map-stream": "0.0.6",
     "mocha": "*"
   },
   "description": "Base implementation for composite patterns in JavaScript.",
@@ -32,9 +33,10 @@
   "repository": "https://github.com/drkibitz/qi-nodes",
   "scripts": {
     "jshint": "gulp jshint",
-    "test": "istanbul cover gulp test-source",
+    "test": "istanbul cover _mocha --require './test/source' test/**/*.test.js",
     "coveralls": "cat ./build/coverage/lcov.info | coveralls",
-    "test-dist": "gulp test-dist"
+    "test-dist": "gulp && mocha --require './test/dist' test/**/*.test.js",
+    "docs": "jsdoc -c jsdoc.conf.json && git checkout gh-pages && rm -fR ./api && mkdir ./api && mv ./docs/*/* ./api/latest && rm -fR ./docs"
   },
-  "version": "1.0.0"
+  "version": "1.0.1"
 }
