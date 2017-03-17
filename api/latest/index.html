@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
 	<title>Qi Nodes Index</title>
 
 	<!--[if lt IE 9]>
@@ -10,72 +11,73 @@
 	<![endif]-->
 	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
 
-	
 	<link type="text/css" rel="stylesheet" href="styles/site.spacelab.css">
-	
+
 </head>
 
 <body>
-<div class="container-fluid">
-	<div class="navbar navbar-fixed-top ">
-		<div class="navbar-inner">
-			<a class="brand" href="index.html">Qi Nodes</a>
-			<ul class="nav">
-				
-				<li class="dropdown">
-					<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b
-						class="caret"></b></a>
 
-					<ul class="dropdown-menu ">
-						
-						<li>
-							<a href="module-qi-nodes.html">qi-nodes</a>
-						</li>
-						
-
-					</ul>
-				</li>
-				
-				<li class="dropdown">
-					<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b
-						class="caret"></b></a>
-
-					<ul class="dropdown-menu ">
-						
-						<li>
-							<a href="module-qi-nodes.HierarchyRequestError.html">HierarchyRequestError</a>
-						</li>
-						
-						<li>
-							<a href="module-qi-nodes.NodeObject.html">NodeObject</a>
-						</li>
-						
-
-					</ul>
-				</li>
-				
-			</ul>
-		</div>
+<div class="navbar navbar-default navbar-fixed-top ">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">Qi Nodes</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-qi-nodes.html">qi-nodes</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-qi-nodes.HierarchyRequestError.html">qi-nodes.HierarchyRequestError</a></li><li><a href="module-qi-nodes.NodeObject.html">qi-nodes.NodeObject</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
 	</div>
 
-	<div class="row-fluid">
+</div>
+</div>
 
-		
-		<div class="span8">
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-8">
+	
+		<div id="main">
 			
-				<div id="main">
-					
 
-
-	
-	<span class="page-title">Index</span>
 	
 	
 
 
 
-    <h3>qi-nodes 0.0.3</h3>
-
+    <h3>qi-nodes 1.0.1</h3>
 
 
 
@@ -92,24 +94,19 @@
 
 
 
-    <section>
-        <article><p><a href="https://travis-ci.org/drkibitz/qi-nodes"><img src="https://travis-ci.org/drkibitz/qi-nodes.png?branch=master" alt="Build Status"></a>
-<a href="http://badge.fury.io/js/qi-nodes"><img src="https://badge.fury.io/js/qi-nodes.png" alt="NPM version"></a></p>
-<h1>Qi Nodes</h1>
-<p><a href="http://drkibitz.github.io/qi-nodes/">http://drkibitz.github.io/qi-nodes/</a></p>
+    <section class="readme-section">
+        <article><p><a href="https://www.npmjs.com/package/qi-nodes"><img src="https://img.shields.io/npm/v/qi-nodes.svg?style=flat-square" alt="Version npm"></a><a href="https://travis-ci.org/drkibitz/qi-nodes"><img src="https://img.shields.io/travis/drkibitz/qi-nodes/master.svg?style=flat-square" alt="Build Status"></a><a href="https://david-dm.org/drkibitz/qi-nodes#info=devDependencies"><img src="https://img.shields.io/david/dev/drkibitz/qi-nodes.svg?style=flat-square" alt="Dependencies"></a><a href="https://coveralls.io/r/drkibitz/qi-nodes?branch=master"><img src="https://img.shields.io/coveralls/drkibitz/qi-nodes/master.svg?style=flat-square" alt="Coverage Status"></a><a href="https://drkibitz.github.io/qi-nodes/api/latest/"><img src="https://img.shields.io/badge/API-Documentation-0099dd.svg?style=flat-square" alt="API Documentation"></a></p>
+<h1>Qi Nodes</h1><p>http://drkibitz.github.io/qi-nodes/</p>
 <p>Base implementation for <a href="http://en.wikipedia.org/wiki/Composite_pattern">composite patterns</a> in JavaScript.</p>
-<h2>Usage</h2>
-<p>Any object with its property of &quot;root&quot; set, qualifies as a rooted node. The root property is simply propagated up and down the leaves.</p>
+<h2>Usage</h2><p>Any object with its property of &quot;root&quot; set, qualifies as a rooted node. The root property is simply propagated up and down the leaves.</p>
 <p>The module itself is a rooted NodeObject.</p>
-<pre><code class="lang-javascript">var nodes = require('qi-nodes');
+<pre class="prettyprint source lang-javascript"><code>var nodes = require('qi-nodes');
 console.log(nodes.root === nodes);
-// &gt; true</code></pre>
-<p>The previous fact doesn't limit you from having more rooted trees.</p>
-<pre><code class="lang-javascript">var root = nodes.createRoot();
+// > true</code></pre><p>The previous fact doesn't limit you from having more rooted trees.</p>
+<pre class="prettyprint source lang-javascript"><code>var root = nodes.createRoot();
 console.log(root.root === nodes);
-// &gt; false</code></pre>
-<p>There are many ways to work with the API, but they follow the same pattern.</p>
-<pre><code class="lang-javascript">// pretty straight forward
+// > false</code></pre><p>There are many ways to work with the API, but they follow the same pattern.</p>
+<pre class="prettyprint source lang-javascript"><code>// pretty straight forward
 n1 = root.append(nodes.create());
 n2 = nodes.create().appendTo(root);
 
@@ -119,33 +116,46 @@ n4 = nodes.appendTo(root, nodes.create()); // In this case it's the child
 
 // Automatically append a newly created node by passing the parent to the create method.
 n5 = nodes.create(root);
-// Or to the NodeObject constructor
-n6 = new nodes.NodeObject(root);
 
-// &gt; root -&gt; n1, n2, n3, n4, n5, n6</code></pre>
-<p>Use instances of NodeObject to automatically use &quot;this&quot; as the node context. Which means the default value of the last optional argument in methods (With the exception of the create method), will be itself.</p>
-<pre><code class="lang-javascript">var singleNode = nodes.create(); // new nodes.NodeObject();
+// > root -> n1, n2, n3, n4, n5, n6</code></pre><p>Use instances of NodeObject to automatically use &quot;this&quot; as the node context. Which means the default value of the last optional argument in methods (With the exception of the create method), will be itself.</p>
+<pre class="prettyprint source lang-javascript"><code>var singleNode = nodes.create();
 n3 = singleNode.swap(n3);
-// root -&gt; n1, n2, singleNode, n4, n5, n6</code></pre>
-<p>The API works with generic objects. This is possible because members are simply property based. The only reason to use or extend the NodeObject constructor is if you like that flavor of API.</p>
-<pre><code class="lang-javascript">var root2 = nodes.createRoot(),
+// root -> n1, n2, singleNode, n4, n5, n6</code></pre><p>The API works with generic objects. This is possible because members are simply property based. The only reason to use or extend the NodeObject constructor is if you like that flavor of API.</p>
+<pre class="prettyprint source lang-javascript"><code>var root2 = nodes.createRoot(),
     n2_1 = nodes.append({}, root2),
     n2_2 = nodes.append({}, n2_1),
     n2_3 = nodes.append({}, n2_2);
-// root2 -&gt; n2_1 -&gt; n2_2 -&gt; n2_3
+// root2 -> n2_1 -> n2_2 -> n2_3
 
 n2_3 = nodes.swap(n2_3, n2_1);
-// root2 -&gt; n2_3 -&gt; n2_2 -&gt; n2_1</code></pre>
-<p>Swap nodes from one tree to another.</p>
-<pre><code class="lang-javascript">var root3 = nodes.createRoot();
+// root2 -> n2_3 -> n2_2 -> n2_1</code></pre><p>Create a class that extends NodeObject as normal.</p>
+<pre class="prettyprint source lang-javascript"><code>function MyNodeExtended() {}
+MyNodeExtended.prototype = Object.create(nodes.NodeObject.prototype, {
+    constructor: {value: MyNodeExtended}
+});
+
+var root = MyNodeExtended.prototype.createRoot();
+var node = root.create(root);
+
+console.log(root instanceof MyNodeExtended); // true
+console.log(node instanceof MyNodeExtended); // true</code></pre><p>Assign (mixin) the NodeObject prototype.</p>
+<pre class="prettyprint source lang-javascript"><code>function MyNodeAssigned() {}
+Object.assign(MyNodeAssigned.prototype, nodes.NodeObject.prototype);
+
+var root = MyNodeAssigned.prototype.createRoot();
+var node = root.create(root);
+
+console.log(root instanceof MyNodeAssigned); // true
+console.log(node instanceof MyNodeAssigned); // true</code></pre><p>Swap nodes from one tree to another.</p>
+<pre class="prettyprint source lang-javascript"><code>var root3 = nodes.createRoot();
     n3_1 = nodes.create(root3),
     n3_2 = nodes.create(n3_2),
     n3_3 = nodes.create(n3_3);
-// root3 -&gt; n3_1 -&gt; n3_2 -&gt; n3_3
+// root3 -> n3_1 -> n3_2 -> n3_3
 
 n2_2 = n3_2.swap(n2_2);
-// root2 -&gt; n2_3 -&gt; n3_2 -&gt; n2_1
-// root3 -&gt; n3_1 -&gt; n2_2 -&gt; n3_3</code></pre></article>
+// root2 -> n2_3 -> n3_2 -> n2_1
+// root3 -> n3_1 -> n2_2 -> n3_3</code></pre></article>
     </section>
 
 
@@ -154,61 +164,136 @@ n2_2 = n3_2.swap(n2_2);
 
 
 
-				</div>
-
-				<div class="clearfix"></div>
-				<footer>
-					
-					
-		<span class="copyright">
-		Copyright © 2013 Dr. Kibitz
-		</span>
-					<br />
-					
-		<span class="jsdoc-message">
-		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a>
-		on Mon Sep 09 2013 23:11:57 GMT-0700 (PDT) using the <a href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
-		</span>
-				</footer>
-			</div>
-
-			
-			<div class="span3">
-				<div id="toc"></div>
-			</div>
-			
-			<br clear="both">
 		</div>
-
 	</div>
-	<script src="scripts/sunlight.js"></script>
-	<script src="scripts/sunlight.javascript.js"></script>
-	<script src="scripts/sunlight-plugin.doclinks.js"></script>
-	<script src="scripts/sunlight-plugin.linenumbers.js"></script>
-	<script src="scripts/sunlight-plugin.menu.js"></script>
-	<script src="scripts/jquery.min.js"></script>
-	<script src="scripts/jquery.scrollTo.js"></script>
-	<script src="scripts/jquery.localScroll.js"></script>
-	<script src="scripts/bootstrap-dropdown.js"></script>
-	<script src="scripts/toc.js"></script>
 
-
-	<script>  Sunlight.highlightAll({lineNumbers:false,  showMenu: true, enableDoclinks :true}); </script>
-
-	<script>
-		$( function () {
-			$( "#toc" ).toc( {
-				selectors   : "h1,h2,h3,h4",
-				showAndHide : false,
-				scrollTo    : 60
-			} );
-			$( "#toc>ul" ).addClass( "nav nav-pills nav-stacked" );
-			$( "#main span[id^='toc']" ).addClass( "toc-shim" );
-
-		} );
-	</script>
+	<div class="clearfix"></div>
 
 	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	Copyright © 2013-2017 Dr. Kibitz
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a>
+	
+		on 2017-03-16T23:01:37-07:00
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : false,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
 
 </body>
 </html>

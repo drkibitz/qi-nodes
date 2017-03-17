@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
 	<title>Qi Nodes Class: NodeObject</title>
 
 	<!--[if lt IE 9]>
@@ -10,102 +11,104 @@
 	<![endif]-->
 	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
 
-	
 	<link type="text/css" rel="stylesheet" href="styles/site.spacelab.css">
-	
+
 </head>
 
 <body>
-<div class="container-fluid">
-	<div class="navbar navbar-fixed-top ">
-		<div class="navbar-inner">
-			<a class="brand" href="index.html">Qi Nodes</a>
-			<ul class="nav">
-				
-				<li class="dropdown">
-					<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b
-						class="caret"></b></a>
 
-					<ul class="dropdown-menu ">
-						
-						<li>
-							<a href="module-qi-nodes.html">qi-nodes</a>
-						</li>
-						
-
-					</ul>
-				</li>
-				
-				<li class="dropdown">
-					<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b
-						class="caret"></b></a>
-
-					<ul class="dropdown-menu ">
-						
-						<li>
-							<a href="module-qi-nodes.HierarchyRequestError.html">HierarchyRequestError</a>
-						</li>
-						
-						<li>
-							<a href="module-qi-nodes.NodeObject.html">NodeObject</a>
-						</li>
-						
-
-					</ul>
-				</li>
-				
-			</ul>
-		</div>
+<div class="navbar navbar-default navbar-fixed-top ">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">Qi Nodes</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-qi-nodes.html">qi-nodes</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-qi-nodes.HierarchyRequestError.html">qi-nodes.HierarchyRequestError</a></li><li><a href="module-qi-nodes.NodeObject.html">qi-nodes.NodeObject</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
 	</div>
 
-	<div class="row-fluid">
+</div>
+</div>
 
-		
-		<div class="span8">
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-8">
+	
+		<div id="main">
 			
-				<div id="main">
-					
-
 
 	<h1 class="page-title">Class: NodeObject</h1>
 <section>
 
 <header>
-    <h2>
-        <span class="ancestors"><a href="module-qi-nodes.html">qi-nodes</a>.</span>
     
-    NodeObject
-    </h2>
+        <h2>
+            <span class="ancestors"><a href="module-qi-nodes.html">qi-nodes</a>.</span>
+        
+        NodeObject
+        </h2>
+        
     
 </header>
+
 
 <article>
     <div class="container-overview">
     
-
-    
         
+<hr>
 <dt>
-    <h4 class="name" id="NodeObject"><span class="type-signature"></span>new NodeObject<span class="signature">(<span class="optional">parent</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="NodeObject"><span class="type-signature"></span>new NodeObject( [parent])</h4>
     
     
 </dt>
 <dd>
-    
+
     
     <div class="description">
-        <p>These objects, or types of them, are used in composite patterns.
-Each instance of <a href="module-qi-nodes.NodeObject.html"><code>module:qi-nodes.NodeObject</code></a> is aware of
-it's own position within a tree of objects. If any tree has a root,
-that root is propagated to all leaves of that tree.
-When a leaf is removed from a rooted tree, the previous root
-reference is removed for all objects contained in that leaf.</p>
+        <p>These objects, or types of them, are used in composite patterns.<br>Each instance of <a href="module-qi-nodes.NodeObject.html"><code>module:qi-nodes.NodeObject</code></a> is aware of<br>it's own position within a tree of objects. If any tree has a root,<br>that root is propagated to all leaves of that tree.<br>When a leaf is removed from a rooted tree, the previous root<br>reference is removed for all objects contained in that leaf.</p>
     </div>
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -113,25 +116,25 @@ reference is removed for all objects contained in that leaf.</p>
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
-		<th>Argument</th>
-		
+        
+        <th>Argument</th>
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -142,6 +145,7 @@ reference is removed for all objects contained in that leaf.</p>
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -164,17 +168,21 @@ reference is removed for all objects contained in that leaf.</p>
             <td class="description last"><p>Optional parent object to append this object to</p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
-    
+
     
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -184,37 +192,40 @@ reference is removed for all objects contained in that leaf.</p>
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        index.js
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
 
-    
+
+	
+
+	
+
+	
+
+	
 </dl>
 
+
     
+
     
 
     
 
     
+
     
+
     
-    
-    
-    
+
     
 </dd>
 
@@ -236,9 +247,10 @@ reference is removed for all objects contained in that leaf.</p>
 
         <dl>
             
-<dt>
-    <h4 class="name" id="childCount"><span class="type-signature"></span>childCount<span class="type-signature"> :Object</span></h4>
-    
+<hr>
+<dt class="name" id="childCount">
+    <h4 id="childCount"><span class="type-signature"></span>childCount<span class="type-signature"> :Object</span></h4>
+
     
 </dt>
 <dd>
@@ -247,13 +259,14 @@ reference is removed for all objects contained in that leaf.</p>
         <p>Number of children in this object.</p>
     </div>
     
-    
+
     
         <h5>Type:</h5>
         <ul>
             <li>
                 
 <span class="param-type">Object</span>
+
 
 
             </li>
@@ -264,7 +277,11 @@ reference is removed for all objects contained in that leaf.</p>
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -274,51 +291,53 @@ reference is removed for all objects contained in that leaf.</p>
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        index.js
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
 
-    
+
+	
+
+	
+
+	
+
+	
 </dl>
 
-    
+
     
 </dd>
 
         
             
-<dt>
-    <h4 class="name" id="firstChild"><span class="type-signature"></span>firstChild<span class="type-signature"> :Object</span></h4>
-    
+<hr>
+<dt class="name" id="firstChild">
+    <h4 id="firstChild"><span class="type-signature"></span>firstChild<span class="type-signature"> :Object</span></h4>
+
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>Reference to the first child object of this object.
-Should never be falsey if this object has 1 or more children.</p>
+        <p>Reference to the first child object of this object.<br>Should never be falsey if this object has 1 or more children.</p>
     </div>
     
-    
+
     
         <h5>Type:</h5>
         <ul>
             <li>
                 
 <span class="param-type">Object</span>
+
 
 
             </li>
@@ -329,7 +348,11 @@ Should never be falsey if this object has 1 or more children.</p>
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -339,51 +362,53 @@ Should never be falsey if this object has 1 or more children.</p>
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        index.js
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
 
-    
+
+	
+
+	
+
+	
+
+	
 </dl>
 
-    
+
     
 </dd>
 
         
             
-<dt>
-    <h4 class="name" id="lastChild"><span class="type-signature"></span>lastChild<span class="type-signature"> :Object</span></h4>
-    
+<hr>
+<dt class="name" id="lastChild">
+    <h4 id="lastChild"><span class="type-signature"></span>lastChild<span class="type-signature"> :Object</span></h4>
+
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>Reference to the last child object of this object.
-Should never be falsey if this object has 1 or more children.</p>
+        <p>Reference to the last child object of this object.<br>Should never be falsey if this object has 1 or more children.</p>
     </div>
     
-    
+
     
         <h5>Type:</h5>
         <ul>
             <li>
                 
 <span class="param-type">Object</span>
+
 
 
             </li>
@@ -394,7 +419,11 @@ Should never be falsey if this object has 1 or more children.</p>
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -404,54 +433,53 @@ Should never be falsey if this object has 1 or more children.</p>
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        index.js
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
 
-    
+
+	
+
+	
+
+	
+
+	
 </dl>
 
-    
+
     
 </dd>
 
         
             
-<dt>
-    <h4 class="name" id="nextSibling"><span class="type-signature"></span>nextSibling<span class="type-signature"> :Object</span></h4>
-    
+<hr>
+<dt class="name" id="nextSibling">
+    <h4 id="nextSibling"><span class="type-signature"></span>nextSibling<span class="type-signature"> :Object</span></h4>
+
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>Reference to the next object relative to this object
-within the list of child objects of its parent.
-Should always be falsey if this object has no parent.
-If this object has a parent and this value is falsey,
-then this object is the last child of its parent.</p>
+        <p>Reference to the next object relative to this object<br>within the list of child objects of its parent.<br>Should always be falsey if this object has no parent.<br>If this object has a parent and this value is falsey,<br>then this object is the last child of its parent.</p>
     </div>
     
-    
+
     
         <h5>Type:</h5>
         <ul>
             <li>
                 
 <span class="param-type">Object</span>
+
 
 
             </li>
@@ -462,7 +490,11 @@ then this object is the last child of its parent.</p>
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -472,51 +504,53 @@ then this object is the last child of its parent.</p>
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        index.js
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
 
-    
+
+	
+
+	
+
+	
+
+	
 </dl>
 
-    
+
     
 </dd>
 
         
             
-<dt>
-    <h4 class="name" id="parent"><span class="type-signature"></span>parent<span class="type-signature"> :Object</span></h4>
-    
+<hr>
+<dt class="name" id="parent">
+    <h4 id="parent"><span class="type-signature"></span>parent<span class="type-signature"> :Object</span></h4>
+
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>Reference to this object's parent object.
-Should never be falsey if this object is a child to another object.</p>
+        <p>Reference to this object's parent object.<br>Should never be falsey if this object is a child to another object.</p>
     </div>
     
-    
+
     
         <h5>Type:</h5>
         <ul>
             <li>
                 
 <span class="param-type">Object</span>
+
 
 
             </li>
@@ -527,7 +561,11 @@ Should never be falsey if this object is a child to another object.</p>
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -537,53 +575,53 @@ Should never be falsey if this object is a child to another object.</p>
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        index.js
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
 
-    
+
+	
+
+	
+
+	
+
+	
 </dl>
 
-    
+
     
 </dd>
 
         
             
-<dt>
-    <h4 class="name" id="previousSibling"><span class="type-signature"></span>previousSibling<span class="type-signature"> :Object</span></h4>
-    
+<hr>
+<dt class="name" id="previousSibling">
+    <h4 id="previousSibling"><span class="type-signature"></span>previousSibling<span class="type-signature"> :Object</span></h4>
+
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>Reference to the previous object relative to this object
-within the list of child objects of its parent.
-If this object has a parent and this value is falsey,
-then this object is the first child of its parent.</p>
+        <p>Reference to the previous object relative to this object<br>within the list of child objects of its parent.<br>If this object has a parent and this value is falsey,<br>then this object is the first child of its parent.</p>
     </div>
     
-    
+
     
         <h5>Type:</h5>
         <ul>
             <li>
                 
 <span class="param-type">Object</span>
+
 
 
             </li>
@@ -594,7 +632,11 @@ then this object is the first child of its parent.</p>
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -604,53 +646,53 @@ then this object is the first child of its parent.</p>
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        index.js
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
 
-    
+
+	
+
+	
+
+	
+
+	
 </dl>
 
-    
+
     
 </dd>
 
         
             
-<dt>
-    <h4 class="name" id="root"><span class="type-signature"></span>root<span class="type-signature"> :Object</span></h4>
-    
+<hr>
+<dt class="name" id="root">
+    <h4 id="root"><span class="type-signature"></span>root<span class="type-signature"> :Object</span></h4>
+
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>When an object is rooted, this property is a reference to itself.
-This is a unique property that is propagated through the leaves
-of an object tree, but only from an object with its root set
-to a truthy value.</p>
+        <p>When an object is rooted, this property is a reference to itself.<br>This is a unique property that is propagated through the leaves<br>of an object tree, but only from an object with its root set<br>to a truthy value.</p>
     </div>
     
-    
+
     
         <h5>Type:</h5>
         <ul>
             <li>
                 
 <span class="param-type">Object</span>
+
 
 
             </li>
@@ -661,7 +703,11 @@ to a truthy value.</p>
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -671,27 +717,28 @@ to a truthy value.</p>
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        index.js
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
 
-    
+
+	
+
+	
+
+	
+
+	
 </dl>
 
-    
+
     
 </dd>
 
@@ -703,23 +750,24 @@ to a truthy value.</p>
 
         <dl>
             
+<hr>
 <dt>
-    <h4 class="name" id="append"><span class="type-signature"></span>append<span class="signature">(node, <span class="optional">parent</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="append"><span class="type-signature"></span>append(node [, parent])</h4>
     
     
 </dt>
 <dd>
-    
+
     
     <div class="description">
-        <p>Add the specified object as the <a href="module-qi-nodes.NodeObject.html#lastChild"><code>module:qi-nodes.NodeObject#lastChild</code></a> of the parent object.
-<strong>An object cannot be added to itself.</strong></p>
+        <p>Add the specified object as the <a href="module-qi-nodes.NodeObject.html#lastChild"><code>module:qi-nodes.NodeObject#lastChild</code></a> of the parent object.<br><strong>An object cannot be added to itself.</strong></p>
     </div>
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -727,25 +775,25 @@ to a truthy value.</p>
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
-		<th>Argument</th>
-		
+        
+        <th>Argument</th>
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -756,6 +804,7 @@ to a truthy value.</p>
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -776,7 +825,7 @@ to a truthy value.</p>
             <td class="description last"><p>The object to add to this object</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -787,6 +836,7 @@ to a truthy value.</p>
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -809,17 +859,21 @@ to a truthy value.</p>
             <td class="description last"><p>The object to add the object to, <strong>defaults to this object</strong></p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
-    
+
     
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -829,33 +883,36 @@ to a truthy value.</p>
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        index.js
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
 
-    
+
+	
+
+	
+
+	
+
+	
 </dl>
 
+
     
+
     
 
     
 
     
-    
+
     
     <h5>Throws:</h5>
     
@@ -867,12 +924,13 @@ to a truthy value.</p>
 <span class="param-type"><a href="module-qi-nodes.HierarchyRequestError.html">module:qi-nodes.HierarchyRequestError</a></span>
 
 
+
     
     </div>
 
 
         
-    
+
     
     <h5>Returns:</h5>
     
@@ -884,42 +942,44 @@ to a truthy value.</p>
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Object</span>
 
 
-	</dd>
+
+    </dd>
 </dl>
 
 
         
-    
+
     
 </dd>
 
         
             
+<hr>
 <dt>
-    <h4 class="name" id="appendTo"><span class="type-signature"></span>appendTo<span class="signature">(parent, <span class="optional">node</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="appendTo"><span class="type-signature"></span>appendTo(parent [, node])</h4>
     
     
 </dt>
 <dd>
-    
+
     
     <div class="description">
-        <p>Add the object as the <a href="module-qi-nodes.NodeObject.html#lastChild"><code>module:qi-nodes.NodeObject#lastChild</code></a> of the specified parent object.
-<strong>An object cannot be added to itself.</strong></p>
+        <p>Add the object as the <a href="module-qi-nodes.NodeObject.html#lastChild"><code>module:qi-nodes.NodeObject#lastChild</code></a> of the specified parent object.<br><strong>An object cannot be added to itself.</strong></p>
     </div>
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -927,25 +987,25 @@ to a truthy value.</p>
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
-		<th>Argument</th>
-		
+        
+        <th>Argument</th>
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -956,6 +1016,7 @@ to a truthy value.</p>
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -976,7 +1037,7 @@ to a truthy value.</p>
             <td class="description last"><p>The object to add the object to</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -987,6 +1048,7 @@ to a truthy value.</p>
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -1009,17 +1071,21 @@ to a truthy value.</p>
             <td class="description last"><p>The object to add, <strong>defaults to this object</strong></p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
-    
+
     
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -1029,33 +1095,36 @@ to a truthy value.</p>
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        index.js
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
 
-    
+
+	
+
+	
+
+	
+
+	
 </dl>
 
+
     
+
     
 
     
 
     
-    
+
     
     <h5>Throws:</h5>
     
@@ -1067,12 +1136,13 @@ to a truthy value.</p>
 <span class="param-type"><a href="module-qi-nodes.HierarchyRequestError.html">module:qi-nodes.HierarchyRequestError</a></span>
 
 
+
     
     </div>
 
 
         
-    
+
     
     <h5>Returns:</h5>
     
@@ -1084,41 +1154,44 @@ to a truthy value.</p>
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Object</span>
 
 
-	</dd>
+
+    </dd>
 </dl>
 
 
         
-    
+
     
 </dd>
 
         
             
+<hr>
 <dt>
-    <h4 class="name" id="create"><span class="type-signature"></span>create<span class="signature">(<span class="optional">parent</span>)</span><span class="type-signature"> &rarr; {<a href="module-qi-nodes.NodeObject.html">module:qi-nodes.NodeObject</a>}</span></h4>
+    <h4 class="name" id="create"><span class="type-signature"></span>create( [parent])</h4>
     
     
 </dt>
 <dd>
-    
+
     
     <div class="description">
-        <p>Helper factory method.</p>
+        <p>Factory method that creates objects from this.constructor.prototype.</p>
     </div>
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -1126,25 +1199,25 @@ to a truthy value.</p>
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
-		<th>Argument</th>
-		
+        
+        <th>Argument</th>
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -1155,6 +1228,7 @@ to a truthy value.</p>
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -1177,17 +1251,21 @@ to a truthy value.</p>
             <td class="description last"><p>Optional parent object to append this object to</p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
-    
+
     
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -1197,90 +1275,99 @@ to a truthy value.</p>
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        index.js
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
 
-    
+
+	
+
+	
+
+	
+
+	
 </dl>
 
+
     
+
     
 
     
 
     
+
     
-    
-    
+
     
     <h5>Returns:</h5>
     
             
 <div class="param-desc">
-    <p>created object optionally added to parent</p>
+    <p>Instance of this.constructor.prototype optionally added to parent</p>
 </div>
 
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type"><a href="module-qi-nodes.NodeObject.html">module:qi-nodes.NodeObject</a></span>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">*</span>
 
 
-	</dd>
+
+    </dd>
 </dl>
 
 
         
-    
+
     
 </dd>
 
         
             
+<hr>
 <dt>
-    <h4 class="name" id="createRoot"><span class="type-signature"></span>createRoot<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="module-qi-nodes.NodeObject.html">module:qi-nodes.NodeObject</a>}</span></h4>
+    <h4 class="name" id="createRoot"><span class="type-signature"></span>createRoot()</h4>
     
     
 </dt>
 <dd>
-    
+
     
     <div class="description">
-        <p>Helper factory method that creates a new rooted object.
-This means that it's root property is a reference to itself.</p>
+        <p>Helper factory method that creates a new rooted object.<br>This means that it's root property is a reference to itself.</p>
     </div>
     
 
     
+
+    
+
     
     
-    
-    
-    
+
     
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -1290,35 +1377,38 @@ This means that it's root property is a reference to itself.</p>
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        index.js
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
 
-    
+
+	
+
+	
+
+	
+
+	
 </dl>
 
+
     
+
     
 
     
 
     
+
     
-    
-    
+
     
     <h5>Returns:</h5>
     
@@ -1330,43 +1420,44 @@ This means that it's root property is a reference to itself.</p>
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type"><a href="module-qi-nodes.NodeObject.html">module:qi-nodes.NodeObject</a></span>
 
 
-	</dd>
+
+    </dd>
 </dl>
 
 
         
-    
+
     
 </dd>
 
         
             
+<hr>
 <dt>
-    <h4 class="name" id="destroy"><span class="type-signature"></span>destroy<span class="signature">(<span class="optional">recursive</span>, <span class="optional">node</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="destroy"><span class="type-signature"></span>destroy( [recursive] [, node])</h4>
     
     
 </dt>
 <dd>
-    
+
     
     <div class="description">
-        <p><a href="module-qi-nodes.NodeObject.html#empty"><code>module:qi-nodes.NodeObject#empty</code></a> the object's children,
-and <a href="module-qi-nodes.NodeObject.html#remove"><code>module:qi-nodes.NodeObject#remove</code></a> it from its parent.
-This essentially sets all properties to null that make this object a node.</p>
+        <p><a href="module-qi-nodes.NodeObject.html#empty"><code>module:qi-nodes.NodeObject#empty</code></a> the object's children,<br>and <a href="module-qi-nodes.NodeObject.html#remove"><code>module:qi-nodes.NodeObject#remove</code></a> it from its parent.<br>This essentially sets all properties to null that make this object a node.</p>
     </div>
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -1374,25 +1465,25 @@ This essentially sets all properties to null that make this object a node.</p>
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
-		<th>Argument</th>
-		
+        
+        <th>Argument</th>
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -1403,6 +1494,7 @@ This essentially sets all properties to null that make this object a node.</p>
             
                 
 <span class="param-type">boolean</span>
+
 
 
             
@@ -1425,7 +1517,7 @@ This essentially sets all properties to null that make this object a node.</p>
             <td class="description last"><p>If true, will recursively empty all children, defaults to false</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -1436,6 +1528,7 @@ This essentially sets all properties to null that make this object a node.</p>
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -1458,17 +1551,21 @@ This essentially sets all properties to null that make this object a node.</p>
             <td class="description last"><p>The object to destroy, <strong>defaults to this object</strong></p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
-    
+
     
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -1478,35 +1575,38 @@ This essentially sets all properties to null that make this object a node.</p>
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        index.js
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
 
-    
+
+	
+
+	
+
+	
+
+	
 </dl>
 
+
     
+
     
 
     
 
     
+
     
-    
-    
+
     
     <h5>Returns:</h5>
     
@@ -1518,32 +1618,34 @@ This essentially sets all properties to null that make this object a node.</p>
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Object</span>
 
 
-	</dd>
+
+    </dd>
 </dl>
 
 
         
-    
+
     
 </dd>
 
         
             
+<hr>
 <dt>
-    <h4 class="name" id="each"><span class="type-signature"></span>each<span class="signature">(fn, <span class="optional">node</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="eachChildFrom"><span class="type-signature"></span>eachChildFrom(fn [, node] [, thisObject])</h4>
     
     
 </dt>
 <dd>
-    
+
     
     <div class="description">
         <p>Recursively iterate over each object <strong>down</strong> through all it's leaves.</p>
@@ -1551,8 +1653,9 @@ This essentially sets all properties to null that make this object a node.</p>
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -1560,25 +1663,25 @@ This essentially sets all properties to null that make this object a node.</p>
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
-		<th>Argument</th>
-		
+        
+        <th>Argument</th>
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -1588,7 +1691,8 @@ This essentially sets all properties to null that make this object a node.</p>
             <td class="type">
             
                 
-<span class="param-type">Function</span>
+<span class="param-type">function</span>
+
 
 
             
@@ -1609,7 +1713,7 @@ This essentially sets all properties to null that make this object a node.</p>
             <td class="description last"><p>The function to invoke for each object iterated</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -1620,6 +1724,7 @@ This essentially sets all properties to null that make this object a node.</p>
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -1642,168 +1747,18 @@ This essentially sets all properties to null that make this object a node.</p>
             <td class="description last"><p>The starting object, <strong>defaults to this object</strong></p></td>
         </tr>
 
-	
-	</tbody>
-</table>
-
     
-    
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        index.js
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>The starting object</p>
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">Object</span>
-
-
-	</dd>
-</dl>
-
-
-        
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="eachParent"><span class="type-signature"></span>eachParent<span class="signature">(fn, <span class="optional">node</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Recursively iterate over each object <strong>up</strong> through all it's parents.</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-
-		<th>Type</th>
-
-		
-		<th>Argument</th>
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
 
         <tr>
             
-                <td class="name"><code>fn</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Function</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>The function to invoke for each object iterated</p></td>
-        </tr>
-
-	
-
-        <tr>
-            
-                <td class="name"><code>node</code></td>
+                <td class="name"><code>thisObject</code></td>
             
 
             <td class="type">
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -1823,20 +1778,24 @@ This essentially sets all properties to null that make this object a node.</p>
 
             
 
-            <td class="description last"><p>The starting object, <strong>defaults to this object</strong></p></td>
+            <td class="description last"><p>Callback function context, <strong>defaults to node</strong></p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
-    
+
     
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -1846,35 +1805,38 @@ This essentially sets all properties to null that make this object a node.</p>
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        index.js
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
 
-    
+
+	
+
+	
+
+	
+
+	
 </dl>
 
+
     
+
     
 
     
 
     
+
     
-    
-    
+
     
     <h5>Returns:</h5>
     
@@ -1886,32 +1848,34 @@ This essentially sets all properties to null that make this object a node.</p>
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Object</span>
 
 
-	</dd>
+
+    </dd>
 </dl>
 
 
         
-    
+
     
 </dd>
 
         
             
+<hr>
 <dt>
-    <h4 class="name" id="eachReverse"><span class="type-signature"></span>eachReverse<span class="signature">(fn, <span class="optional">node</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="eachChildTo"><span class="type-signature"></span>eachChildTo(fn [, node] [, thisObject])</h4>
     
     
 </dt>
 <dd>
-    
+
     
     <div class="description">
         <p>Recursively iterate over each object <strong>up</strong> through all it's leaves.</p>
@@ -1919,8 +1883,9 @@ This essentially sets all properties to null that make this object a node.</p>
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -1928,25 +1893,25 @@ This essentially sets all properties to null that make this object a node.</p>
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
-		<th>Argument</th>
-		
+        
+        <th>Argument</th>
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -1956,7 +1921,8 @@ This essentially sets all properties to null that make this object a node.</p>
             <td class="type">
             
                 
-<span class="param-type">Function</span>
+<span class="param-type">function</span>
+
 
 
             
@@ -1977,7 +1943,7 @@ This essentially sets all properties to null that make this object a node.</p>
             <td class="description last"><p>The function to invoke for each object iterated</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -1988,6 +1954,7 @@ This essentially sets all properties to null that make this object a node.</p>
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -2010,17 +1977,55 @@ This essentially sets all properties to null that make this object a node.</p>
             <td class="description last"><p>The starting object, <strong>defaults to this object</strong></p></td>
         </tr>
 
-	
-	</tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>thisObject</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Callback function context, <strong>defaults to node</strong></p></td>
+        </tr>
+
+    
+    </tbody>
 </table>
 
     
-    
+
     
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -2030,35 +2035,38 @@ This essentially sets all properties to null that make this object a node.</p>
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        index.js
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
 
-    
+
+	
+
+	
+
+	
+
+	
 </dl>
 
+
     
+
     
 
     
 
     
+
     
-    
-    
+
     
     <h5>Returns:</h5>
     
@@ -2070,41 +2078,44 @@ This essentially sets all properties to null that make this object a node.</p>
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Object</span>
 
 
-	</dd>
+
+    </dd>
 </dl>
 
 
         
-    
+
     
 </dd>
 
         
             
+<hr>
 <dt>
-    <h4 class="name" id="empty"><span class="type-signature"></span>empty<span class="signature">(<span class="optional">recursive</span>, <span class="optional">node</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="eachParentFrom"><span class="type-signature"></span>eachParentFrom(fn [, node] [, thisObject])</h4>
     
     
 </dt>
 <dd>
-    
+
     
     <div class="description">
-        <p>Remove all the object's children, but leaves its <a href="module-qi-nodes.NodeObject.html#parent"><code>module:qi-nodes.NodeObject#parent</code></a> intact.</p>
+        <p>Recursively iterate over each object <strong>up</strong> through all it's parents.</p>
     </div>
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -2112,25 +2123,485 @@ This essentially sets all properties to null that make this object a node.</p>
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
-		<th>Argument</th>
-		
+        
+        <th>Argument</th>
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>fn</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The function to invoke for each object iterated</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>node</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The starting object, <strong>defaults to this object</strong></p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>thisObject</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Callback function context, <strong>defaults to node</strong></p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
 	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The starting object</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="eachParentTo"><span class="type-signature"></span>eachParentTo(fn [, node] [, thisObject])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Recursively iterate over each object <strong>down</strong> through all it's parents.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>fn</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The function to invoke for each object iterated</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>node</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The starting object, <strong>defaults to this object</strong></p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>thisObject</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Callback function context, <strong>defaults to node</strong></p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The starting object</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="empty"><span class="type-signature"></span>empty( [recursive] [, node])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Remove all the object's children, but leaves its <a href="module-qi-nodes.NodeObject.html#parent"><code>module:qi-nodes.NodeObject#parent</code></a> intact.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
 
         <tr>
             
@@ -2141,6 +2612,7 @@ This essentially sets all properties to null that make this object a node.</p>
             
                 
 <span class="param-type">boolean</span>
+
 
 
             
@@ -2163,7 +2635,7 @@ This essentially sets all properties to null that make this object a node.</p>
             <td class="description last"><p>If true, will recursively empty all children, defaults to false</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -2174,6 +2646,7 @@ This essentially sets all properties to null that make this object a node.</p>
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -2196,17 +2669,21 @@ This essentially sets all properties to null that make this object a node.</p>
             <td class="description last"><p>The object to empty, <strong>defaults to this object</strong></p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
-    
+
     
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -2216,35 +2693,38 @@ This essentially sets all properties to null that make this object a node.</p>
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        index.js
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
 
-    
+
+	
+
+	
+
+	
+
+	
 </dl>
 
+
     
+
     
 
     
 
     
+
     
-    
-    
+
     
     <h5>Returns:</h5>
     
@@ -2256,43 +2736,44 @@ This essentially sets all properties to null that make this object a node.</p>
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Object</span>
 
 
-	</dd>
+
+    </dd>
 </dl>
 
 
         
-    
+
     
 </dd>
 
         
             
+<hr>
 <dt>
-    <h4 class="name" id="insertAfter"><span class="type-signature"></span>insertAfter<span class="signature">(sibling, <span class="optional">node</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="insertAfter"><span class="type-signature"></span>insertAfter(sibling [, node])</h4>
     
     
 </dt>
 <dd>
-    
+
     
     <div class="description">
-        <p>Add the object as the <a href="module-qi-nodes.NodeObject.html#nextSibling"><code>module:qi-nodes.NodeObject#nextSibling</code></a> of the specified sibling object.
-The sibling specified must be a child of a parent object.
-<strong>An object cannot be added to itself.</strong></p>
+        <p>Add the object as the <a href="module-qi-nodes.NodeObject.html#nextSibling"><code>module:qi-nodes.NodeObject#nextSibling</code></a> of the specified sibling object.<br>The sibling specified must be a child of a parent object.<br><strong>An object cannot be added to itself.</strong></p>
     </div>
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -2300,25 +2781,25 @@ The sibling specified must be a child of a parent object.
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
-		<th>Argument</th>
-		
+        
+        <th>Argument</th>
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -2329,6 +2810,7 @@ The sibling specified must be a child of a parent object.
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -2349,7 +2831,7 @@ The sibling specified must be a child of a parent object.
             <td class="description last"><p>The object to insert the object after</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -2360,6 +2842,7 @@ The sibling specified must be a child of a parent object.
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -2382,17 +2865,21 @@ The sibling specified must be a child of a parent object.
             <td class="description last"><p>The object to add, <strong>defaults to this object</strong></p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
-    
+
     
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -2402,33 +2889,36 @@ The sibling specified must be a child of a parent object.
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        index.js
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
 
-    
+
+	
+
+	
+
+	
+
+	
 </dl>
 
+
     
+
     
 
     
 
     
-    
+
     
     <h5>Throws:</h5>
     
@@ -2440,12 +2930,13 @@ The sibling specified must be a child of a parent object.
 <span class="param-type"><a href="module-qi-nodes.HierarchyRequestError.html">module:qi-nodes.HierarchyRequestError</a></span>
 
 
+
     
     </div>
 
 
         
-    
+
     
     <h5>Returns:</h5>
     
@@ -2457,43 +2948,44 @@ The sibling specified must be a child of a parent object.
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Object</span>
 
 
-	</dd>
+
+    </dd>
 </dl>
 
 
         
-    
+
     
 </dd>
 
         
             
+<hr>
 <dt>
-    <h4 class="name" id="insertBefore"><span class="type-signature"></span>insertBefore<span class="signature">(sibling, <span class="optional">node</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="insertBefore"><span class="type-signature"></span>insertBefore(sibling [, node])</h4>
     
     
 </dt>
 <dd>
-    
+
     
     <div class="description">
-        <p>Add the object as the <a href="module-qi-nodes.NodeObject.html#previousSibling"><code>module:qi-nodes.NodeObject#previousSibling</code></a> of the specified sibling object.
-The sibling specified must be a child of a parent object.
-<strong>An object cannot be added to itself.</strong></p>
+        <p>Add the object as the <a href="module-qi-nodes.NodeObject.html#previousSibling"><code>module:qi-nodes.NodeObject#previousSibling</code></a> of the specified sibling object.<br>The sibling specified must be a child of a parent object.<br><strong>An object cannot be added to itself.</strong></p>
     </div>
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -2501,25 +2993,25 @@ The sibling specified must be a child of a parent object.
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
-		<th>Argument</th>
-		
+        
+        <th>Argument</th>
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -2530,6 +3022,7 @@ The sibling specified must be a child of a parent object.
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -2550,7 +3043,7 @@ The sibling specified must be a child of a parent object.
             <td class="description last"><p>The object to insert the object before</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -2561,6 +3054,7 @@ The sibling specified must be a child of a parent object.
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -2583,17 +3077,21 @@ The sibling specified must be a child of a parent object.
             <td class="description last"><p>The object to add, <strong>defaults to this object</strong></p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
-    
+
     
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -2603,33 +3101,36 @@ The sibling specified must be a child of a parent object.
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        index.js
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
 
-    
+
+	
+
+	
+
+	
+
+	
 </dl>
 
+
     
+
     
 
     
 
     
-    
+
     
     <h5>Throws:</h5>
     
@@ -2641,12 +3142,13 @@ The sibling specified must be a child of a parent object.
 <span class="param-type"><a href="module-qi-nodes.HierarchyRequestError.html">module:qi-nodes.HierarchyRequestError</a></span>
 
 
+
     
     </div>
 
 
         
-    
+
     
     <h5>Returns:</h5>
     
@@ -2658,42 +3160,44 @@ The sibling specified must be a child of a parent object.
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Object</span>
 
 
-	</dd>
+
+    </dd>
 </dl>
 
 
         
-    
+
     
 </dd>
 
         
             
+<hr>
 <dt>
-    <h4 class="name" id="prepend"><span class="type-signature"></span>prepend<span class="signature">(node, <span class="optional">parent</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="prepend"><span class="type-signature"></span>prepend(node [, parent])</h4>
     
     
 </dt>
 <dd>
-    
+
     
     <div class="description">
-        <p>Add the specified object as the <a href="module-qi-nodes.NodeObject.html#firstChild"><code>module:qi-nodes.NodeObject#firstChild</code></a> of the parent object.
-<strong>An object cannot be added to itself.</strong></p>
+        <p>Add the specified object as the <a href="module-qi-nodes.NodeObject.html#firstChild"><code>module:qi-nodes.NodeObject#firstChild</code></a> of the parent object.<br><strong>An object cannot be added to itself.</strong></p>
     </div>
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -2701,25 +3205,25 @@ The sibling specified must be a child of a parent object.
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
-		<th>Argument</th>
-		
+        
+        <th>Argument</th>
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -2730,6 +3234,7 @@ The sibling specified must be a child of a parent object.
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -2750,7 +3255,7 @@ The sibling specified must be a child of a parent object.
             <td class="description last"><p>The object to add to this object</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -2761,6 +3266,7 @@ The sibling specified must be a child of a parent object.
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -2783,17 +3289,21 @@ The sibling specified must be a child of a parent object.
             <td class="description last"><p>The object to add the object to, <strong>defaults to this object</strong></p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
-    
+
     
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -2803,33 +3313,36 @@ The sibling specified must be a child of a parent object.
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        index.js
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
 
-    
+
+	
+
+	
+
+	
+
+	
 </dl>
 
+
     
+
     
 
     
 
     
-    
+
     
     <h5>Throws:</h5>
     
@@ -2841,12 +3354,13 @@ The sibling specified must be a child of a parent object.
 <span class="param-type"><a href="module-qi-nodes.HierarchyRequestError.html">module:qi-nodes.HierarchyRequestError</a></span>
 
 
+
     
     </div>
 
 
         
-    
+
     
     <h5>Returns:</h5>
     
@@ -2858,42 +3372,44 @@ The sibling specified must be a child of a parent object.
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Object</span>
 
 
-	</dd>
+
+    </dd>
 </dl>
 
 
         
-    
+
     
 </dd>
 
         
             
+<hr>
 <dt>
-    <h4 class="name" id="prependTo"><span class="type-signature"></span>prependTo<span class="signature">(parent, <span class="optional">node</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="prependTo"><span class="type-signature"></span>prependTo(parent [, node])</h4>
     
     
 </dt>
 <dd>
-    
+
     
     <div class="description">
-        <p>Add the object as the <a href="module-qi-nodes.NodeObject.html#firstChild"><code>module:qi-nodes.NodeObject#firstChild</code></a> of the specified parent object.
-<strong>An object cannot be added to itself.</strong></p>
+        <p>Add the object as the <a href="module-qi-nodes.NodeObject.html#firstChild"><code>module:qi-nodes.NodeObject#firstChild</code></a> of the specified parent object.<br><strong>An object cannot be added to itself.</strong></p>
     </div>
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -2901,25 +3417,25 @@ The sibling specified must be a child of a parent object.
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
-		<th>Argument</th>
-		
+        
+        <th>Argument</th>
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -2930,6 +3446,7 @@ The sibling specified must be a child of a parent object.
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -2950,7 +3467,7 @@ The sibling specified must be a child of a parent object.
             <td class="description last"><p>The object to add the object to</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -2961,6 +3478,7 @@ The sibling specified must be a child of a parent object.
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -2983,17 +3501,21 @@ The sibling specified must be a child of a parent object.
             <td class="description last"><p>The object to add, <strong>defaults to this object</strong></p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
-    
+
     
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -3003,33 +3525,36 @@ The sibling specified must be a child of a parent object.
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        index.js
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
 
-    
+
+	
+
+	
+
+	
+
+	
 </dl>
 
+
     
+
     
 
     
 
     
-    
+
     
     <h5>Throws:</h5>
     
@@ -3041,12 +3566,13 @@ The sibling specified must be a child of a parent object.
 <span class="param-type"><a href="module-qi-nodes.HierarchyRequestError.html">module:qi-nodes.HierarchyRequestError</a></span>
 
 
+
     
     </div>
 
 
         
-    
+
     
     <h5>Returns:</h5>
     
@@ -3058,32 +3584,34 @@ The sibling specified must be a child of a parent object.
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Object</span>
 
 
-	</dd>
+
+    </dd>
 </dl>
 
 
         
-    
+
     
 </dd>
 
         
             
+<hr>
 <dt>
-    <h4 class="name" id="remove"><span class="type-signature"></span>remove<span class="signature">(<span class="optional">child</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="remove"><span class="type-signature"></span>remove( [child])</h4>
     
     
 </dt>
 <dd>
-    
+
     
     <div class="description">
         <p>Remove the child object from its <a href="module-qi-nodes.NodeObject.html#parent"><code>module:qi-nodes.NodeObject#parent</code></a>, but leaves its children intact.</p>
@@ -3091,8 +3619,9 @@ The sibling specified must be a child of a parent object.
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -3100,25 +3629,25 @@ The sibling specified must be a child of a parent object.
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
-		<th>Argument</th>
-		
+        
+        <th>Argument</th>
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -3129,6 +3658,7 @@ The sibling specified must be a child of a parent object.
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -3151,17 +3681,21 @@ The sibling specified must be a child of a parent object.
             <td class="description last"><p>The object to remove, <strong>defaults to this object</strong></p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
-    
+
     
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -3171,35 +3705,38 @@ The sibling specified must be a child of a parent object.
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        index.js
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
 
-    
+
+	
+
+	
+
+	
+
+	
 </dl>
 
+
     
+
     
 
     
 
     
+
     
-    
-    
+
     
     <h5>Returns:</h5>
     
@@ -3211,32 +3748,34 @@ The sibling specified must be a child of a parent object.
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Object</span>
 
 
-	</dd>
+
+    </dd>
 </dl>
 
 
         
-    
+
     
 </dd>
 
         
             
+<hr>
 <dt>
-    <h4 class="name" id="swap"><span class="type-signature"></span>swap<span class="signature">(node1, <span class="optional">node2</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="swap"><span class="type-signature"></span>swap(node1 [, node2])</h4>
     
     
 </dt>
 <dd>
-    
+
     
     <div class="description">
         <p>Swap one object's position with another object's.</p>
@@ -3244,8 +3783,9 @@ The sibling specified must be a child of a parent object.
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -3253,25 +3793,25 @@ The sibling specified must be a child of a parent object.
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
-		<th>Argument</th>
-		
+        
+        <th>Argument</th>
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -3282,6 +3822,7 @@ The sibling specified must be a child of a parent object.
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -3302,7 +3843,7 @@ The sibling specified must be a child of a parent object.
             <td class="description last"><p>The object to swap with node2</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -3313,6 +3854,7 @@ The sibling specified must be a child of a parent object.
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -3335,17 +3877,21 @@ The sibling specified must be a child of a parent object.
             <td class="description last"><p>The object to swap with node1, <strong>defaults to this object</strong></p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
-    
+
     
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -3355,35 +3901,38 @@ The sibling specified must be a child of a parent object.
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        index.js
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
 
-    
+
+	
+
+	
+
+	
+
+	
 </dl>
 
+
     
+
     
 
     
 
     
+
     
-    
-    
+
     
     <h5>Returns:</h5>
     
@@ -3395,20 +3944,21 @@ The sibling specified must be a child of a parent object.
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Object</span>
 
 
-	</dd>
+
+    </dd>
 </dl>
 
 
         
-    
+
     
 </dd>
 
@@ -3425,61 +3975,136 @@ The sibling specified must be a child of a parent object.
 
 
 
-				</div>
-
-				<div class="clearfix"></div>
-				<footer>
-					
-					
-		<span class="copyright">
-		Copyright © 2013 Dr. Kibitz
-		</span>
-					<br />
-					
-		<span class="jsdoc-message">
-		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a>
-		on Mon Sep 09 2013 23:11:57 GMT-0700 (PDT) using the <a href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
-		</span>
-				</footer>
-			</div>
-
-			
-			<div class="span3">
-				<div id="toc"></div>
-			</div>
-			
-			<br clear="both">
 		</div>
-
 	</div>
-	<script src="scripts/sunlight.js"></script>
-	<script src="scripts/sunlight.javascript.js"></script>
-	<script src="scripts/sunlight-plugin.doclinks.js"></script>
-	<script src="scripts/sunlight-plugin.linenumbers.js"></script>
-	<script src="scripts/sunlight-plugin.menu.js"></script>
-	<script src="scripts/jquery.min.js"></script>
-	<script src="scripts/jquery.scrollTo.js"></script>
-	<script src="scripts/jquery.localScroll.js"></script>
-	<script src="scripts/bootstrap-dropdown.js"></script>
-	<script src="scripts/toc.js"></script>
 
-
-	<script>  Sunlight.highlightAll({lineNumbers:false,  showMenu: true, enableDoclinks :true}); </script>
-
-	<script>
-		$( function () {
-			$( "#toc" ).toc( {
-				selectors   : "h1,h2,h3,h4",
-				showAndHide : false,
-				scrollTo    : 60
-			} );
-			$( "#toc>ul" ).addClass( "nav nav-pills nav-stacked" );
-			$( "#main span[id^='toc']" ).addClass( "toc-shim" );
-
-		} );
-	</script>
+	<div class="clearfix"></div>
 
 	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	Copyright © 2013-2017 Dr. Kibitz
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a>
+	
+		on 2017-03-16T23:01:37-07:00
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : false,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
 
 </body>
 </html>
